@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Viikkolista – ruokalistat ja ostoslista</title>
+<meta name="description" content="Arvo viikon ruokalista ja koosta ostoslista.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EDF1EC; --card:#FFFFFF; --ink:#22302A; --muted:#5F6F66; --line:#DDE4DC;
+  --pine:#2F6B4F; --pine-deep:#24523D; --pine-soft:#E3EEE7;
+  --berry:#B23A5A; --berry-soft:#F6E7EC;
+  --r:14px; --shadow:0 1px 3px rgba(34,48,42,.08);
+  --h1:'Bricolage Grotesque',system-ui,sans-serif;
+  --body:'Instrument Sans',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--body);background:var(--bg);color:var(--ink);font-size:15px;line-height:1.45;
+  padding-bottom:calc(64px + env(safe-area-inset-bottom));}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+button:focus-visible,input:focus-visible{outline:2px solid var(--pine);outline-offset:2px}
+.wrap{max-width:560px;margin:0 auto;padding:0 14px}
+.num{font-variant-numeric:tabular-nums}
+
+/* ---------- Header ---------- */
+header{position:sticky;top:0;z-index:20;background:var(--pine-deep);color:#F2F6F1;
+  padding-top:env(safe-area-inset-top)}
+.hrow{max-width:560px;margin:0 auto;display:flex;align-items:center;gap:10px;padding:12px 14px}
+.brand{font-family:var(--h1);font-weight:800;font-size:20px;letter-spacing:-.02em}
+.brand small{display:block;font-family:var(--body);font-weight:400;font-size:11.5px;opacity:.75;letter-spacing:0}
+.hbtn{margin-left:auto;width:40px;height:40px;border-radius:12px;background:rgba(255,255,255,.12);
+  display:flex;align-items:center;justify-content:center;font-size:18px}
+.hbtn:active{background:rgba(255,255,255,.22)}
+
+/* ---------- Tabs ---------- */
+nav{position:fixed;bottom:0;left:0;right:0;z-index:20;background:var(--card);border-top:1px solid var(--line);
+  padding-bottom:env(safe-area-inset-bottom)}
+.tabs{max-width:560px;margin:0 auto;display:flex}
+.tab{flex:1;padding:9px 0 8px;text-align:center;font-size:11.5px;color:var(--muted);font-weight:500}
+.tab .ti{display:block;font-size:19px;line-height:1.25}
+.tab.on{color:var(--pine-deep);font-weight:600}
+.tab.on .ti{transform:translateY(-1px)}
+
+main{padding:16px 0 24px}
+h2.sec{font-family:var(--h1);font-weight:700;font-size:17px;margin:4px 0 10px}
+
+/* ---------- Buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-weight:600;
+  border-radius:12px;padding:12px 18px;background:var(--pine);color:#fff}
+.btn:active{background:var(--pine-deep)}
+.btn.ghost{background:var(--pine-soft);color:var(--pine-deep)}
+.btn.small{padding:8px 12px;font-size:13.5px;border-radius:10px}
+.btn.wide{width:100%}
+
+/* ---------- Week view ---------- */
+.weekbar{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.weekbar h2{font-family:var(--h1);font-weight:800;font-size:22px;letter-spacing:-.02em}
+.weekbar .sub{font-size:12.5px;color:var(--muted)}
+.weekbar .btn{margin-left:auto}
+
+.day{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);
+  margin-bottom:12px;overflow:hidden}
+.dhead{display:flex;align-items:baseline;gap:8px;padding:10px 14px 6px}
+.dname{font-family:var(--h1);font-weight:700;font-size:15.5px}
+.dname.today{color:var(--pine)}
+.dsum{margin-left:auto;font-size:11.5px;color:var(--muted)}
+.dsum b{color:var(--berry);font-weight:600}
+
+.meal{display:flex;align-items:center;gap:10px;padding:9px 14px 9px 0;margin-left:14px;
+  border-top:1px solid var(--line);position:relative}
+.rail{width:4px;align-self:stretch;border-radius:4px;flex:none}
+.meal .mt{flex:1;min-width:0}
+.mlabel{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600}
+.mname{font-weight:600;font-size:14.5px;line-height:1.3}
+.mmeta{font-size:11.5px;color:var(--muted)}
+.mmeta b{color:var(--berry);font-weight:600}
+.pill{flex:none;font-size:10.5px;font-weight:600;color:var(--pine-deep);background:var(--pine-soft);
+  border-radius:99px;padding:3px 8px}
+.reroll{flex:none;width:34px;height:34px;border-radius:10px;background:var(--bg);font-size:15px;color:var(--muted)}
+.reroll:active{background:var(--pine-soft);color:var(--pine-deep)}
+
+.snackrow{border-top:1px dashed var(--line);margin-left:14px;padding:8px 14px 8px 0}
+.addsnack{width:100%;text-align:left;color:var(--muted);font-size:13.5px;padding:4px 0;
+  display:flex;align-items:center;gap:8px}
+.addsnack .plus{width:22px;height:22px;border-radius:7px;border:1.5px dashed var(--muted);
+  display:inline-flex;align-items:center;justify-content:center;font-size:14px;flex:none}
+.snackset{display:flex;align-items:center;gap:10px}
+.snackset .mt{flex:1;min-width:0}
+.rmv{flex:none;width:30px;height:30px;border-radius:9px;background:var(--bg);color:var(--muted);font-size:14px}
+
+.empty{background:var(--card);border:1px dashed var(--line);border-radius:var(--r);
+  padding:34px 20px;text-align:center;margin-top:8vh}
+.empty .big{font-family:var(--h1);font-weight:800;font-size:24px;letter-spacing:-.02em;margin-bottom:8px}
+.empty p{color:var(--muted);margin-bottom:18px}
+
+/* ---------- Shopping ---------- */
+.shopcard{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:6px 14px;margin-bottom:12px}
+.shoprow{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
+.shoprow:last-child{border-bottom:0}
+.shoprow input{width:21px;height:21px;accent-color:var(--pine);flex:none}
+.shoprow label{flex:1;min-width:0}
+.shoprow .qty{font-weight:600;margin-right:6px}
+.shoprow.done label{color:var(--muted);text-decoration:line-through}
+.shopopts{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+.chk{display:flex;align-items:center;gap:10px;font-size:14px}
+.chk input{width:19px;height:19px;accent-color:var(--pine)}
+details.pantry{margin:4px 0 14px}
+details.pantry summary{font-size:13.5px;color:var(--muted);font-weight:600;cursor:pointer;padding:6px 2px}
+details.pantry .plist{font-size:13.5px;color:var(--muted);padding:4px 2px 2px;line-height:1.7}
+
+/* ---------- Recipe bank ---------- */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.chip{border:1.5px solid var(--line);background:var(--card);border-radius:99px;padding:7px 13px;
+  font-size:13px;font-weight:600;color:var(--muted)}
+.chip.on{border-color:var(--pine);background:var(--pine-soft);color:var(--pine-deep)}
+.catgrp{margin-bottom:16px}
+.rrow{display:flex;align-items:center;gap:10px;background:var(--card);border:1px solid var(--line);
+  border-radius:12px;padding:10px 12px;margin-bottom:8px;width:100%;text-align:left}
+.rrow .mt{flex:1;min-width:0}
+.tagline{display:flex;gap:5px;flex-wrap:wrap;margin-top:3px}
+.tg{font-size:10px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+  background:var(--bg);color:var(--muted);border-radius:5px;padding:2px 6px}
+.tg.b{background:var(--berry-soft);color:var(--berry)}
+
+/* ---------- Sheets & modal ---------- */
+.scrim{position:fixed;inset:0;background:rgba(24,34,29,.45);z-index:40;display:none}
+.scrim.open{display:block}
+.sheet{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--card);
+  border-radius:18px 18px 0 0;max-height:86vh;overflow:auto;display:none;
+  padding:10px 18px calc(20px + env(safe-area-inset-bottom));max-width:560px;margin:0 auto}
+.sheet.open{display:block}
+.grab{width:38px;height:4px;border-radius:99px;background:var(--line);margin:4px auto 12px}
+.sheet h3{font-family:var(--h1);font-weight:800;font-size:20px;letter-spacing:-.02em;margin-bottom:4px}
+.sheet .sub{color:var(--muted);font-size:13px;margin-bottom:12px}
+.sheet h4{font-family:var(--h1);font-size:14.5px;margin:16px 0 6px}
+.ing li,.stp li{margin:0 0 6px 18px}
+.stp li{margin-bottom:9px}
+.huom{background:var(--pine-soft);color:var(--pine-deep);font-size:13px;border-radius:10px;padding:9px 12px;margin-top:12px}
+.setrow{display:flex;align-items:center;gap:10px;padding:13px 0;border-bottom:1px solid var(--line)}
+.setrow:last-of-type{border-bottom:0}
+.setrow .lbl{flex:1}
+.setrow .lbl small{display:block;color:var(--muted);font-size:12px}
+.step{display:flex;align-items:center;gap:2px;background:var(--bg);border-radius:10px;padding:3px}
+.step button{width:34px;height:32px;border-radius:8px;font-size:17px;font-weight:600}
+.step button:active{background:var(--card)}
+.step .v{min-width:30px;text-align:center;font-weight:700}
+.seg{display:flex;background:var(--bg);border-radius:10px;padding:3px;gap:3px}
+.seg button{padding:7px 11px;border-radius:8px;font-size:12.5px;font-weight:600;color:var(--muted)}
+.seg button.on{background:var(--card);color:var(--pine-deep);box-shadow:var(--shadow)}
+.danger{color:var(--berry);font-weight:600;font-size:13.5px;padding:12px 0}
+
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(84px + env(safe-area-inset-bottom));
+  background:var(--ink);color:#fff;font-size:13.5px;font-weight:500;border-radius:99px;padding:9px 16px;
+  z-index:60;opacity:0;pointer-events:none;transition:opacity .25s}
+.toast.show{opacity:1}
+.err{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:20px;margin-top:20px;line-height:1.6}
+.err code{background:var(--bg);border-radius:6px;padding:2px 6px;font-size:13px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="hrow">
+    <div class="brand">Viikkolista<small id="weekLabel"></small></div>
+    <button class="hbtn" id="btnSettings" aria-label="Asetukset">⚙︎</button>
+  </div>
+</header>
+
+<main class="wrap">
+  <section id="viewWeek"></section>
+  <section id="viewShop" hidden></section>
+  <section id="viewBank" hidden></section>
+</main>
+
+<nav>
+  <div class="tabs">
+    <button class="tab on" data-view="Week"><span class="ti">🗓️</span>Viikko</button>
+    <button class="tab" data-view="Shop"><span class="ti">🛒</span>Ostoslista</button>
+    <button class="tab" data-view="Bank"><span class="ti">🍲</span>Reseptit</button>
+  </div>
+</nav>
+
+<div class="scrim" id="scrim"></div>
+<div class="sheet" id="sheetRecipe"></div>
+<div class="sheet" id="sheetSnack"></div>
+<div class="sheet" id="sheetSettings"></div>
+<div class="toast" id="toast"></div>
+
+<script>
+"use strict";
+/* ============================ State ============================ */
+const LS = {
+  get(k,d){ try{ const v=localStorage.getItem('vl_'+k); return v?JSON.parse(v):d }catch(e){ return d } },
+  set(k,v){ try{ localStorage.setItem('vl_'+k, JSON.stringify(v)) }catch(e){} }
+};
+let RECIPES = [];
+let settings = LS.get('settings', { persons:2, mainsMode:'sama', filters:[] });
+let week     = LS.get('week', null);
+let history_ = LS.get('history', {});          // recipeId -> ISO date last used
+let checked  = LS.get('checked', {});          // per-week checked shopping items
+const DAYS = ['Maanantai','Tiistai','Keskiviikko','Torstai','Perjantai','Lauantai','Sunnuntai'];
+const DAYS_S = ['Ma','Ti','Ke','To','Pe','La','Su'];
+const CATS = { aamupala:'Aamupala', lounas:'Lounas', paivallinen:'Päivällinen', iltapala:'Iltapala', valipala:'Välipala' };
+const HUES = ['#2F6B4F','#B23A5A','#3E5FA0','#B07B2E','#6C4FA0','#2E8B8B'];
+const ROTATION_DAYS = 28;
+
+/* ============================ Boot ============================ */
+init();
+async function init(){
+  try{
+    const res = await fetch('recipes.json');
+    if(!res.ok) throw new Error(res.status);
+    RECIPES = (await res.json()).recipes;
+  }catch(e){
+    document.getElementById('viewWeek').innerHTML =
+      `<div class="err"><b>Reseptejä ei saatu ladattua.</b><br>
+       Avaa sivu palvelimen kautta (esim. GitHub Pages) tai käynnistä paikallinen palvelin kansiossa:
+       <br><code>python3 -m http.server</code> ja avaa <code>http://localhost:8000</code>.</div>`;
+    return;
+  }
+  bindNav();
+  renderAll();
+}
+
+/* ============================ Helpers ============================ */
+const byId = id => RECIPES.find(r=>r.id===id);
+const esc = s => String(s).replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function matchFilters(r){ return settings.filters.every(f=>r.tags.includes(f)) }
+function pool(cat){ return RECIPES.filter(r=>r.categories.includes(cat) && matchFilters(r)) }
+function mainsPool(){ return RECIPES.filter(r=>(r.categories.includes('lounas')||r.categories.includes('paivallinen')) && matchFilters(r)) }
+function recentlyUsed(id){
+  const d = history_[id]; if(!d) return false;
+  return (Date.now()-new Date(d).getTime())/864e5 < ROTATION_DAYS;
+}
+function pickN(cands, n, exclude){
+  // prefer: not excluded & not recent -> not excluded -> anything
+  const ex = new Set(exclude);
+  const tiers = [ cands.filter(r=>!ex.has(r.id)&&!recentlyUsed(r.id)),
+                  cands.filter(r=>!ex.has(r.id)),
+                  cands.slice() ];
+  const out=[];
+  for(const tier of tiers){
+    const t = tier.filter(r=>!out.includes(r));
+    while(out.length<n && t.length){ out.push(t.splice(Math.floor(Math.random()*t.length),1)[0]) }
+    if(out.length>=n) break;
+  }
+  return out;
+}
+function chunkPattern(){ const p=[[3,2,2],[2,3,2],[2,2,3]]; return p[Math.floor(Math.random()*3)] }
+function makeChunks(recipes, pattern, hueOff){
+  const chunks=[]; let d=0;
+  pattern.forEach((len,i)=>{
+    chunks.push({ recipeId:recipes[i%recipes.length].id, days:Array.from({length:len},(_,k)=>d+k), hue:HUES[(hueOff+i)%HUES.length] });
+    d+=len;
+  });
+  return chunks;
+}
+function weekNumber(dt){
+  const d=new Date(Date.UTC(dt.getFullYear(),dt.getMonth(),dt.getDate()));
+  const day=d.getUTCDay()||7; d.setUTCDate(d.getUTCDate()+4-day);
+  const y0=new Date(Date.UTC(d.getUTCFullYear(),0,1));
+  return Math.ceil(((d-y0)/864e5+1)/7);
+}
+function toast(msg){
+  const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show');
+  clearTimeout(t._h); t._h=setTimeout(()=>t.classList.remove('show'),1800);
+}
+
+/* ============================ Week generation ============================ */
+function generateWeek(){
+  const used=[];
+  const plan={};
+  // breakfasts
+  const pbA=chunkPattern();
+  const bre=pickN(pool('aamupala'), pbA.length, used); used.push(...bre.map(r=>r.id));
+  plan.aamupala = makeChunks(bre, pbA, 0);
+  // mains
+  if(settings.mainsMode==='sama'){
+    const pm=chunkPattern();
+    const mains=pickN(mainsPool(), pm.length, used); used.push(...mains.map(r=>r.id));
+    plan.lounas = makeChunks(mains, pm, 2);
+    plan.paivallinen = plan.lounas.map(c=>({...c}));   // same batch both meals
+    plan._shared = true;
+  }else{
+    const pl=chunkPattern(), pd=chunkPattern();
+    const lun=pickN(pool('lounas'), pl.length, used); used.push(...lun.map(r=>r.id));
+    const din=pickN(pool('paivallinen'), pd.length, used); used.push(...din.map(r=>r.id));
+    plan.lounas = makeChunks(lun, pl, 2);
+    plan.paivallinen = makeChunks(din, pd, 4);
+    plan._shared = false;
+  }
+  // evening snacks (iltapala)
+  const pi=chunkPattern();
+  const ilt=pickN(pool('iltapala'), pi.length, used); used.push(...ilt.map(r=>r.id));
+  plan.iltapala = makeChunks(ilt, pi, 1);
+
+  used.forEach(id=>history_[id]=new Date().toISOString());
+  LS.set('history',history_);
+  week = { id:Date.now(), created:new Date().toISOString(), plan, snacks:{}, snacksToList:true };
+  checked={}; LS.set('checked',checked);
+  LS.set('week',week);
+}
+function rerollChunk(mealKey, chunkIdx){
+  const plan=week.plan;
+  const inWeek=[]; ['aamupala','lounas','paivallinen','iltapala'].forEach(k=>plan[k].forEach(c=>inWeek.push(c.recipeId)));
+  const cands = (mealKey==='lounas'||mealKey==='paivallinen')
+      ? (plan._shared? mainsPool() : pool(mealKey)) : pool(mealKey);
+  const pick = pickN(cands, 1, inWeek)[0];
+  if(!pick){ toast('Ei vaihtoehtoja tällä suodatuksella'); return }
+  plan[mealKey][chunkIdx].recipeId = pick.id;
+  if(plan._shared && (mealKey==='lounas'||mealKey==='paivallinen')){
+    const other = mealKey==='lounas'?'paivallinen':'lounas';
+    plan[other][chunkIdx].recipeId = pick.id;
+  }
+  history_[pick.id]=new Date().toISOString(); LS.set('history',history_);
+  LS.set('week',week); renderAll(); toast('Vaihdettu: '+pick.name);
+}
+
+/* ============================ Amount scaling ============================ */
+function chunkServingsNeeded(mealKey, chunk){
+  const mult = (week.plan._shared && (mealKey==='lounas'||mealKey==='paivallinen')) ? 2 : 1;
+  return settings.persons * chunk.days.length * mult;
+}
+function niceQty(q, unit){
+  const u=(unit||'').toLowerCase();
+  if(!q) return q;
+  if(u.startsWith('g')) return Math.max(10, Math.round(q/10)*10);
+  if(u==='kg') return Math.round(q*10)/10;
+  if(/^(dl|l|rkl|tl)/.test(u)) return Math.round(q*2)/2;
+  if(/(kpl|prk|pss|plo|rasia|ker|iso|siivu|viipale)/.test(u)) return Math.ceil(q);
+  return Math.round(q*10)/10;
+}
+function fmtQty(q){ return (Math.round(q*100)/100).toString().replace('.',',') }
+
+/* ============================ Rendering ============================ */
+function bindNav(){
+  document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{
+    document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('on',x===b));
+    ['Week','Shop','Bank'].forEach(v=>document.getElementById('view'+v).hidden = v!==b.dataset.view);
+    window.scrollTo(0,0);
+  });
+  document.getElementById('btnSettings').onclick=openSettings;
+  document.getElementById('scrim').onclick=closeSheets;
+}
+function renderAll(){ renderHeader(); renderWeek(); renderShop(); renderBank(); }
+function renderHeader(){
+  const wl=document.getElementById('weekLabel');
+  wl.textContent = week ? 'Viikko '+weekNumber(new Date(week.created)) : 'Ei listaa vielä';
+}
+
+/* ----- Week view ----- */
+function chunkFor(mealKey, dayIdx){
+  return week.plan[mealKey].findIndex(c=>c.days.includes(dayIdx));
+}
+function renderWeek(){
+  const el=document.getElementById('viewWeek');
+  if(!week){
+    el.innerHTML = `<div class="empty">
+      <div class="big">Arvotaan viikon safkat?</div>
+      <p>Kone arpoo aamupalat, lounaat, päivälliset ja iltapalat 2–3 päivän satseina, ja kokoaa niistä ostoslistan.</p>
+      <button class="btn" id="btnGen">Arvo viikon lista</button></div>`;
+    el.querySelector('#btnGen').onclick=()=>{ generateWeek(); renderAll(); };
+    return;
+  }
+  const todayIdx=(new Date().getDay()+6)%7;
+  let h=`<div class="weekbar"><div><h2>Viikon ruuat</h2>
+     <div class="sub">${settings.persons} hlö · ${week.plan._shared?'sama satsi lounaaksi ja päivälliseksi':'omat ruuat lounaalle ja päivälliselle'}</div></div>
+     <button class="btn small ghost" id="btnRegen">↻ Arvo uusiksi</button></div>`;
+  for(let d=0;d<7;d++){
+    const mealsHtml = ['aamupala','lounas','paivallinen','iltapala'].map(mk=>{
+      if(mk==='paivallinen' && week.plan._shared){
+        // shown merged with lounas row label
+      }
+      const ci=chunkFor(mk,d); if(ci<0) return '';
+      const c=week.plan[mk][ci], r=byId(c.recipeId); if(!r) return '';
+      if(week.plan._shared && mk==='paivallinen') return ''; // merged into lounas row
+      const label = (week.plan._shared && mk==='lounas') ? 'Lounas + päivällinen' : CATS[mk];
+      const dayPos = c.days.indexOf(d)+1;
+      return `<div class="meal">
+        <span class="rail" style="background:${c.hue}"></span>
+        <button class="mt" data-open="${r.id}" data-mk="${mk}" data-ci="${ci}" style="text-align:left">
+          <div class="mlabel">${label}</div>
+          <div class="mname">${esc(r.name)}</div>
+          <div class="mmeta num">≈ ${r.kcal} kcal · <b>${r.protein} g prot.</b> · ${r.prepMinutes} min</div>
+        </button>
+        <span class="pill num">${dayPos}/${c.days.length}</span>
+        <button class="reroll" data-reroll="${mk}:${ci}" aria-label="Arvo tilalle toinen">⟳</button>
+      </div>`;
+    }).join('');
+    // snack row
+    const sid=week.snacks[d];
+    let snack;
+    if(sid && byId(sid)){
+      const r=byId(sid);
+      snack=`<div class="snackrow snackset">
+        <button class="mt" data-open="${r.id}" data-mk="valipala" data-ci="-1" style="text-align:left">
+          <div class="mlabel">Välipala</div><div class="mname">${esc(r.name)}</div>
+          <div class="mmeta num">≈ ${r.kcal} kcal · <b>${r.protein} g prot.</b></div>
+        </button>
+        <button class="rmv" data-unsnack="${d}" aria-label="Poista välipala">✕</button></div>`;
+    }else{
+      snack=`<div class="snackrow"><button class="addsnack" data-snack="${d}">
+        <span class="plus">+</span> Lisää välipala</button></div>`;
+    }
+    // day totals
+    let kc=0,pr=0;
+    ['aamupala','lounas','paivallinen','iltapala'].forEach(mk=>{
+      const ci=chunkFor(mk,d); if(ci>=0){ const r=byId(week.plan[mk][ci].recipeId); if(r){kc+=r.kcal;pr+=r.protein} }
+    });
+    if(sid&&byId(sid)){kc+=byId(sid).kcal;pr+=byId(sid).protein}
+    h+=`<article class="day"><div class="dhead">
+        <span class="dname ${d===todayIdx?'today':''}">${DAYS[d]}${d===todayIdx?' · tänään':''}</span>
+        <span class="dsum num">≈ ${kc} kcal · <b>${pr} g prot.</b></span></div>${mealsHtml}${snack}</article>`;
+  }
+  el.innerHTML=h;
+  el.querySelector('#btnRegen').onclick=()=>{
+    if(confirm('Arvotaanko koko viikko uusiksi? Nykyinen lista ja ostoslistan ruksit nollataan.')){ generateWeek(); renderAll(); }
+  };
+  el.querySelectorAll('[data-reroll]').forEach(b=>b.onclick=e=>{
+    e.stopPropagation(); const [mk,ci]=b.dataset.reroll.split(':'); rerollChunk(mk,+ci);
+  });
+  el.querySelectorAll('[data-open]').forEach(b=>b.onclick=()=>openRecipe(b.dataset.open, b.dataset.mk, +b.dataset.ci));
+  el.querySelectorAll('[data-snack]').forEach(b=>b.onclick=()=>openSnackPicker(+b.dataset.snack));
+  el.querySelectorAll('[data-unsnack]').forEach(b=>b.onclick=()=>{
+    delete week.snacks[b.dataset.unsnack]; LS.set('week',week); renderAll();
+  });
+}
+
+/* ----- Shopping list ----- */
+function buildShopping(){
+  if(!week) return {items:[],pantry:[]};
+  const map=new Map(), pantry=new Set();
+  const add=(ing,mult)=>{
+    if(ing.pantry){ pantry.add(ing.name); return }
+    const key=ing.name+'|'+(ing.unit||'');
+    if(ing.qty==null){ if(!map.has(key)) map.set(key,{name:ing.name,unit:ing.unit||'',qty:null}); return }
+    const cur=map.get(key)||{name:ing.name,unit:ing.unit||'',qty:0};
+    cur.qty+=ing.qty*mult; map.set(key,cur);
+  };
+  ['aamupala','lounas','paivallinen','iltapala'].forEach(mk=>{
+    if(week.plan._shared && mk==='paivallinen') return;         // counted once with x2 below
+    week.plan[mk].forEach(c=>{
+      const r=byId(c.recipeId); if(!r) return;
+      const need=chunkServingsNeeded(mk,c);
+      r.ingredients.forEach(i=>add(i, need/r.servings));
+    });
+  });
+  if(week.snacksToList){
+    Object.values(week.snacks).forEach(sid=>{
+      const r=byId(sid); if(!r) return;
+      r.ingredients.forEach(i=>add(i, settings.persons/r.servings));
+    });
+  }
+  const items=[...map.values()].map(it=>({...it, qty: it.qty==null?null:niceQty(it.qty,it.unit)}))
+    .sort((a,b)=>a.name.localeCompare(b.name,'fi'));
+  return { items, pantry:[...pantry].sort((a,b)=>a.localeCompare(b,'fi')) };
+}
+function renderShop(){
+  const el=document.getElementById('viewShop');
+  if(!week){ el.innerHTML=`<div class="empty"><div class="big">Ostoslista syntyy viikosta</div>
+    <p>Arvo ensin viikon ruokalista, niin kokoan siitä ostoslistan.</p></div>`; return }
+  const {items,pantry}=buildShopping();
+  const snackCount=Object.keys(week.snacks).length;
+  let h=`<h2 class="sec">Ostoslista</h2>
+    <div class="shopopts">
+      <label class="chk"><input type="checkbox" id="optSnacks" ${week.snacksToList?'checked':''} ${snackCount?'':'disabled'}>
+        Ota välipalat mukaan (${snackCount} valittu)</label>
+    </div>
+    <div class="shopcard">`;
+  h+=items.map((it,i)=>{
+    const key=it.name+'|'+it.unit, done=!!checked[key];
+    return `<div class="shoprow ${done?'done':''}">
+      <input type="checkbox" id="s${i}" data-key="${esc(key)}" ${done?'checked':''}>
+      <label for="s${i}">${it.qty!=null?`<span class="qty num">${fmtQty(it.qty)} ${esc(it.unit)}</span>`:''}${esc(it.name)}</label></div>`;
+  }).join('') || '<div style="padding:14px 0;color:var(--muted)">Lista on tyhjä.</div>';
+  h+=`</div>`;
+  if(pantry.length) h+=`<details class="pantry"><summary>Maustekaapista (${pantry.length}) — tarkista että löytyy</summary>
+     <div class="plist">${pantry.map(esc).join(' · ')}</div></details>`;
+  h+=`<button class="btn wide ghost" id="btnCopy">📋 Kopioi lista leikepöydälle</button>`;
+  el.innerHTML=h;
+  el.querySelectorAll('.shoprow input').forEach(c=>c.onchange=()=>{
+    checked[c.dataset.key]=c.checked; if(!c.checked) delete checked[c.dataset.key];
+    LS.set('checked',checked); c.closest('.shoprow').classList.toggle('done',c.checked);
+  });
+  const os=el.querySelector('#optSnacks');
+  if(os) os.onchange=()=>{ week.snacksToList=os.checked; LS.set('week',week); renderShop(); };
+  el.querySelector('#btnCopy').onclick=()=>{
+    const txt='Ostoslista – viikko '+weekNumber(new Date(week.created))+'\n'+
+      items.map(it=>'- '+(it.qty!=null?fmtQty(it.qty)+' '+it.unit+' ':'')+it.name).join('\n');
+    navigator.clipboard?.writeText(txt).then(()=>toast('Kopioitu leikepöydälle'))
+      .catch(()=>toast('Kopiointi ei onnistunut'));
+  };
+}
+
+/* ----- Recipe bank ----- */
+function renderBank(){
+  const el=document.getElementById('viewBank');
+  let h=`<h2 class="sec">Reseptipankki</h2>
+    <div class="filters">${['gluteeniton','maidoton','vhh'].map(f=>
+      `<button class="chip ${settings.filters.includes(f)?'on':''}" data-f="${f}">${f==='vhh'?'VHH':f[0].toUpperCase()+f.slice(1)}</button>`).join('')}
+    </div>`;
+  const order=['aamupala','lounas','paivallinen','iltapala','valipala'];
+  order.forEach(cat=>{
+    const rs=pool(cat); if(!rs.length) return;
+    h+=`<div class="catgrp"><h2 class="sec">${CATS[cat]} <span style="color:var(--muted);font-weight:400">(${rs.length})</span></h2>`;
+    h+=rs.map(r=>`<button class="rrow" data-open="${r.id}">
+      <div class="mt"><div class="mname">${esc(r.name)}</div>
+      <div class="mmeta num">≈ ${r.kcal} kcal · <b>${r.protein} g prot.</b> · ${r.prepMinutes} min</div>
+      <div class="tagline">${r.tags.map(t=>`<span class="tg ${t==='vhh'?'b':''}">${t==='vhh'?'VHH':t}</span>`).join('')}</div></div>
+      <span style="color:var(--muted)">›</span></button>`).join('');
+    h+=`</div>`;
+  });
+  el.innerHTML=h;
+  el.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{
+    const f=c.dataset.f, i=settings.filters.indexOf(f);
+    i<0?settings.filters.push(f):settings.filters.splice(i,1);
+    LS.set('settings',settings); renderBank(); renderSettingsIfOpen();
+  });
+  el.querySelectorAll('[data-open]').forEach(b=>b.onclick=()=>openRecipe(b.dataset.open,null,-1));
+}
+
+/* ----- Recipe sheet ----- */
+function openRecipe(id, mealKey, chunkIdx){
+  const r=byId(id); if(!r) return;
+  let servings=settings.persons, note='';
+  if(week && mealKey && chunkIdx>=0){
+    const c=week.plan[mealKey][chunkIdx];
+    servings=chunkServingsNeeded(mealKey,c);
+    const dr=c.days.map(d=>DAYS_S[d]).join('–');
+    note=`Koko satsi: ${dr} · ${settings.persons} hlö`+(week.plan._shared&&(mealKey==='lounas'||mealKey==='paivallinen')?' · lounas + päivällinen':'');
+  }else if(mealKey==='valipala'){ servings=settings.persons; }
+  const mult=servings/r.servings;
+  const sh=document.getElementById('sheetRecipe');
+  sh.innerHTML=`<div class="grab"></div>
+    <h3>${esc(r.name)}</h3>
+    <div class="sub num">≈ ${r.kcal} kcal · ${r.protein} g proteiinia / annos · ${r.prepMinutes} min
+      ${r.tags.length?' · '+r.tags.map(t=>t==='vhh'?'VHH':t).join(', '):''}</div>
+    ${note?`<div class="huom">${esc(note)} — ainekset skaalattu ${fmtQty(servings)} annokselle.</div>`:''}
+    <h4>Ainekset <span style="color:var(--muted);font-weight:400">(${fmtQty(servings)} annosta)</span></h4>
+    <ul class="ing">${r.ingredients.map(i=>{
+      const q=i.qty==null?null:niceQty(i.qty*mult,i.unit);
+      return `<li>${q!=null?`<b class="num">${fmtQty(q)} ${esc(i.unit)}</b> `:''}${esc(i.name)}</li>`}).join('')}</ul>
+    <h4>Valmistus</h4>
+    <ol class="stp">${r.steps.map(s=>`<li>${esc(s)}</li>`).join('')}</ol>
+    ${r.huom?`<div class="huom">ℹ️ ${esc(r.huom)}</div>`:''}`;
+  openSheet(sh);
+}
+
+/* ----- Snack picker ----- */
+function openSnackPicker(dayIdx){
+  const sh=document.getElementById('sheetSnack');
+  const rs=pool('valipala');
+  sh.innerHTML=`<div class="grab"></div><h3>Välipala · ${DAYS[dayIdx]}</h3>
+    <div class="sub">Valitse päivän välipala. Saat sen halutessasi mukaan ostoslistaan.</div>`+
+    (rs.map(r=>`<button class="rrow" data-pick="${r.id}">
+      <div class="mt"><div class="mname">${esc(r.name)}</div>
+      <div class="mmeta num">≈ ${r.kcal} kcal · <b>${r.protein} g prot.</b> · ${r.prepMinutes} min</div></div>
+      <span style="color:var(--muted)">＋</span></button>`).join('') ||
+      '<p class="sub">Ei välipaloja tällä suodatuksella.</p>');
+  sh.querySelectorAll('[data-pick]').forEach(b=>b.onclick=()=>{
+    week.snacks[dayIdx]=b.dataset.pick; LS.set('week',week);
+    closeSheets(); renderAll();
+  });
+  openSheet(sh);
+}
+
+/* ----- Settings ----- */
+let settingsOpen=false;
+function openSettings(){ settingsOpen=true; renderSettings(); openSheet(document.getElementById('sheetSettings')) }
+function renderSettingsIfOpen(){ if(settingsOpen) renderSettings() }
+function renderSettings(){
+  const sh=document.getElementById('sheetSettings');
+  sh.innerHTML=`<div class="grab"></div><h3>Asetukset</h3>
+  <div class="setrow"><div class="lbl">Henkilömäärä<small>Skaalaa annokset ja ostoslistan</small></div>
+    <div class="step"><button id="pMinus" aria-label="Vähennä">−</button><span class="v num" id="pVal">${settings.persons}</span><button id="pPlus" aria-label="Lisää">+</button></div></div>
+  <div class="setrow"><div class="lbl">Lounas &amp; päivällinen<small>Yksi iso satsi molempiin, vai omat ruuat</small></div>
+    <div class="seg">
+      <button id="mSama" class="${settings.mainsMode==='sama'?'on':''}">Sama satsi</button>
+      <button id="mEri" class="${settings.mainsMode==='erilliset'?'on':''}">Erilliset</button></div></div>
+  <div class="setrow"><div class="lbl">Ruokavalio<small>Suodattaa arvonnan ja reseptipankin</small></div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap">${['gluteeniton','maidoton','vhh'].map(f=>
+      `<button class="chip ${settings.filters.includes(f)?'on':''}" data-f="${f}">${f==='vhh'?'VHH':f[0].toUpperCase()+f.slice(1)}</button>`).join('')}</div></div>
+  <div class="setrow"><div class="lbl">Vaihteluhistoria<small>Arvonta välttää ${ROTATION_DAYS} pv sisällä syötyjä ruokia</small></div>
+    <button class="danger" id="clrHist">Tyhjennä</button></div>
+  <p class="sub" style="margin-top:14px">Muutokset vaikuttavat seuraavaan arvontaan; henkilömäärä päivittyy heti annoksiin ja ostoslistaan.</p>`;
+  sh.querySelector('#pMinus').onclick=()=>{ settings.persons=Math.max(1,settings.persons-1); saveSet() };
+  sh.querySelector('#pPlus').onclick=()=>{ settings.persons=Math.min(6,settings.persons+1); saveSet() };
+  sh.querySelector('#mSama').onclick=()=>{ settings.mainsMode='sama'; saveSet() };
+  sh.querySelector('#mEri').onclick=()=>{ settings.mainsMode='erilliset'; saveSet() };
+  sh.querySelectorAll('.chip').forEach(c=>c.onclick=()=>{
+    const f=c.dataset.f,i=settings.filters.indexOf(f);
+    i<0?settings.filters.push(f):settings.filters.splice(i,1); saveSet();
+  });
+  sh.querySelector('#clrHist').onclick=()=>{ history_={}; LS.set('history',history_); toast('Historia tyhjennetty') };
+}
+function saveSet(){ LS.set('settings',settings); renderSettings(); renderAll() }
+
+/* ----- Sheet plumbing ----- */
+function openSheet(sh){
+  document.getElementById('scrim').classList.add('open');
+  document.querySelectorAll('.sheet').forEach(s=>s.classList.toggle('open',s===sh));
+  document.body.style.overflow='hidden';
+}
+function closeSheets(){
+  settingsOpen=false;
+  document.getElementById('scrim').classList.remove('open');
+  document.querySelectorAll('.sheet').forEach(s=>s.classList.remove('open'));
+  document.body.style.overflow='';
+}
+</script>
+</body>
+</html>
