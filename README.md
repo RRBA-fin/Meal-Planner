@@ -13,16 +13,17 @@ Mobiilikäyttöinen viikkoruokalista- ja ostoslistasovellus. Toimii GitHub Pages
 
 ## v2-muutokset
 
-- **Kaloritavoite asetuksissa.** Arvonta valitsee pääruuat kalori-ikkunasta, joka takaa että aamu- ja iltapalayhdistelmällä päivä osuu tavoitteeseen ±300 kcal. Jos jokin päivä ei sovi, kone arpoo automaattisesti uudelleen (max 4 yritystä) ja pitää parhaan.
+- **Kaloritavoite asetuksissa** (1500/2000/2500/3000 kcal/pv, toleranssi ±300). Annoskoot, kalorit ja ostoslista skaalautuvat tavoitteeseen annoskertoimella (tavoite ÷ 1750, esim. 2500 kcal → ×1,43) — näin isotkin tavoitteet täyttyvät ilman välipalakikkailua. Arvonta tasapainottaa viikkoa: jos yksi päivä jää kevyeksi, seuraavia ohjataan raskaammiksi niin että viikkokeskiarvo pysyy tavoitteessa.
+- **Lautasmalli reseptikortin lopussa** (lounas/päivällinen): komponenttiruuille ½ kasviksia + ¼ proteiinia + ¼ lisäkettä, sekoiteruuille (keitot, padat, pastat...) ⅔ ruokaa + ⅓ kasviksia. Proteiini- ja lisäkemäärät skaalautuvat kaloritavoitteen mukaan.
+- **Viikonloppupainotus:** lauantain–sunnuntain satsiin arvonta suosii herkkuruokia (pitsa, tacot, burgerit, kiusaukset...) ja sallii työläämmät reseptit; arkena painottuvat nopeat ruuat.
 - **Punainen liha -asetus:** Saa olla / Vähän (korkeintaan yksi punaisen lihan pääruokasatsi viikossa) / Ei ollenkaan (poistaa myös kinkun ja pekonin sisältävät reseptit).
 - **Aamu- ja iltapalat päiväkohtaisia.** Ei satseja, ei 28 päivän vaihteluhistoriaa — sama aamupala saa toistua vaikka joka päivä. Vaihteluhistoria koskee vain pääruokia.
 - **Manuaalivalinta:** jokaisen aterian ⟳-arvontanapin vieressä on ☰-nappi, josta aukeaa kategorian reseptilista sopivuusjärjestyksessä. Jokaisen vaihtoehdon kohdalla näkyy, mihin päivän kalorit asettuvat valinnalla: **punainen** = yli tavoitteen, **sininen** = toleranssissa (±300), **vihreä** = alle tavoitteen. Sama värikoodi näkyy päiväkortin summassa ja käsin valittujen aterioiden kaloreissa.
+- **Välipala** on yksi vapaaehtoinen valinta per päivä — sen kalorivaikutus näkyy värikoodilla jo valintalistassa.
 - **115 reseptiä** (aamupala 28, lounas 56, päivällinen 54, iltapala 33, välipala 25). Pääpaino: helppo, edullinen, terveellinen suomalainen arkiruoka.
-- **Gluteeniton laajennettu:** reseptit, joissa ainoa gluteenin lähde on suoraan gluteenittomana myytävä tuote (pasta, leipä, tortilla, nuudeli, näkkäri, mysli...), on merkitty gluteenittomiksi ja huom-kentässä lukee mikä ainesosa vaihdetaan. Näin gluteeniton-suodatin ei tiputa esim. pastaruokia pois. Vain 4 reseptiä jää suodattimen ulkopuolelle (valmistuotteet, joista ei ole luotettavaa gt-versiota).
+- **Gluteeniton laajennettu:** reseptit, joissa ainoa gluteenin lähde on suoraan gluteenittomana myytävä tuote (pasta, leipä, tortilla, nuudeli, näkkäri, mysli...), on merkitty gluteenittomiksi ja huom-kentässä lukee mikä ainesosa vaihdetaan. Näin gluteeniton-suodatin ei tiputa esim. pastaruokia pois. Vain 4 reseptiä jää suodattimen ulkopuolelle.
 
 > **Huom:** v2 nollaa selaimeen tallennetun viikon kertaalleen (datamalli muuttui). Ensimmäisellä avauksella arvotaan uusi viikko.
->
-> **Korkeat tavoitteet:** 2500–3000 kcal/pv ei täyty pelkillä perusaterioilla (max ~1900 kcal) — sovellus näyttää vihjeen ja päivät täydennetään välipaloilla (+150–350 kcal/kpl).
 
 ## Reseptin lisääminen (recipes.json)
 
