@@ -627,7 +627,7 @@
    "tags": [
     "gluteeniton"
    ],
-   "huom": "Tekeytyy jääkaapissa, tee edellisenä iltana.",
+   "huom": "Tekeytyy jääkaapissa, tee edellisenä iltana. Lisää proteiinia: sekoita joukkoon 100 g maitorahkaa (+10 g prot.).",
    "prepMinutes": 10,
    "servings": 2,
    "kcal": 260,
@@ -1346,7 +1346,7 @@
     "maidoton",
     "gluteeniton"
    ],
-   "huom": "Gluteeniton, jos käytät gluteenitonta pastaa. Gluteeniton: vaihda pasta gluteenittomaan.",
+   "huom": "Gluteeniton: vaihda pasta gluteenittomaan.",
    "prepMinutes": 25,
    "servings": 4,
    "kcal": 450,
@@ -1899,7 +1899,7 @@
    "tags": [
     "gluteeniton"
    ],
-   "huom": "Gluteeniton gluteenittomalla pastalla. Hyvä kylmänä eväänä. Gluteeniton: vaihda pasta gluteenittomaan.",
+   "huom": "Hyvä kylmänä eväänä. Gluteeniton: vaihda pasta gluteenittomaan.",
    "prepMinutes": 25,
    "servings": 3,
    "kcal": 450,
@@ -1959,7 +1959,7 @@
     "maidoton",
     "gluteeniton"
    ],
-   "huom": "Gluteeniton gluteenittomalla pastalla. Gluteeniton: vaihda pasta gluteenittomaan.",
+   "huom": "Gluteeniton: vaihda pasta gluteenittomaan.",
    "prepMinutes": 20,
    "servings": 4,
    "kcal": 430,
@@ -2231,7 +2231,7 @@
     "maidoton",
     "gluteeniton"
    ],
-   "huom": "Gluteeniton gluteenittomalla pastalla. Gluteeniton: vaihda pasta gluteenittomaan.",
+   "huom": "Gluteeniton: vaihda pasta gluteenittomaan.",
    "prepMinutes": 25,
    "servings": 4,
    "kcal": 470,
@@ -2354,7 +2354,7 @@
     "maidoton",
     "gluteeniton"
    ],
-   "huom": "Gluteeniton gluteenittomalla näkkärillä. Gluteeniton: vaihda näkkileipä gluteenittomaan.",
+   "huom": "Gluteeniton: vaihda näkkileipä gluteenittomaan.",
    "prepMinutes": 12,
    "servings": 1,
    "kcal": 220,
@@ -3409,7 +3409,7 @@
     "Keitä muna kovaksi ja hienonna margariinin joukkoon.",
     "Lämmitä piirakat ja lusikoi munavoi päälle."
    ],
-   "huom": "Gluteeniton: vaihda piirakat gluteenittomiin."
+   "huom": "Gluteeniton: vaihda piirakat gluteenittomiin. Lisää proteiinia: lasi maitoa tai ylimääräinen keitetty kananmuna (+8–10 g prot.)."
   },
   {
    "id": "uuniseiti-perunamuusi",
@@ -3949,7 +3949,7 @@
    "tags": [
     "gluteeniton"
    ],
-   "huom": "Gluteeniton gluteenittomalla pastalla. Gluteeniton: vaihda pasta gluteenittomaan.",
+   "huom": "Gluteeniton: vaihda pasta gluteenittomaan.",
    "prepMinutes": 25,
    "servings": 4,
    "kcal": 520,
@@ -4003,7 +4003,7 @@
     "gluteeniton",
     "maidoton"
    ],
-   "huom": "Edullinen kasvisruoka — paranee toisena päivänä.",
+   "huom": "Edullinen kasvisruoka — paranee toisena päivänä. Lisää proteiinia: sekoita loppuvaiheessa 200 g raejuustoa tai paista joukkoon tofukuutiot (+15–20 g prot.).",
    "prepMinutes": 25,
    "servings": 4,
    "kcal": 450,
@@ -4596,7 +4596,7 @@
     "gluteeniton",
     "maidoton"
    ],
-   "huom": "Edullinen kasvisversio chilistä — iso satsi.",
+   "huom": "Edullinen kasvisversio chilistä — iso satsi. Lisää proteiinia: tarjoile annosten päälle 2 dl raejuustoa tai maustamatonta jogurttia (+12–15 g prot.).",
    "prepMinutes": 30,
    "servings": 4,
    "kcal": 430,
@@ -4801,7 +4801,7 @@
     "gluteeniton"
    ],
    "redMeat": 2,
-   "huom": "Gluteeniton gluteenittomalla pastalla. Gluteeniton: vaihda pasta gluteenittomaan.",
+   "huom": "Gluteeniton: vaihda pasta gluteenittomaan.",
    "prepMinutes": 25,
    "servings": 4,
    "kcal": 520,
@@ -4859,7 +4859,7 @@
    "tags": [
     "gluteeniton"
    ],
-   "huom": "Gluteeniton gluteenittomalla kauralla.",
+   "huom": "Gluteeniton gluteenittomalla kauralla. Lisää proteiinia: sekoita jäähtyneeseen puuroon 20 g proteiinijauhetta tai tarjoile lasin maitoa kanssa (+8–18 g prot.).",
    "prepMinutes": 10,
    "servings": 1,
    "kcal": 260,
@@ -4955,7 +4955,8 @@
    ],
    "steps": [
     "Kaada viili kulhoon, lisää marjat ja mysli."
-   ]
+   ],
+   "huom": "Lisää proteiinia: sekoita joukkoon 100 g maitorahkaa tai raejuustoa (+10 g prot.)."
   },
   {
    "id": "proteiinivanukas",
@@ -5157,7 +5158,8 @@
    ],
    "steps": [
     "Lohko omena ja sekoita jogurttiin kaneli ja tilkka hunajaa dipiksi."
-   ]
+   ],
+   "huom": "Lisää proteiinia: käytä turkkilaisen jogurtin sijaan skyriä tai rahkaa (+10 g prot.)."
   },
   {
    "id": "nakkarit-juustolla-tomaatilla",
@@ -5192,7 +5194,7 @@
    "steps": [
     "Kasaa juusto ja tomaattiviipaleet näkkäreille."
    ],
-   "huom": "Gluteeniton: vaihda näkkileipä gluteenittomaan."
+   "huom": "Gluteeniton: vaihda näkkileipä gluteenittomaan. Lisää proteiinia: lisää päälle keitetty kananmuna tai kalkkunaleikettä (+7–10 g prot.)."
   },
   {
    "id": "proteiinipatukka",
@@ -5370,6 +5372,355 @@
     "Sekoita tuorejuustoon mausteet dipiksi ja dippaa naksut."
    ],
    "huom": "Gluteeniton: vaihda naksut gluteenittomiin."
+  },
+  {
+   "id": "valmis-broileriwokki",
+   "name": "Broileriwokki (valmis)",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [],
+   "ready": true,
+   "prepMinutes": 6,
+   "servings": 1,
+   "kcal": 420,
+   "protein": 26,
+   "ingredients": [
+    {
+     "name": "Broileriwokki (valmisateria)",
+     "qty": 1,
+     "unit": "kpl"
+    }
+   ],
+   "steps": [
+    "Lämmitä pakkauksen ohjeen mukaan.",
+    "Täydennä lautasmallin mukaan kasviksilla tai salaatilla."
+   ],
+   "huom": "Kaupan valmisateria — ravintoarvot vaihtelevat merkeittäin, tarkista pakkauksesta (myös gluteeniton/maidoton-merkinnät)."
+  },
+  {
+   "id": "valmis-kanapasta",
+   "name": "Kanapasta (valmis)",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [],
+   "ready": true,
+   "prepMinutes": 6,
+   "servings": 1,
+   "kcal": 460,
+   "protein": 27,
+   "ingredients": [
+    {
+     "name": "Kanapasta (valmisateria)",
+     "qty": 1,
+     "unit": "kpl"
+    }
+   ],
+   "steps": [
+    "Lämmitä pakkauksen ohjeen mukaan.",
+    "Täydennä lautasmallin mukaan kasviksilla tai salaatilla."
+   ],
+   "huom": "Kaupan valmisateria — ravintoarvot vaihtelevat merkeittäin, tarkista pakkauksesta (myös gluteeniton/maidoton-merkinnät)."
+  },
+  {
+   "id": "valmis-uunilohiateria",
+   "name": "Uunilohiateria (valmis)",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [],
+   "ready": true,
+   "prepMinutes": 6,
+   "servings": 1,
+   "kcal": 430,
+   "protein": 25,
+   "ingredients": [
+    {
+     "name": "Uunilohiateria (valmisateria)",
+     "qty": 1,
+     "unit": "kpl"
+    }
+   ],
+   "steps": [
+    "Lämmitä pakkauksen ohjeen mukaan.",
+    "Täydennä lautasmallin mukaan kasviksilla tai salaatilla."
+   ],
+   "huom": "Kaupan valmisateria — ravintoarvot vaihtelevat merkeittäin, tarkista pakkauksesta (myös gluteeniton/maidoton-merkinnät)."
+  },
+  {
+   "id": "valmis-lohikeitto",
+   "name": "Lohikeitto (valmis)",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [],
+   "ready": true,
+   "prepMinutes": 6,
+   "servings": 1,
+   "kcal": 350,
+   "protein": 18,
+   "ingredients": [
+    {
+     "name": "Lohikeitto (valmisateria)",
+     "qty": 1,
+     "unit": "kpl"
+    }
+   ],
+   "steps": [
+    "Lämmitä pakkauksen ohjeen mukaan.",
+    "Täydennä lautasmallin mukaan kasviksilla tai salaatilla."
+   ],
+   "huom": "Kaupan valmisateria — ravintoarvot vaihtelevat merkeittäin, tarkista pakkauksesta (myös gluteeniton/maidoton-merkinnät). Lisää proteiinia: keitetty kananmuna tai ruisleipä raejuustolla (+10 g prot.)."
+  },
+  {
+   "id": "valmis-kanakeitto",
+   "name": "Kanakeitto (valmis)",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [],
+   "ready": true,
+   "prepMinutes": 6,
+   "servings": 1,
+   "kcal": 320,
+   "protein": 20,
+   "ingredients": [
+    {
+     "name": "Kanakeitto (valmisateria)",
+     "qty": 1,
+     "unit": "kpl"
+    }
+   ],
+   "steps": [
+    "Lämmitä pakkauksen ohjeen mukaan.",
+    "Täydennä lautasmallin mukaan kasviksilla tai salaatilla."
+   ],
+   "huom": "Kaupan valmisateria — ravintoarvot vaihtelevat merkeittäin, tarkista pakkauksesta (myös gluteeniton/maidoton-merkinnät). Kevyt ateria — täydennä ruisleivällä ja juustolla."
+  },
+  {
+   "id": "valmis-hernekeitto",
+   "name": "Hernekeitto (valmis)",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [],
+   "ready": true,
+   "prepMinutes": 6,
+   "servings": 1,
+   "kcal": 300,
+   "protein": 17,
+   "ingredients": [
+    {
+     "name": "Hernekeitto (valmisateria)",
+     "qty": 1,
+     "unit": "kpl"
+    }
+   ],
+   "steps": [
+    "Lämmitä pakkauksen ohjeen mukaan.",
+    "Täydennä lautasmallin mukaan kasviksilla tai salaatilla."
+   ],
+   "redMeat": 1,
+   "huom": "Kaupan valmisateria — ravintoarvot vaihtelevat merkeittäin, tarkista pakkauksesta (myös gluteeniton/maidoton-merkinnät). Lisää proteiinia: keitetty kananmuna tai kinkkukuutiot (+7–10 g prot.)."
+  },
+  {
+   "id": "valmis-kaalilaatikko",
+   "name": "Kaalilaatikko (valmis)",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [],
+   "ready": true,
+   "prepMinutes": 6,
+   "servings": 1,
+   "kcal": 380,
+   "protein": 20,
+   "ingredients": [
+    {
+     "name": "Kaalilaatikko (valmisateria)",
+     "qty": 1,
+     "unit": "kpl"
+    }
+   ],
+   "steps": [
+    "Lämmitä pakkauksen ohjeen mukaan.",
+    "Täydennä lautasmallin mukaan kasviksilla tai salaatilla."
+   ],
+   "redMeat": 2,
+   "huom": "Kaupan valmisateria — ravintoarvot vaihtelevat merkeittäin, tarkista pakkauksesta (myös gluteeniton/maidoton-merkinnät). Puolukat kaveriksi."
+  },
+  {
+   "id": "valmis-maksalaatikko",
+   "name": "Maksalaatikko (valmis)",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [],
+   "ready": true,
+   "prepMinutes": 6,
+   "servings": 1,
+   "kcal": 400,
+   "protein": 18,
+   "ingredients": [
+    {
+     "name": "Maksalaatikko (valmisateria)",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Puolukkahilloa",
+     "qty": 2,
+     "unit": "rkl"
+    }
+   ],
+   "steps": [
+    "Lämmitä pakkauksen ohjeen mukaan.",
+    "Täydennä lautasmallin mukaan kasviksilla tai salaatilla."
+   ],
+   "redMeat": 2,
+   "huom": "Kaupan valmisateria — ravintoarvot vaihtelevat merkeittäin, tarkista pakkauksesta (myös gluteeniton/maidoton-merkinnät). Edullinen klassikko. Lisää proteiinia: keitetty kananmuna päälle (+7 g prot.)."
+  },
+  {
+   "id": "valmis-lihapullat-muusi",
+   "name": "Lihapullat ja muusi (valmis)",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [],
+   "ready": true,
+   "prepMinutes": 6,
+   "servings": 1,
+   "kcal": 450,
+   "protein": 22,
+   "ingredients": [
+    {
+     "name": "Lihapullat ja muusi (valmisateria)",
+     "qty": 1,
+     "unit": "kpl"
+    }
+   ],
+   "steps": [
+    "Lämmitä pakkauksen ohjeen mukaan.",
+    "Täydennä lautasmallin mukaan kasviksilla tai salaatilla."
+   ],
+   "redMeat": 2,
+   "huom": "Kaupan valmisateria — ravintoarvot vaihtelevat merkeittäin, tarkista pakkauksesta (myös gluteeniton/maidoton-merkinnät)."
+  },
+  {
+   "id": "valmis-ateriasalaatti-broileri",
+   "name": "Ateriasalaatti broilerilla (valmis)",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [],
+   "ready": true,
+   "prepMinutes": 6,
+   "servings": 1,
+   "kcal": 330,
+   "protein": 25,
+   "ingredients": [
+    {
+     "name": "Ateriasalaatti broilerilla (valmisateria)",
+     "qty": 1,
+     "unit": "kpl"
+    }
+   ],
+   "steps": [
+    "Lämmitä pakkauksen ohjeen mukaan.",
+    "Täydennä lautasmallin mukaan kasviksilla tai salaatilla."
+   ],
+   "huom": "Kaupan valmisateria — ravintoarvot vaihtelevat merkeittäin, tarkista pakkauksesta (myös gluteeniton/maidoton-merkinnät). Kevyt — lisää ruisleipä kylkeen jos päivän kalorit jäävät vajaiksi."
+  },
+  {
+   "id": "valmis-falafelateria",
+   "name": "Falafel-kasvisateria (valmis)",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [],
+   "ready": true,
+   "prepMinutes": 6,
+   "servings": 1,
+   "kcal": 420,
+   "protein": 14,
+   "ingredients": [
+    {
+     "name": "Falafel-kasvisateria (valmisateria)",
+     "qty": 1,
+     "unit": "kpl"
+    }
+   ],
+   "steps": [
+    "Lämmitä pakkauksen ohjeen mukaan.",
+    "Täydennä lautasmallin mukaan kasviksilla tai salaatilla."
+   ],
+   "huom": "Kaupan valmisateria — ravintoarvot vaihtelevat merkeittäin, tarkista pakkauksesta (myös gluteeniton/maidoton-merkinnät). Lisää proteiinia: jogurttikastike ja 100 g raejuustoa (+12 g prot.)."
+  },
+  {
+   "id": "valmis-kolmioleipa-kana",
+   "name": "Kolmioleipä kanalla (valmis)",
+   "categories": [
+    "lounas",
+    "iltapala"
+   ],
+   "tags": [],
+   "ready": true,
+   "prepMinutes": 6,
+   "servings": 1,
+   "kcal": 380,
+   "protein": 22,
+   "ingredients": [
+    {
+     "name": "Kolmioleipä kanalla (valmisateria)",
+     "qty": 1,
+     "unit": "kpl"
+    }
+   ],
+   "steps": [
+    "Lämmitä pakkauksen ohjeen mukaan.",
+    "Täydennä lautasmallin mukaan kasviksilla tai salaatilla."
+   ],
+   "huom": "Kaupan valmisateria — ravintoarvot vaihtelevat merkeittäin, tarkista pakkauksesta (myös gluteeniton/maidoton-merkinnät). Liikkuvan päivän hätävara — valitse täysjyväinen."
+  },
+  {
+   "id": "valmis-proteiinijuoma",
+   "name": "Proteiinijuoma (valmis)",
+   "categories": [
+    "valipala",
+    "iltapala"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "ready": true,
+   "prepMinutes": 6,
+   "servings": 1,
+   "kcal": 180,
+   "protein": 25,
+   "ingredients": [
+    {
+     "name": "Proteiinijuoma (valmisateria)",
+     "qty": 1,
+     "unit": "kpl"
+    }
+   ],
+   "steps": [
+    "Lämmitä pakkauksen ohjeen mukaan.",
+    "Täydennä lautasmallin mukaan kasviksilla tai salaatilla."
+   ],
+   "huom": "Kaupan valmisateria — ravintoarvot vaihtelevat merkeittäin, tarkista pakkauksesta (myös gluteeniton/maidoton-merkinnät). Nollavaivainen — hyvä treenipäivän lisä."
   }
  ]
 }

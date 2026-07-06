@@ -231,6 +231,9 @@ function matchFilters(r){
 }
 function pool(cat){ return RECIPES.filter(r=>r.categories.includes(cat) && matchFilters(r)) }
 function mainsPool(){ return RECIPES.filter(r=>(r.categories.includes('lounas')||r.categories.includes('paivallinen')) && matchFilters(r)) }
+/* ready meals (valmisruuat) never enter the random generation — they are deliberate manual replacements */
+function genPool(cat){ return pool(cat).filter(r=>!r.ready) }
+function mainsGenPool(){ return mainsPool().filter(r=>!r.ready) }
 function recentlyUsed(id){
   const d=history_[id]; if(!d) return false;
   return (Date.now()-new Date(d).getTime())/864e5 < ROTATION_DAYS;
@@ -267,7 +270,7 @@ const KC_TXT={over:'yli tavoitteen',intol:'tavoitteessa',under:'alle tavoitteen'
 
 /* ============================ Week generation ============================ */
 function poolRange(cat){
-  const p=pool(cat);
+  const p=genPool(cat);
   if(!p.length) return {min:0,max:0};
   const ks=p.map(kc);
   return {min:Math.min(...ks),max:Math.max(...ks)};
@@ -331,7 +334,7 @@ function generateWeekOnce(){
     const pm=chunkPattern();
     let d=0;
     plan.lounas=pm.map((len,ci)=>{
-      const r=pickOneMain(mainsPool(), state, Mlo/2, Mhi/2, ci===pm.length-1);
+      const r=pickOneMain(mainsGenPool(), state, Mlo/2, Mhi/2, ci===pm.length-1);
       const days=[];for(let k=0;k<len;k++)days.push(d++);
       return {recipeId:r.id,days,hue:HUES[(2+ci)%6]};
     });
@@ -342,7 +345,7 @@ function generateWeekOnce(){
     const dinR=poolRange('paivallinen');
     let d=0;
     plan.lounas=pl.map((len,ci)=>{
-      const r=pickOneMain(pool('lounas'), state, Mlo-dinR.max, Mhi-dinR.min, ci===pl.length-1);
+      const r=pickOneMain(genPool('lounas'), state, Mlo-dinR.max, Mhi-dinR.min, ci===pl.length-1);
       const days=[];for(let k=0;k<len;k++)days.push(d++);
       return {recipeId:r.id,days,hue:HUES[(2+ci)%6]};
     });
@@ -351,7 +354,7 @@ function generateWeekOnce(){
     plan.paivallinen=pd.map((len,ci)=>{
       const days=[];for(let k=0;k<len;k++)days.push(d++);
       const lks=days.map(lunchK);
-      const r=pickOneMain(pool('paivallinen'), state, Mlo-Math.min(...lks), Mhi-Math.max(...lks), ci===pd.length-1);
+      const r=pickOneMain(genPool('paivallinen'), state, Mlo-Math.min(...lks), Mhi-Math.max(...lks), ci===pd.length-1);
       return {recipeId:r.id,days,hue:HUES[(4+ci)%6]};
     });
     plan._shared=false;
@@ -380,7 +383,7 @@ function mainsKcalOfDay(plan,d){
 function fitDay(mainsKcal,aim){
   const T=settings.kcalTarget;
   aim=aim==null?T:aim;
-  const bs=pool('aamupala'), is=pool('iltapala');
+  const bs=genPool('aamupala'), is=genPool('iltapala');
   const combos=[];
   for(const b of bs) for(const i of is){
     const tot=mainsKcal+kc(b)+kc(i);
@@ -407,7 +410,7 @@ function dayTotal(d){
 }
 function rerollDaily(mk,d){
   const cur=week.plan[mk][d].recipeId;
-  const others=pool(mk).filter(r=>r.id!==cur);
+  const others=genPool(mk).filter(r=>r.id!==cur);
   if(!others.length){ toast('Ei vaihtoehtoja tällä suodatuksella'); return }
   const base=dayTotal(d).kcal - kc(byId(cur));
   const ok=others.filter(r=>Math.abs(base+kc(r)-settings.kcalTarget)<=TOL);
@@ -419,7 +422,7 @@ function rerollDaily(mk,d){
 }
 function rerollChunk(mk,ci){
   const inWeek=[]; ['lounas','paivallinen'].forEach(k=>week.plan[k].forEach(c=>inWeek.push(c.recipeId)));
-  const cands=(week.plan._shared?mainsPool():pool(mk)).filter(r=>!inWeek.includes(r.id));
+  const cands=(week.plan._shared?mainsGenPool():genPool(mk)).filter(r=>!inWeek.includes(r.id));
   if(!cands.length){ toast('Ei vaihtoehtoja tällä suodatuksella'); return }
   const c=week.plan[mk][ci];
   const weekend=c.days.includes(5)||c.days.includes(6);
@@ -648,7 +651,7 @@ function renderBank(){
     h+=rs.map(r=>`<button class="rrow" data-open="${r.id}">
       <div class="mt"><div class="mname">${esc(r.name)}</div>
       <div class="mmeta num">≈ ${kc(r)} kcal · <b>${pr(r)} g prot.</b> · ${r.prepMinutes} min</div>
-      <div class="tagline">${r.tags.map(t=>`<span class="tg ${t==='vhh'?'b':''}">${t==='vhh'?'VHH':t}</span>`).join('')}${rm(r)?`<span class="tg b">punaista lihaa${rm(r)===1?' vähän':''}</span>`:''}</div></div>
+      <div class="tagline">${r.ready?'<span class="tg">valmisruoka</span>':''}${r.tags.map(t=>`<span class="tg ${t==='vhh'?'b':''}">${t==='vhh'?'VHH':t}</span>`).join('')}${rm(r)?`<span class="tg b">punaista lihaa${rm(r)===1?' vähän':''}</span>`:''}</div></div>
       <span style="color:var(--muted)">›</span></button>`).join('');
     h+=`</div>`;
   });
@@ -677,7 +680,7 @@ function openRecipe(id,ctx){
   sh.innerHTML=`<div class="grab"></div>
     <h3>${esc(r.name)}</h3>
     <div class="sub num">≈ ${kc(r)} kcal · ${pr(r)} g proteiinia / annos · ${r.prepMinutes} min
-      ${r.tags.length?' · '+r.tags.map(t=>t==='vhh'?'VHH':t).join(', '):''}${rm(r)?' · sisältää punaista lihaa':''}</div>
+      ${r.ready?' · valmisruoka':''}${r.tags.length?' · '+r.tags.map(t=>t==='vhh'?'VHH':t).join(', '):''}${rm(r)?' · sisältää punaista lihaa':''}</div>
     ${PF()!==1?`<div class="huom">Annoskoko skaalattu ×${fmtQty(PF())} kaloritavoitteesi (${fmtK(settings.kcalTarget)} kcal/pv) mukaan — myös ainesmäärissä.</div>`:''}
     ${note?`<div class="huom">${esc(note)} — ainekset skaalattu ${fmtQty(servings)} annokselle.</div>`:''}
     <h4>Ainekset <span style="color:var(--muted);font-weight:400">(${fmtQty(servings)} annosta${PF()!==1?`, annoskoko ×${fmtQty(PF())}`:''})</span></h4>
@@ -704,12 +707,12 @@ function plateModel(r){
    ? `<svg viewBox="0 0 200 130" role="img" aria-label="Lautasmalli: kaksi kolmasosaa ruokaa, kolmannes kasviksia" style="width:100%;max-width:320px;display:block">
       <ellipse cx="100" cy="65" rx="92" ry="58" fill="#FBFBF8" stroke="#C9D2C8" stroke-width="3"/>
       <ellipse cx="100" cy="65" rx="78" ry="46" fill="none" stroke="#E3E8E0" stroke-width="1.5"/>
-      <path d="M100 19 A78 46 0 0 1 100 111 A78 46 0 0 1 61 24 Z" transform="rotate(118 100 65)" fill="#EFE7D8" stroke="#B07B2E" stroke-width="1.5" opacity=".9"/>
-      <path d="M100 19 A78 46 0 0 0 100 111 L100 65 Z" transform="rotate(298 100 65)" fill="#DCEBDD" stroke="#2F6B4F" stroke-width="1.5" opacity=".95"/>
-      <text x="122" y="62" font-size="11" font-weight="700" fill="#6b5a33" text-anchor="middle">Ruoka</text>
-      <text x="122" y="76" font-size="9" fill="#6b5a33" text-anchor="middle">n. 2/3 lautasesta</text>
-      <text x="56" y="62" font-size="11" font-weight="700" fill="#24523D" text-anchor="middle">Kasvikset</text>
-      <text x="56" y="76" font-size="9" fill="#24523D" text-anchor="middle">n. 1/3</text>
+      <path d="M100 65 L61 104.8 A78 46 0 0 1 61 25.2 Z" fill="#DCEBDD" stroke="#2F6B4F" stroke-width="1.5" opacity=".95"/>
+      <path d="M100 65 L61 25.2 A78 46 0 1 1 61 104.8 Z" fill="#EFE7D8" stroke="#B07B2E" stroke-width="1.5" opacity=".9"/>
+      <text x="55" y="62" font-size="11" font-weight="700" fill="#24523D" text-anchor="middle">Kasvikset</text>
+      <text x="55" y="76" font-size="9" fill="#24523D" text-anchor="middle">n. 1/3</text>
+      <text x="130" y="62" font-size="11" font-weight="700" fill="#6b5a33" text-anchor="middle">Ruoka</text>
+      <text x="130" y="76" font-size="9" fill="#6b5a33" text-anchor="middle">n. 2/3 lautasesta</text>
      </svg>`
    : `<svg viewBox="0 0 200 130" role="img" aria-label="Lautasmalli: puolet kasviksia, neljännes proteiinia, neljännes lisäkettä" style="width:100%;max-width:320px;display:block">
       <ellipse cx="100" cy="65" rx="92" ry="58" fill="#FBFBF8" stroke="#C9D2C8" stroke-width="3"/>
@@ -735,24 +738,38 @@ function pickerRows(cands, projFn, dataAttr){
   return cands.map(r=>{
     const t=projFn(r), st=kcStatus(t);
     return `<button class="rrow" ${dataAttr}="${r.id}">
-      <div class="mt"><div class="mname">${esc(r.name)}</div>
+      <div class="mt"><div class="mname">${esc(r.name)}${r.ready?' <span class="tg" style="vertical-align:1px">valmisruoka</span>':''}</div>
       <div class="mmeta num">≈ ${kc(r)} kcal · <b>${pr(r)} g prot.</b> · ${r.prepMinutes} min</div></div>
       <span class="proj kc-${st} num">${fmtK(t)} kcal<small>päivä yht. · ${KC_TXT[st]}</small></span></button>`;
   }).join('')||'<p class="sub">Ei vaihtoehtoja tällä suodatuksella.</p>';
+}
+function readyToggleHtml(){
+  return `<div class="filters" style="margin:0 0 10px"><button class="chip" id="readyOnly">🕐 Vain valmisruuat</button></div>`;
+}
+function bindReadyToggle(sh,rerender){
+  const b=sh.querySelector('#readyOnly'); if(!b) return;
+  b.onclick=()=>{ b.classList.toggle('on'); rerender(b.classList.contains('on')) };
 }
 function openPickerDaily(mk,d){
   const sh=document.getElementById('sheetPick');
   const cur=week.plan[mk][d].recipeId;
   const base=dayTotal(d).kcal - kc(byId(cur));
-  const cands=pool(mk).slice().sort((a,b)=>Math.abs(base+kc(a)-settings.kcalTarget)-Math.abs(base+kc(b)-settings.kcalTarget));
-  sh.innerHTML=`<div class="grab"></div><h3>${CATS[mk]} · ${DAYS[d]}</h3>
-    <div class="sub">Sopivimmat ensin. Väri kertoo mihin päivän kalorit asettuvat valinnalla (tavoite ${fmtK(settings.kcalTarget)} ± ${TOL} kcal).</div>`+
-    pickerRows(cands, r=>base+kc(r), 'data-sel');
-  sh.querySelectorAll('[data-sel]').forEach(b=>b.onclick=()=>{
-    week.plan[mk][d]={recipeId:b.dataset.sel};
-    week.manual[mk+d]=true;
-    LS.set('week',week); closeSheets(); renderAll();
-  });
+  const all=pool(mk).slice().sort((a,b)=>Math.abs(base+kc(a)-settings.kcalTarget)-Math.abs(base+kc(b)-settings.kcalTarget));
+  const render=(readyOnly)=>{
+    const cands=readyOnly?all.filter(r=>r.ready):all;
+    sh.innerHTML=`<div class="grab"></div><h3>${CATS[mk]} · ${DAYS[d]}</h3>
+      <div class="sub">Sopivimmat ensin. Väri kertoo mihin päivän kalorit asettuvat valinnalla (tavoite ${fmtK(settings.kcalTarget)} ± ${TOL} kcal).</div>`+
+      (all.some(r=>r.ready)?readyToggleHtml():'')+
+      pickerRows(cands, r=>base+kc(r), 'data-sel');
+    if(readyOnly) sh.querySelector('#readyOnly')?.classList.add('on');
+    bindReadyToggle(sh,render);
+    sh.querySelectorAll('[data-sel]').forEach(b=>b.onclick=()=>{
+      week.plan[mk][d]={recipeId:b.dataset.sel};
+      week.manual[mk+d]=true;
+      LS.set('week',week); closeSheets(); renderAll();
+    });
+  };
+  render(false);
   openSheet(sh);
 }
 function openPickerChunk(mk,ci){
@@ -765,16 +782,23 @@ function openPickerChunk(mk,ci){
     c.days.forEach(d=>{ s+=dayTotal(d).kcal-(kc(cur)*factor)+(kc(r)*factor) });
     return s/c.days.length;
   };
-  const cands=(week.plan._shared?mainsPool():pool(mk)).slice()
+  const all=(week.plan._shared?mainsPool():pool(mk)).slice()
     .sort((a,b)=>Math.abs(proj(a)-settings.kcalTarget)-Math.abs(proj(b)-settings.kcalTarget));
-  sh.innerHTML=`<div class="grab"></div><h3>${week.plan._shared?'Lounas + päivällinen':CATS[mk]} · ${c.days.map(d=>DAYS_S[d]).join('–')}</h3>
-    <div class="sub">Sopivimmat ensin. Väri kertoo satsin päivien keskimääräisen kalorikertymän valinnalla.</div>`+
-    pickerRows(cands, proj, 'data-sel');
-  sh.querySelectorAll('[data-sel]').forEach(b=>b.onclick=()=>{
-    applyMainPick(mk,ci,byId(b.dataset.sel),true);
-    week.manual[mk+ci+'c']=true; LS.set('week',week);
-    closeSheets(); renderAll();
-  });
+  const render=(readyOnly)=>{
+    const cands=readyOnly?all.filter(r=>r.ready):all;
+    sh.innerHTML=`<div class="grab"></div><h3>${week.plan._shared?'Lounas + päivällinen':CATS[mk]} · ${c.days.map(d=>DAYS_S[d]).join('–')}</h3>
+      <div class="sub">Sopivimmat ensin. Väri kertoo satsin päivien keskimääräisen kalorikertymän valinnalla. Valmisruoka korvaa koko satsin — ostoslistaan tulee annospakkaukset kappaleina.</div>`+
+      (all.some(r=>r.ready)?readyToggleHtml():'')+
+      pickerRows(cands, proj, 'data-sel');
+    if(readyOnly) sh.querySelector('#readyOnly')?.classList.add('on');
+    bindReadyToggle(sh,render);
+    sh.querySelectorAll('[data-sel]').forEach(b=>b.onclick=()=>{
+      applyMainPick(mk,ci,byId(b.dataset.sel),true);
+      week.manual[mk+ci+'c']=true; LS.set('week',week);
+      closeSheets(); renderAll();
+    });
+  };
+  render(false);
   openSheet(sh);
 }
 function openPickerSnack(d){

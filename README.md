@@ -20,7 +20,9 @@ Mobiilikäyttöinen viikkoruokalista- ja ostoslistasovellus. Toimii GitHub Pages
 - **Aamu- ja iltapalat päiväkohtaisia.** Ei satseja, ei 28 päivän vaihteluhistoriaa — sama aamupala saa toistua vaikka joka päivä. Vaihteluhistoria koskee vain pääruokia.
 - **Manuaalivalinta:** jokaisen aterian ⟳-arvontanapin vieressä on ☰-nappi, josta aukeaa kategorian reseptilista sopivuusjärjestyksessä. Jokaisen vaihtoehdon kohdalla näkyy, mihin päivän kalorit asettuvat valinnalla: **punainen** = yli tavoitteen, **sininen** = toleranssissa (±300), **vihreä** = alle tavoitteen. Sama värikoodi näkyy päiväkortin summassa ja käsin valittujen aterioiden kaloreissa.
 - **Välipala** on yksi vapaaehtoinen valinta per päivä — sen kalorivaikutus näkyy värikoodilla jo valintalistassa.
-- **115 reseptiä** (aamupala 28, lounas 56, päivällinen 54, iltapala 33, välipala 25). Pääpaino: helppo, edullinen, terveellinen suomalainen arkiruoka.
+- **Valmisruuat korvausvaihtoehtona:** 13 proteiinipitoista kaupan valmisateriaa (broileriwokki, lohikeitto, kaalilaatikko, ateriasalaatti...). Arvonta ei koskaan arvo niitä — ne valitaan tietoisesti ☰-valitsimesta, jossa on "Vain valmisruuat" -suodatin. Valmisruoka korvaa koko satsin ja ostoslistaan tulee annospakkaukset kappaleina. Kevyisiin valmisruokiin on merkitty proteiinintäydennysvinkki.
+- **Proteiinivinkit:** vähäproteiinisiin resepteihin (esim. kikhernecurry, viili) on lisätty konkreettinen täydennysohje huom-kenttään ("lisää 200 g raejuustoa" tms.) sporttiruoka-ajattelun mukaisesti.
+- **115+13 reseptiä** (aamupala 28, lounas 56, päivällinen 54, iltapala 33, välipala 25). Pääpaino: helppo, edullinen, terveellinen suomalainen arkiruoka.
 - **Gluteeniton laajennettu:** reseptit, joissa ainoa gluteenin lähde on suoraan gluteenittomana myytävä tuote (pasta, leipä, tortilla, nuudeli, näkkäri, mysli...), on merkitty gluteenittomiksi ja huom-kentässä lukee mikä ainesosa vaihdetaan. Näin gluteeniton-suodatin ei tiputa esim. pastaruokia pois. Vain 4 reseptiä jää suodattimen ulkopuolelle.
 
 > **Huom:** v2 nollaa selaimeen tallennetun viikon kertaalleen (datamalli muuttui). Ensimmäisellä avauksella arvotaan uusi viikko.
@@ -34,6 +36,7 @@ Mobiilikäyttöinen viikkoruokalista- ja ostoslistasovellus. Toimii GitHub Pages
  "categories": ["lounas", "paivallinen"],
  "tags": ["gluteeniton", "maidoton", "vhh"],
  "redMeat": 2,
+ "ready": true,
  "huom": "Vapaaehtoinen vinkki. Esim. Gluteeniton: vaihda pasta gluteenittomaan.",
  "prepMinutes": 25,
  "servings": 4,
@@ -48,6 +51,7 @@ Mobiilikäyttöinen viikkoruokalista- ja ostoslistasovellus. Toimii GitHub Pages
 ```
 
 - `categories`: aamupala, lounas, paivallinen, iltapala, valipala (voi olla useita)
+- `ready: true` → kaupan valmisateria: ei koskaan mukana arvonnassa, valittavissa ☰-valitsimen kautta
 - `redMeat`: jätä pois jos ei punaista lihaa; `1` = sisältää vähän (esim. kinkkua tai pekonia lisukkeena), `2` = punainen liha pääosassa
 - `kcal` ja `protein` per annos (arvioita)
 - `pantry: true` → ainesosa listautuu ostoslistan maustekaappiosioon
