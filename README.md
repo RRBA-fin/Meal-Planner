@@ -1,65 +1,64 @@
-# Viikkolista
+# Viikkolista v2
 
-Mobiilikäyttöön suunniteltu viikon ruokalista- ja ostoslistatyökalu. Arpoo viikon ruuat 2–3 päivän satseina (aamupala, lounas, päivällinen, iltapala + valinnaiset välipalat) ja kokoaa niistä ostoslistan. Ei palvelinta, ei riippuvuuksia — pelkkä HTML + JSON.
+Mobiilikäyttöinen viikkoruokalista- ja ostoslistasovellus. Toimii GitHub Pagesissa ilman palvelinta — kaikki data tallentuu selaimen localStorageen.
 
-## Käyttöönotto GitHub Pagesissa
+**Live:** https://rrba-fin.github.io/Meal-Planner/
 
-1. Luo uusi repo ja lataa sinne `index.html`, `recipes.json` ja tämä `README.md`.
-2. Repon asetuksissa: **Settings → Pages → Source: Deploy from a branch → main / (root)**.
-3. Sivu aukeaa hetken päästä osoitteessa `https://<käyttäjä>.github.io/<repo>/`.
-4. Lisää puhelimen kotinäytölle selaimen "Lisää aloitusnäyttöön" -toiminnolla.
+## Mitä sovellus tekee
 
-Paikallinen testaus: `python3 -m http.server` projektin kansiossa ja avaa `http://localhost:8000`. (Suoraan tiedostosta avattuna selain estää `recipes.json`-tiedoston lataamisen.)
+- Arpoo viikon ruokalistan: pääruuat 2–3 päivän satseina (yksi kokkaus, monta päivää), aamu- ja iltapalat päiväkohtaisesti.
+- Sovittaa päivät kaloritavoitteeseen (1500 / 2000 / 2500 / 3000 kcal/pv, toleranssi ±300 kcal).
+- Koostaa ostoslistan koko viikosta, maustekaappitavarat omassa osiossaan.
+- Reseptipankki suodattimilla: gluteeniton, maidoton, VHH ja punaisen lihan rajoitus.
 
-## Ominaisuudet
+## v2-muutokset
 
-- **Viikon arvonta** 2–3 päivän satseina — samaa ruokaa syödään 2–3 päivää, kuten batch-kokkauksessa kuuluu. Väripalkki yhdistää saman satsin päivät.
-- **Lounas & päivällinen**: asetuksista valittavissa joko yksi iso satsi molempiin tai omat ruuat kummallekin.
-- **Yksittäisen ruuan uudelleenarvonta** ⟳-napista ilman että koko viikko menee uusiksi.
-- **Rotaatiomuisti**: arvonta välttää 28 päivän sisällä käytettyjä reseptejä, kun vaihtoehtoja riittää.
-- **Välipalat**: himmennetty "+ Lisää välipala" -rivi joka päivässä; valinnat saa mukaan ostoslistaan.
-- **Ostoslista**: ainekset yhdistettynä ja skaalattuna (henkilömäärä × päivät × satsit), ruksattavat rivit, kopiointi leikepöydälle. Maustekaappitavarat omassa taittuvassa osiossa ilman määriä.
-- **Suodattimet**: gluteeniton / maidoton / VHH, yhdisteltävissä.
-- **Ravintotiedot**: kcal ja proteiini per annos (arvioita) sekä päiväkohtainen summa.
-- Kaikki tallentuu selaimen localStorageen — lista säilyy laitteella.
+- **Kaloritavoite asetuksissa.** Arvonta valitsee pääruuat kalori-ikkunasta, joka takaa että aamu- ja iltapalayhdistelmällä päivä osuu tavoitteeseen ±300 kcal. Jos jokin päivä ei sovi, kone arpoo automaattisesti uudelleen (max 4 yritystä) ja pitää parhaan.
+- **Punainen liha -asetus:** Saa olla / Vähän (korkeintaan yksi punaisen lihan pääruokasatsi viikossa) / Ei ollenkaan (poistaa myös kinkun ja pekonin sisältävät reseptit).
+- **Aamu- ja iltapalat päiväkohtaisia.** Ei satseja, ei 28 päivän vaihteluhistoriaa — sama aamupala saa toistua vaikka joka päivä. Vaihteluhistoria koskee vain pääruokia.
+- **Manuaalivalinta:** jokaisen aterian ⟳-arvontanapin vieressä on ☰-nappi, josta aukeaa kategorian reseptilista sopivuusjärjestyksessä. Jokaisen vaihtoehdon kohdalla näkyy, mihin päivän kalorit asettuvat valinnalla: **punainen** = yli tavoitteen, **sininen** = toleranssissa (±300), **vihreä** = alle tavoitteen. Sama värikoodi näkyy päiväkortin summassa ja käsin valittujen aterioiden kaloreissa.
+- **115 reseptiä** (aamupala 28, lounas 56, päivällinen 54, iltapala 33, välipala 25). Pääpaino: helppo, edullinen, terveellinen suomalainen arkiruoka.
+- **Gluteeniton laajennettu:** reseptit, joissa ainoa gluteenin lähde on suoraan gluteenittomana myytävä tuote (pasta, leipä, tortilla, nuudeli, näkkäri, mysli...), on merkitty gluteenittomiksi ja huom-kentässä lukee mikä ainesosa vaihdetaan. Näin gluteeniton-suodatin ei tiputa esim. pastaruokia pois. Vain 4 reseptiä jää suodattimen ulkopuolelle (valmistuotteet, joista ei ole luotettavaa gt-versiota).
 
-## Reseptien lisääminen
+> **Huom:** v2 nollaa selaimeen tallennetun viikon kertaalleen (datamalli muuttui). Ensimmäisellä avauksella arvotaan uusi viikko.
+>
+> **Korkeat tavoitteet:** 2500–3000 kcal/pv ei täyty pelkillä perusaterioilla (max ~1900 kcal) — sovellus näyttää vihjeen ja päivät täydennetään välipaloilla (+150–350 kcal/kpl).
 
-Avaa `recipes.json` ja lisää `recipes`-taulukkoon uusi olio:
+## Reseptin lisääminen (recipes.json)
 
 ```json
 {
-  "id": "uniikki-tunniste",
-  "name": "Ruuan nimi",
-  "categories": ["lounas", "paivallinen"],
-  "tags": ["gluteeniton", "maidoton", "vhh"],
-  "huom": "Vapaaehtoinen huomautus (esim. gluteeniton kaura).",
-  "prepMinutes": 25,
-  "servings": 4,
-  "kcal": 450,
-  "protein": 30,
-  "ingredients": [
-    { "name": "Jauhelihaa", "qty": 400, "unit": "g" },
-    { "name": "Maitorahkaa", "qty": 1, "unit": "prk (200–250 g)" },
-    { "name": "Suolaa ja pippuria", "qty": null, "unit": "", "pantry": true }
-  ],
-  "steps": ["Vaihe 1.", "Vaihe 2."]
+ "id": "uniikki-tunniste",
+ "name": "Ruuan nimi",
+ "categories": ["lounas", "paivallinen"],
+ "tags": ["gluteeniton", "maidoton", "vhh"],
+ "redMeat": 2,
+ "huom": "Vapaaehtoinen vinkki. Esim. Gluteeniton: vaihda pasta gluteenittomaan.",
+ "prepMinutes": 25,
+ "servings": 4,
+ "kcal": 450,
+ "protein": 30,
+ "ingredients": [
+  {"name": "Ainesosa", "qty": 400, "unit": "g"},
+  {"name": "Suolaa", "qty": null, "unit": "", "pantry": true}
+ ],
+ "steps": ["Vaihe 1.", "Vaihe 2."]
 }
 ```
 
-Kentistä:
+- `categories`: aamupala, lounas, paivallinen, iltapala, valipala (voi olla useita)
+- `redMeat`: jätä pois jos ei punaista lihaa; `1` = sisältää vähän (esim. kinkkua tai pekonia lisukkeena), `2` = punainen liha pääosassa
+- `kcal` ja `protein` per annos (arvioita)
+- `pantry: true` → ainesosa listautuu ostoslistan maustekaappiosioon
+- `qty: null` → ainesosa ilman määrää ("maun mukaan")
 
-- `categories`: yksi tai useampi arvoista `aamupala`, `lounas`, `paivallinen`, `iltapala`, `valipala`. Sama resepti voi olla useassa.
-- `tags`: vain ne joita resepti aidosti täyttää — suodattimet luottavat näihin.
-- `servings`: montako annosta perusresepti tuottaa. Ostoslista skaalaa tästä.
-- `qty: null` = "sopivasti / maun mukaan"; `pantry: true` siirtää aineksen maustekaappiosioon pois varsinaiselta ostoslistalta.
-- `kcal` ja `protein` ilmoitetaan per annos, suurpiirteinen arvio riittää.
+## Julkaisu GitHub Pagesiin
 
-Pilkut ja lainausmerkit tarkasti — virheellinen JSON estää koko sovelluksen latautumisen. Voit tarkistaa tiedoston esim. osoitteessa jsonlint.com ennen pushia.
+1. Vie `index.html`, `recipes.json` ja `README.md` repon juureen
+2. Luo juureen tyhjä `.nojekyll`-tiedosto (ohittaa Jekyll-buildin)
+3. Settings → Pages → Deploy from a branch → `main` / `(root)`
+4. Sivu aukeaa muutaman minuutin päästä osoitteessa `https://<käyttäjä>.github.io/<repo>/`
 
-## Tiedostot
+## Tekniikka
 
-| Tiedosto | Tehtävä |
-|---|---|
-| `index.html` | Koko käyttöliittymä ja logiikka (ei build-työkaluja) |
-| `recipes.json` | Reseptidata — ainoa tiedosto jota muokataan reseptejä lisätessä |
+Yksi HTML-tiedosto, vanilla JS, ei riippuvuuksia. Reseptit ladataan `recipes.json`-tiedostosta fetchillä (vaatii palvelimen, ei toimi file://-osoitteesta). localStorage-avaimet: `vl_settings`, `vl_week`, `vl_history`, `vl_checked`.

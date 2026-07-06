@@ -1,242 +1,5375 @@
 {
-  "version": 1,
-  "huom": "Määrät ovat suurpiirteisiä ja ravintotiedot arvioita per annos. Kauraa sisältävät reseptit: käytä gluteenitonta kauraa jos tarpeen.",
-  "recipes": [
-
-    {"id":"mustikka-tuorepuuro","name":"Mustikkatuorepuuro","categories":["aamupala"],"tags":["gluteeniton"],"huom":"Gluteeniton, kun käytät gluteenitonta kaurahiutaletta.","prepMinutes":5,"servings":1,"kcal":430,"protein":21,
-     "ingredients":[{"name":"Kaurahiutaleita","qty":1.5,"unit":"dl"},{"name":"Maitoa","qty":1.5,"unit":"dl"},{"name":"Pähkinärouhetta","qty":1,"unit":"rkl"},{"name":"Chiansiemeniä","qty":2,"unit":"tl"},{"name":"Kardemummaa","qty":1,"unit":"tl","pantry":true},{"name":"Vaniljauutetta","qty":1,"unit":"tl","pantry":true},{"name":"Luonnonjogurttia","qty":1,"unit":"prk (150–200 g)"},{"name":"Mustikoita","qty":1,"unit":"dl"}],
-     "steps":["Sekoita kaikki ainekset kulhossa ja peitä.","Anna tekeytyä jääkaapissa yön yli. Mausta lisää oman maun mukaan."]},
-
-    {"id":"vadelma-tuorepuuro","name":"Vadelmatuorepuuro","categories":["aamupala"],"tags":["gluteeniton"],"huom":"Gluteeniton, kun käytät gluteenitonta kaurahiutaletta.","prepMinutes":5,"servings":1,"kcal":450,"protein":30,
-     "ingredients":[{"name":"Kaurahiutaleita","qty":1.5,"unit":"dl"},{"name":"Pähkinärouhetta","qty":1,"unit":"rkl"},{"name":"Chiansiemeniä","qty":1,"unit":"rkl"},{"name":"Kardemummaa","qty":1,"unit":"tl","pantry":true},{"name":"Vaniljauutetta","qty":1,"unit":"tl","pantry":true},{"name":"Vadelmaproteiinirahkaa","qty":1,"unit":"prk (200–250 g)"},{"name":"Maitoa","qty":1.5,"unit":"dl"},{"name":"Vadelmia","qty":1,"unit":"dl"}],
-     "steps":["Sekoita ainekset ja peitä kelmulla.","Anna tekeytyä jääkaapissa yön yli."]},
-
-    {"id":"kaurapuuro-raejuustolla","name":"Kaurapuuro raejuustolla ja marjoilla","categories":["aamupala"],"tags":["gluteeniton"],"huom":"Gluteeniton, kun käytät gluteenitonta kaurahiutaletta.","prepMinutes":12,"servings":1,"kcal":330,"protein":19,
-     "ingredients":[{"name":"Kaurahiutaleita","qty":1,"unit":"dl"},{"name":"Vettä","qty":2.5,"unit":"dl","pantry":true},{"name":"Suolaa","qty":null,"unit":"","pantry":true},{"name":"Marjoja","qty":1,"unit":"dl"},{"name":"Raejuustoa","qty":100,"unit":"g"}],
-     "steps":["Keitä puuroa hämmentämättä noin 10 min matalalla lämmöllä.","Lisää marjat päälle ja raejuusto proteiinilähteeksi."]},
-
-    {"id":"pekonia-ja-munia","name":"Pekonia & munia","categories":["aamupala"],"tags":["gluteeniton","maidoton","vhh"],"prepMinutes":10,"servings":1,"kcal":350,"protein":30,
-     "ingredients":[{"name":"Kalkkunapekonia (esim. 4,5 % rasvaa)","qty":4,"unit":"siivua"},{"name":"Kananmunia","qty":3,"unit":"kpl"},{"name":"Kasviksia ja hedelmiä aterialle","qty":null,"unit":""}],
-     "steps":["Paista pekonit ja munat pannulla.","Lisää kasviksia ja hedelmiä aterialle. Testaa Herbamarea mausteeksi!"]},
-
-    {"id":"pekoni-muna-toast","name":"Pekoni-kananmunatoast","categories":["aamupala"],"tags":[],"prepMinutes":10,"servings":1,"kcal":450,"protein":26,
-     "ingredients":[{"name":"Paahtoleipää","qty":2,"unit":"viipaletta"},{"name":"Kalkkunapekonia","qty":2,"unit":"siivua"},{"name":"Kananmunia","qty":2,"unit":"kpl"},{"name":"Salaattia, tomaattia, kevätsipulia ja suolakurkkua","qty":null,"unit":""}],
-     "steps":["Paista pekoni ja munat.","Paahda leivät ja kasaa ainekset päälle."]},
-
-    {"id":"kananmunaleivat","name":"Kananmunaleivät","categories":["aamupala","iltapala"],"tags":["maidoton"],"prepMinutes":10,"servings":1,"kcal":400,"protein":22,
-     "ingredients":[{"name":"Ruisleipää","qty":2,"unit":"viipaletta"},{"name":"Kananmunia","qty":3,"unit":"kpl"},{"name":"Tomaattia","qty":1,"unit":"kpl"},{"name":"Kevätsipulia","qty":null,"unit":""}],
-     "steps":["Paista kananmunat pannulla.","Voitele leivät kevyesti ja kasaa ainekset päälle."]},
-
-    {"id":"kaura-marjapiirakka","name":"Kaura-marjapiirakka","categories":["aamupala"],"tags":["gluteeniton"],"huom":"Iso satsi: 6–8 annosta, säilyy hyvin useamman päivän. Gluteeniton gluteenittomalla kauralla.","prepMinutes":55,"servings":6,"kcal":380,"protein":28,
-     "ingredients":[{"name":"Kananmunia","qty":9,"unit":"kpl"},{"name":"Kananmunan valkuaisia","qty":6,"unit":"kpl"},{"name":"Raejuustoa","qty":400,"unit":"g"},{"name":"Kaurahiutaleita","qty":300,"unit":"g"},{"name":"Leivinjauhetta","qty":1,"unit":"tl","pantry":true},{"name":"Pöytämakeuttajaa","qty":2,"unit":"tl","pantry":true},{"name":"Vaniljajauhetta tai kanelia","qty":2,"unit":"tl","pantry":true},{"name":"Pakastevadelmia","qty":1,"unit":"pss"}],
-     "steps":["Vatkaa munat, makeuttaja, leivinjauhe ja mausteet vaahdoksi.","Lisää kaurahiutaleet ja raejuusto, sekoita kunnolla.","Kaada taikina leivinpaperoituun vuokaan 3–4 cm kerrokseksi, painele vadelmat pintaan.","Paista 160 °C (kiertoilma) / 180 °C noin 40 min."]},
-
-    {"id":"kauraletut","name":"Kauraletut","categories":["aamupala"],"tags":["gluteeniton"],"huom":"Gluteeniton gluteenittomalla kauralla.","prepMinutes":45,"servings":2,"kcal":380,"protein":16,
-     "ingredients":[{"name":"Banaani","qty":1,"unit":"kpl"},{"name":"Kananmunia","qty":2,"unit":"kpl"},{"name":"Maitoa","qty":3,"unit":"dl"},{"name":"Kaurahiutaleita","qty":3,"unit":"dl"},{"name":"Suolaa","qty":null,"unit":"","pantry":true},{"name":"Leivinjauhetta","qty":0.5,"unit":"tl","pantry":true},{"name":"Marjoja tarjoiluun","qty":1,"unit":"dl"}],
-     "steps":["Sekoita ainekset blenderillä tai sauvasekoittimella ja anna turvota 30 min.","Paista isoina lettuina kullanruskeiksi. Tarjoile marjojen kanssa."]},
-
-    {"id":"banaaniletut","name":"Banaaniletut","categories":["aamupala"],"tags":["gluteeniton","maidoton"],"prepMinutes":15,"servings":1,"kcal":260,"protein":14,
-     "ingredients":[{"name":"Banaani","qty":1,"unit":"kpl"},{"name":"Kananmunia","qty":2,"unit":"kpl"},{"name":"Leivinjauhetta","qty":0.5,"unit":"tl","pantry":true},{"name":"Marjoja tarjoiluun","qty":1,"unit":"dl"}],
-     "steps":["Sekoita ainekset tasaiseksi blenderillä tai sauvasekoittimella.","Paista pieninä lettuina kullanruskeiksi ja tarjoile marjojen kanssa."]},
-
-    {"id":"vhh-tortillaletut","name":"VHH-tortillaletut pavuilla","categories":["aamupala"],"tags":["gluteeniton","vhh"],"huom":"Isompi satsi, 4 annosta.","prepMinutes":35,"servings":4,"kcal":430,"protein":21,
-     "ingredients":[{"name":"Kananmunia","qty":6,"unit":"kpl"},{"name":"Ranskankermaa 28 %","qty":1,"unit":"prk (200 g)"},{"name":"Mantelijauhoa","qty":0.75,"unit":"dl"},{"name":"Psylliumjauhetta","qty":1.5,"unit":"rkl"},{"name":"Mustapapuja","qty":0.5,"unit":"prk"},{"name":"Kirsikkatomaatteja","qty":1,"unit":"rasia"},{"name":"Punasipuli","qty":1,"unit":"kpl"},{"name":"Avokado","qty":1,"unit":"kpl"},{"name":"Suolaa, pippuria ja Worcester-kastiketta","qty":null,"unit":"","pantry":true}],
-     "steps":["Sekoita 2 munaa, ranskankerma ja kuivat aineet löysäksi taikinaksi. Levitä pellille ja paista 200 °C noin 15 min.","Lämmitä ja muussaa mausteilla maustetut pavut.","Tee salsa tomaateista ja sipulista. Paista loput munat.","Kasaa lettujen päälle pavut, muna, salsa ja avokadoviipaleet."]},
-
-    {"id":"mustikkasmoothie","name":"Mustikka-proteiinismoothie","categories":["aamupala","valipala"],"tags":["gluteeniton"],"prepMinutes":5,"servings":1,"kcal":350,"protein":40,
-     "ingredients":[{"name":"Mustikoita","qty":1,"unit":"dl"},{"name":"Kreikkalaista jogurttia","qty":200,"unit":"g"},{"name":"Raejuustoa","qty":70,"unit":"g"},{"name":"Proteiinijauhetta","qty":30,"unit":"g"}],
-     "steps":["Sekoita kaikki ainekset tehosekoittimessa tasaiseksi ja kaada lasiin."]},
-
-    {"id":"chiavanukas-marjoilla","name":"Chiavanukas marjoilla","categories":["aamupala","iltapala"],"tags":["gluteeniton","vhh"],"huom":"Tekeytyy jääkaapissa, tee edellisenä iltana.","prepMinutes":10,"servings":1,"kcal":280,"protein":14,
-     "ingredients":[{"name":"Maustamatonta jogurttia","qty":2,"unit":"dl"},{"name":"Chiansiemeniä","qty":2,"unit":"rkl"},{"name":"Soseutettuja marjoja","qty":1,"unit":"dl"},{"name":"Makeutusainetta","qty":1,"unit":"tl","pantry":true}],
-     "steps":["Sekoita jogurttiin chiansiemenet ja makeutus. Soseuta marjat ja sekoita joukkoon.","Peitä ja hyydytä jääkaapissa vähintään 3 tuntia, mieluiten yön yli."]},
-
-    {"id":"appelsiini-chiavanukas","name":"Appelsiini-chiavanukas","categories":["aamupala","iltapala"],"tags":["gluteeniton"],"huom":"Tekeytyy jääkaapissa, tee edellisenä iltana.","prepMinutes":10,"servings":2,"kcal":260,"protein":12,
-     "ingredients":[{"name":"Chiansiemeniä","qty":3,"unit":"rkl"},{"name":"Kookosmaitoa tai mantelijuomaa","qty":1,"unit":"dl"},{"name":"Kreikkalaista jogurttia","qty":2,"unit":"dl"},{"name":"Appelsiini (mehu + kuori)","qty":1,"unit":"kpl"},{"name":"Hunajaa tai muuta makeutta","qty":2,"unit":"tl","pantry":true},{"name":"Pähkinöitä tai manteleita","qty":1,"unit":"rkl"}],
-     "steps":["Sekoita nesteet, jogurtti, chiansiemenet, makeutus ja appelsiininkuori.","Lusikoi purkkeihin, peitä ja anna hyytyä jääkaapissa yön yli.","Ripottele pähkinät päälle."]},
-
-    {"id":"raejuusto-jogurttibowl","name":"Raejuusto-jogurttibowl","categories":["aamupala","iltapala"],"tags":["gluteeniton"],"prepMinutes":5,"servings":1,"kcal":330,"protein":30,
-     "ingredients":[{"name":"Kreikkalaista maustamatonta jogurttia","qty":150,"unit":"g"},{"name":"Raejuustoa","qty":100,"unit":"g"},{"name":"Appelsiini","qty":1,"unit":"kpl"},{"name":"Vadelmia","qty":0.5,"unit":"dl"},{"name":"Rouhittuja pähkinöitä","qty":1,"unit":"rkl"},{"name":"Hunajaa tai steviaa","qty":null,"unit":"","pantry":true}],
-     "steps":["Sekoita jogurtti ja raejuusto kulhossa.","Lisää appelsiinilohkot, vadelmat, pähkinät ja halutessasi makeutta."]},
-
-    {"id":"texmex-salaatti","name":"Texmex-salaatti","categories":["lounas","paivallinen"],"tags":["gluteeniton","vhh"],"prepMinutes":25,"servings":3,"kcal":520,"protein":32,
-     "ingredients":[{"name":"Jauhelihaa","qty":400,"unit":"g"},{"name":"Rapeaa salaattia","qty":1,"unit":"kerä"},{"name":"Kirsikkatomaatteja","qty":1,"unit":"rasia"},{"name":"Punasipuli","qty":1,"unit":"kpl"},{"name":"Kurkku","qty":1,"unit":"kpl"},{"name":"Avokado","qty":1,"unit":"kpl"},{"name":"Ranskankermaa","qty":100,"unit":"g"},{"name":"Sitruunamehua","qty":1,"unit":"rkl","pantry":true},{"name":"Paprikamauste, valkosipuli, oregano, cayenne","qty":null,"unit":"","pantry":true},{"name":"Juustoraastetta tai fetaa (extra)","qty":2,"unit":"rkl"}],
-     "steps":["Revi salaatti, lohko tomaatit, kuutioi kurkku ja viipaloi sipuli.","Soseuta avokadokastike: avokado, ranskankerma, sitruunamehu ja valkosipuli.","Ruskista jauheliha mausteiden kanssa.","Annostele salaatin päälle jauheliha, kastike ja juustoraaste."]},
-
-    {"id":"ketoburgeri","name":"Ketoburgeri","categories":["lounas","paivallinen"],"tags":["gluteeniton","vhh"],"prepMinutes":25,"servings":4,"kcal":430,"protein":30,
-     "ingredients":[{"name":"Jauhelihaa","qty":400,"unit":"g"},{"name":"Mozzarellapallo","qty":1,"unit":"kpl"},{"name":"Tomaatteja","qty":2,"unit":"kpl"},{"name":"Maustekurkku","qty":1,"unit":"kpl"},{"name":"Punasipuli","qty":1,"unit":"kpl"},{"name":"Jogurttia tai ranskankermaa","qty":4,"unit":"rkl"},{"name":"Ketsuppia","qty":4,"unit":"tl","pantry":true},{"name":"Suola, pippuri, paprikamauste","qty":null,"unit":"","pantry":true}],
-     "steps":["Viipaloi tomaatti, maustekurkku ja sipuli. Leikkaa mozzarella neljään osaan.","Mausta jauheliha, muotoile neljä pihviä ja paista n. 6 min per puoli.","Sulata mozzarella pihvien päälle lopussa ja kokoa burgerit ilman sämpylää."]},
-
-    {"id":"pekoni-kaalisalaatti","name":"Pekoni-kaalisalaatti","categories":["lounas","paivallinen"],"tags":["gluteeniton","vhh"],"prepMinutes":25,"servings":4,"kcal":380,"protein":22,
-     "ingredients":[{"name":"Pekonia","qty":8,"unit":"siivua"},{"name":"Pieni kukkakaali","qty":1,"unit":"kpl"},{"name":"Pieni parsakaali","qty":1,"unit":"kpl"},{"name":"Sellerin vartta","qty":2,"unit":"kpl"},{"name":"Punasipuli","qty":1,"unit":"kpl"},{"name":"Porkkanoita","qty":2,"unit":"kpl"},{"name":"Salaattijuustoa tai raejuustoa","qty":200,"unit":"g"},{"name":"Majoneesia tai jogurttia kastikkeeseen","qty":1,"unit":"dl"},{"name":"Sitruunamehu, makeutus, suola, pippuri","qty":null,"unit":"","pantry":true}],
-     "steps":["Paista pekoni rapeaksi ja paloittele.","Paloittele kaalit kukinnoiksi, leikkaa selleri ja sipuli, raasta porkkanat.","Sekoita kastike ja yhdistä kaikki ainekset."]},
-
-    {"id":"purjo-pekonifritatta","name":"Purjo-pekonifritatta","categories":["lounas","paivallinen"],"tags":["gluteeniton","vhh"],"prepMinutes":40,"servings":4,"kcal":350,"protein":24,
-     "ingredients":[{"name":"Kananmunia","qty":6,"unit":"kpl"},{"name":"Kermaa tai maitoa","qty":2,"unit":"rkl"},{"name":"Juustoraastetta","qty":1.5,"unit":"dl"},{"name":"Herkkusieniä","qty":150,"unit":"g"},{"name":"Pekonia tai kinkkua","qty":6,"unit":"siivua"},{"name":"Purjoa","qty":1,"unit":"dl silppua"},{"name":"Pinaattia (valinnainen)","qty":40,"unit":"g"},{"name":"Suolaa ja pippuria","qty":null,"unit":"","pantry":true}],
-     "steps":["Vatkaa munat, lisää kerma ja puolet juustosta.","Paista pekonit, sienet ja purjo pannulla.","Yhdistä täyte munaseokseen, kaada vuokaan ja ripottele loppu juusto päälle.","Paista 200 °C 20–25 min."]},
-
-    {"id":"nakkimunakas","name":"Nakkimunakas","categories":["lounas","paivallinen"],"tags":["gluteeniton"],"prepMinutes":20,"servings":2,"kcal":380,"protein":34,
-     "ingredients":[{"name":"Kalkkunanakkeja (5 %)","qty":5,"unit":"kpl"},{"name":"Kananmunia","qty":4,"unit":"kpl"},{"name":"Kananmunan valkuaisia","qty":4,"unit":"kpl"},{"name":"Sipuli","qty":1,"unit":"kpl"},{"name":"Maitoa","qty":0.5,"unit":"dl"},{"name":"Kirsikkatomaatteja","qty":0.5,"unit":"rasiaa"},{"name":"Suolaa","qty":null,"unit":"","pantry":true}],
-     "steps":["Pilko ja ruskista nakit ja sipuli pannulla.","Sekoita munat ja maito, kaada pannulle ja levitä tomaattiviipaleet pinnalle.","Hauduta kannen alla miedolla lämmöllä, kunnes pinta on hyytynyt."]},
-
-    {"id":"tortillapitsa","name":"Tortillapitsa","categories":["lounas","paivallinen","iltapala"],"tags":[],"prepMinutes":15,"servings":1,"kcal":420,"protein":28,
-     "ingredients":[{"name":"Tortillalättyjä","qty":1,"unit":"kpl"},{"name":"Ketsuppia","qty":null,"unit":"","pantry":true},{"name":"Kinkkua","qty":50,"unit":"g"},{"name":"Tonnikalaa","qty":0.5,"unit":"prk"},{"name":"Juustoraastetta","qty":0.5,"unit":"dl"},{"name":"Kirsikkatomaatteja","qty":5,"unit":"kpl"}],
-     "steps":["Levitä ketsuppi tortillan päälle ja lisää täytteet vapaasti.","Lisää tomaatit ja juusto, paista 200 °C n. 10 min kunnes juusto ruskistuu."]},
-
-    {"id":"kalkkunawrapit","name":"Kalkkuna-salaattiwrapit","categories":["lounas","paivallinen","iltapala"],"tags":["gluteeniton","maidoton","vhh"],"prepMinutes":15,"servings":1,"kcal":300,"protein":25,
-     "ingredients":[{"name":"Jäävuorisalaatin lehtiä","qty":3,"unit":"kpl"},{"name":"Kalkkunaleikettä","qty":4,"unit":"siivua"},{"name":"Pekonia","qty":2,"unit":"siivua"},{"name":"Tomaattia","qty":4,"unit":"siivua"},{"name":"Majoneesia","qty":1,"unit":"rkl"},{"name":"Sinappia","qty":0.5,"unit":"tl","pantry":true},{"name":"Mustapippuria","qty":null,"unit":"","pantry":true}],
-     "steps":["Paahda pekoni rapeaksi.","Levitä salaatinlehdille majoneesi-sinappiseos ja kasaa täytteet.","Kääri tiukoiksi wrapeiksi."]},
-
-    {"id":"juusto-tonnikalakolmiot","name":"Juusto-tonnikalakolmiot","categories":["lounas","iltapala"],"tags":["gluteeniton","vhh"],"prepMinutes":25,"servings":2,"kcal":330,"protein":28,
-     "ingredients":[{"name":"Paksuja juustoviipaleita","qty":6,"unit":"kpl"},{"name":"Tonnikalaa vedessä","qty":1,"unit":"prk"},{"name":"Ranskankermaa","qty":3,"unit":"rkl"},{"name":"Purjoa tai kevätsipulia silputtuna","qty":3,"unit":"rkl"},{"name":"Paprika","qty":0.5,"unit":"kpl"},{"name":"Suolaa ja sitruunapippuria","qty":null,"unit":"","pantry":true}],
-     "steps":["Levitä juustoviipaleet leivinpaperille ja sulata uunissa 200 °C 2–3 min.","Sekoita täyte: tonnikala, ranskankerma, sipuli, paprika ja mausteet.","Lisää täyte viipaleille, taita kolmioiksi ja paista 8–10 min kunnes saavat väriä."]},
-
-    {"id":"lohikeitto","name":"Lohikeitto","categories":["lounas","paivallinen"],"tags":["gluteeniton"],"prepMinutes":30,"servings":4,"kcal":380,"protein":25,
-     "ingredients":[{"name":"Lohta","qty":300,"unit":"g"},{"name":"Perunoita","qty":500,"unit":"g"},{"name":"Porkkanoita","qty":2,"unit":"kpl"},{"name":"Kevytmaitoa","qty":5,"unit":"dl"},{"name":"Sipuli","qty":1,"unit":"kpl"},{"name":"Tilliä","qty":null,"unit":""},{"name":"Kalaliemikuutio, suola, pippuri","qty":null,"unit":"","pantry":true}],
-     "steps":["Keitä paloitellut perunat, porkkanat ja sipuli liemessä lähes kypsiksi.","Lisää maito ja lohikuutiot, kypsennä n. 5 min.","Mausta tillillä, suolalla ja pippurilla."]},
-
-    {"id":"kanapelti","name":"Kanapelti uunissa","categories":["lounas","paivallinen"],"tags":["gluteeniton","maidoton","vhh"],"prepMinutes":45,"servings":4,"kcal":400,"protein":35,
-     "ingredients":[{"name":"Broilerin fileitä tai suikaleita","qty":600,"unit":"g"},{"name":"Kasviksia (esim. paprika, kesäkurpitsa, sipuli)","qty":500,"unit":"g"},{"name":"Öljyä","qty":2,"unit":"rkl","pantry":true},{"name":"Mausteita (paprika, valkosipuli, yrtit)","qty":null,"unit":"","pantry":true}],
-     "steps":["Levitä kana ja lohkotut kasvikset pellille, valuta öljy ja mausta reilusti.","Paista 200 °C noin 35 min."]},
-
-    {"id":"kasvispasta-linsseilla","name":"Kasvispasta ja linssit","categories":["lounas","paivallinen"],"tags":["maidoton"],"huom":"Gluteeniton, jos käytät gluteenitonta pastaa.","prepMinutes":25,"servings":4,"kcal":450,"protein":22,
-     "ingredients":[{"name":"Pastaa","qty":300,"unit":"g"},{"name":"Tomaattikastiketta","qty":1,"unit":"prk"},{"name":"Punaisia linssejä","qty":1,"unit":"dl"},{"name":"Sipuli","qty":1,"unit":"kpl"},{"name":"Raejuustoa tarjoiluun","qty":200,"unit":"g"},{"name":"Suola, pippuri, oregano","qty":null,"unit":"","pantry":true}],
-     "steps":["Keitä pasta. Keitä linssit tomaattikastikkeessa sipulin kanssa n. 10 min.","Yhdistä ja tarjoile raejuuston kanssa."]},
-
-    {"id":"makaronilaatikko","name":"Makaronilaatikko","categories":["lounas","paivallinen"],"tags":["gluteeniton"],"huom":"Gluteeniton gluteenittomalla makaronilla.","prepMinutes":60,"servings":4,"kcal":480,"protein":30,
-     "ingredients":[{"name":"Makaronia (gluteeniton käy)","qty":300,"unit":"g"},{"name":"Jauhelihaa","qty":400,"unit":"g"},{"name":"Kananmunia","qty":3,"unit":"kpl"},{"name":"Maitoa","qty":5,"unit":"dl"},{"name":"Sipuli","qty":1,"unit":"kpl"},{"name":"Suola, pippuri","qty":null,"unit":"","pantry":true}],
-     "steps":["Keitä makaroni ja ruskista jauheliha sipulin kanssa.","Yhdistä vuokaan, kaada päälle muna-maitoseos.","Paista 180 °C noin 40 min."]},
-
-    {"id":"kanakastike-ja-peruna","name":"Kanakastike ja perunat","categories":["lounas","paivallinen"],"tags":["gluteeniton"],"prepMinutes":30,"servings":4,"kcal":450,"protein":30,
-     "ingredients":[{"name":"Broilerin suikaleita","qty":400,"unit":"g"},{"name":"Kevytkermaa tai ruokakermaa","qty":2,"unit":"dl"},{"name":"Sipuli","qty":1,"unit":"kpl"},{"name":"Perunoita","qty":600,"unit":"g"},{"name":"Suola, pippuri, paprikamauste","qty":null,"unit":"","pantry":true}],
-     "steps":["Keitä perunat.","Paista kana ja sipuli, lisää kerma ja hauduta 10 min.","Mausta ja tarjoile perunoiden kanssa."]},
-
-    {"id":"kasvis-fetavuoka","name":"Kasvis-fetavuoka","categories":["lounas","paivallinen"],"tags":["gluteeniton"],"prepMinutes":40,"servings":4,"kcal":380,"protein":20,
-     "ingredients":[{"name":"Kasviksia (esim. kesäkurpitsa, paprika, tomaatti)","qty":500,"unit":"g"},{"name":"Fetaa","qty":200,"unit":"g"},{"name":"Keitettyjä linssejä","qty":1,"unit":"dl"},{"name":"Öljyä ja yrttejä","qty":null,"unit":"","pantry":true}],
-     "steps":["Lohko kasvikset vuokaan, lisää linssit ja murustele feta päälle.","Valuta öljy, mausta ja paista 200 °C noin 30 min."]},
-
-    {"id":"kanawokki-ja-riisi","name":"Kanawokki ja riisi","categories":["lounas","paivallinen"],"tags":["gluteeniton","maidoton"],"huom":"Käytä gluteenitonta soijakastiketta.","prepMinutes":25,"servings":4,"kcal":450,"protein":32,
-     "ingredients":[{"name":"Broilerin suikaleita","qty":400,"unit":"g"},{"name":"Wokkivihanneksia","qty":300,"unit":"g"},{"name":"Riisiä","qty":2,"unit":"dl"},{"name":"Gluteenitonta soijakastiketta","qty":2,"unit":"rkl","pantry":true}],
-     "steps":["Keitä riisi.","Paista kana wokkipannulla, lisää vihannekset ja soija.","Wokkaa kunnes kasvikset ovat napakan kypsiä."]},
-
-    {"id":"uuniperunat-taytteella","name":"Uuniperunat ja täyte","categories":["lounas","paivallinen"],"tags":["gluteeniton"],"prepMinutes":65,"servings":4,"kcal":380,"protein":28,
-     "ingredients":[{"name":"Isoja perunoita","qty":4,"unit":"kpl"},{"name":"Raejuustoa","qty":200,"unit":"g"},{"name":"Tonnikalaa tai kypsää kanaa","qty":1,"unit":"prk / 200 g"},{"name":"Kevätsipulia","qty":null,"unit":""},{"name":"Suola, pippuri","qty":null,"unit":"","pantry":true}],
-     "steps":["Paista perunat uunissa 200 °C noin 60 min.","Halkaise ja täytä raejuusto-tonnikalatäytteellä."]},
-
-    {"id":"bataatti-linssikeitto","name":"Bataatti-linssikeitto","categories":["lounas","paivallinen"],"tags":["gluteeniton","maidoton"],"huom":"Raejuusto tarjoiluun ei ole maidoton — jätä pois tarvittaessa.","prepMinutes":30,"servings":4,"kcal":350,"protein":18,
-     "ingredients":[{"name":"Bataatti","qty":1,"unit":"iso"},{"name":"Punaisia linssejä","qty":1,"unit":"dl"},{"name":"Kevytkookosmaitoa","qty":4,"unit":"dl"},{"name":"Sipuli","qty":1,"unit":"kpl"},{"name":"Vettä tai kasvislientä","qty":5,"unit":"dl","pantry":true},{"name":"Raejuustoa tarjoiluun","qty":200,"unit":"g"},{"name":"Currya, suolaa","qty":null,"unit":"","pantry":true}],
-     "steps":["Kuutioi bataatti ja sipuli, keitä linssien kanssa liemessä pehmeäksi.","Lisää kookosmaito ja soseuta.","Tarjoile raejuustonokareen kanssa."]},
-
-    {"id":"linssikeitto","name":"Linssikeitto","categories":["lounas","paivallinen"],"tags":["gluteeniton","maidoton"],"huom":"Raejuusto tarjoiluun ei ole maidoton — jätä pois tarvittaessa.","prepMinutes":30,"servings":4,"kcal":340,"protein":25,
-     "ingredients":[{"name":"Punaisia linssejä","qty":2,"unit":"dl"},{"name":"Tomaattimurskaa","qty":1,"unit":"prk"},{"name":"Sipuli","qty":1,"unit":"kpl"},{"name":"Porkkanoita","qty":2,"unit":"kpl"},{"name":"Vettä","qty":1,"unit":"l","pantry":true},{"name":"Raejuustoa tarjoiluun","qty":150,"unit":"g"},{"name":"Kasvisliemikuutio, kumina","qty":null,"unit":"","pantry":true}],
-     "steps":["Pilko kasvikset ja keitä kaikkia yhdessä noin 20 min.","Tarjoile raejuuston kanssa."]},
-
-    {"id":"jauheliha-kasvispannu","name":"Jauheliha-kasvispannu","categories":["lounas","paivallinen"],"tags":["gluteeniton","vhh"],"prepMinutes":25,"servings":4,"kcal":400,"protein":32,
-     "ingredients":[{"name":"Naudan jauhelihaa","qty":400,"unit":"g"},{"name":"Kasviksia (pakastesekoitus käy)","qty":400,"unit":"g"},{"name":"Tomaattimurskaa","qty":1,"unit":"prk"},{"name":"Raejuustoa tarjoiluun","qty":100,"unit":"g"},{"name":"Suola, pippuri, paprikamauste","qty":null,"unit":"","pantry":true}],
-     "steps":["Ruskista jauheliha, lisää kasvikset ja tomaattimurska.","Hauduta 15 min ja tarjoile raejuuston kanssa."]},
-
-    {"id":"uunimunakas","name":"Uunimunakas","categories":["lounas","paivallinen","iltapala"],"tags":["gluteeniton","vhh"],"prepMinutes":35,"servings":4,"kcal":320,"protein":28,
-     "ingredients":[{"name":"Kananmunia","qty":6,"unit":"kpl"},{"name":"Maitoa","qty":2,"unit":"dl"},{"name":"Raejuustoa","qty":200,"unit":"g"},{"name":"Kasviksia","qty":300,"unit":"g"},{"name":"Suola, pippuri","qty":null,"unit":"","pantry":true}],
-     "steps":["Sekoita kaikki ainekset ja kaada voideltuun vuokaan.","Paista 180 °C 25–30 min."]},
-
-    {"id":"uunilohi-ja-kasvikset","name":"Uunilohi ja kasvikset","categories":["lounas","paivallinen"],"tags":["gluteeniton","maidoton","vhh"],"prepMinutes":30,"servings":4,"kcal":420,"protein":33,
-     "ingredients":[{"name":"Lohifilee","qty":500,"unit":"g"},{"name":"Uunikasviksia (esim. parsakaali, paprika, sipuli)","qty":600,"unit":"g"},{"name":"Sitruuna","qty":1,"unit":"kpl"},{"name":"Öljyä, suolaa, sitruunapippuria","qty":null,"unit":"","pantry":true}],
-     "steps":["Nosta lohi ja lohkotut kasvikset pellille, öljyä ja mausta.","Paista 200 °C noin 20–25 min. Viimeistele sitruunalla."]},
-
-    {"id":"broileri-pastasalaatti","name":"Broileri-pastasalaatti","categories":["lounas","paivallinen"],"tags":[],"huom":"Gluteeniton gluteenittomalla pastalla. Hyvä kylmänä eväänä.","prepMinutes":25,"servings":3,"kcal":450,"protein":32,
-     "ingredients":[{"name":"Pastaa","qty":200,"unit":"g"},{"name":"Broilerin suikaleita","qty":400,"unit":"g"},{"name":"Kurkku","qty":1,"unit":"kpl"},{"name":"Paprika","qty":1,"unit":"kpl"},{"name":"Kirsikkatomaatteja","qty":0.5,"unit":"rasiaa"},{"name":"Maustamatonta jogurttia kastikkeeseen","qty":1.5,"unit":"dl"},{"name":"Sitruunamehu, yrtit, suola","qty":null,"unit":"","pantry":true}],
-     "steps":["Keitä pasta ja paista broileri.","Pilko kasvikset ja sekoita jogurttikastike.","Yhdistä kaikki — maistuu myös kylmänä seuraavana päivänä."]},
-
-    {"id":"tonnikalapasta","name":"Tonnikalapasta","categories":["lounas","paivallinen"],"tags":["maidoton"],"huom":"Gluteeniton gluteenittomalla pastalla.","prepMinutes":20,"servings":4,"kcal":430,"protein":26,
-     "ingredients":[{"name":"Pastaa","qty":300,"unit":"g"},{"name":"Tonnikalaa","qty":2,"unit":"prk"},{"name":"Tomaattimurskaa","qty":1,"unit":"prk"},{"name":"Sipuli","qty":1,"unit":"kpl"},{"name":"Valkosipulinkynsiä","qty":2,"unit":"kpl"},{"name":"Öljy, oregano, chilihiutaleet","qty":null,"unit":"","pantry":true}],
-     "steps":["Keitä pasta. Kuullota sipulit, lisää tomaattimurska ja mausteet.","Lisää valutettu tonnikala ja yhdistä pastaan."]},
-
-    {"id":"jauhelihakeitto","name":"Jauhelihakeitto","categories":["lounas","paivallinen"],"tags":["gluteeniton","maidoton"],"prepMinutes":35,"servings":4,"kcal":380,"protein":26,
-     "ingredients":[{"name":"Jauhelihaa","qty":400,"unit":"g"},{"name":"Perunoita","qty":500,"unit":"g"},{"name":"Porkkanoita","qty":2,"unit":"kpl"},{"name":"Sipuli","qty":1,"unit":"kpl"},{"name":"Lihaliemikuutioita","qty":2,"unit":"kpl","pantry":true},{"name":"Vettä","qty":1,"unit":"l","pantry":true}],
-     "steps":["Ruskista jauheliha kattilassa.","Lisää paloitellut kasvikset ja liemi, keitä n. 20 min kunnes perunat kypsyvät."]},
-
-    {"id":"chili-con-carne","name":"Chili con carne","categories":["lounas","paivallinen"],"tags":["gluteeniton","maidoton"],"huom":"Iso satsi — paranee toisena päivänä. Riisi lisukkeeksi.","prepMinutes":40,"servings":4,"kcal":480,"protein":32,
-     "ingredients":[{"name":"Jauhelihaa","qty":400,"unit":"g"},{"name":"Papuja (kidney tms.)","qty":2,"unit":"prk"},{"name":"Tomaattimurskaa","qty":2,"unit":"prk"},{"name":"Sipuli","qty":1,"unit":"kpl"},{"name":"Riisiä","qty":2,"unit":"dl"},{"name":"Chilimauste, kumina, valkosipuli","qty":null,"unit":"","pantry":true}],
-     "steps":["Ruskista jauheliha ja sipuli, lisää mausteet.","Lisää tomaattimurska ja huuhdellut pavut, hauduta 20–30 min.","Keitä riisi lisukkeeksi."]},
-
-    {"id":"broileri-riisivuoka","name":"Broileri-riisivuoka","categories":["lounas","paivallinen"],"tags":["gluteeniton"],"prepMinutes":50,"servings":4,"kcal":470,"protein":33,
-     "ingredients":[{"name":"Broilerin suikaleita","qty":500,"unit":"g"},{"name":"Riisiä","qty":2,"unit":"dl"},{"name":"Ruokakermaa","qty":2,"unit":"dl"},{"name":"Paprika","qty":1,"unit":"kpl"},{"name":"Vettä tai kanalientä","qty":3,"unit":"dl","pantry":true},{"name":"Currya, suolaa","qty":null,"unit":"","pantry":true}],
-     "steps":["Sekoita kaikki ainekset uunivuokaan.","Paista kannen tai folion alla 200 °C noin 40 min, kunnes riisi on kypsää."]},
-
-    {"id":"kinkkukiusaus","name":"Kevyt kinkkukiusaus","categories":["lounas","paivallinen"],"tags":["gluteeniton"],"prepMinutes":60,"servings":4,"kcal":430,"protein":22,
-     "ingredients":[{"name":"Perunoita","qty":700,"unit":"g"},{"name":"Kinkkusuikaleita","qty":250,"unit":"g"},{"name":"Sipuli","qty":1,"unit":"kpl"},{"name":"Ruokakermaa (kevyt)","qty":2,"unit":"dl"},{"name":"Maitoa","qty":2,"unit":"dl"},{"name":"Suola, pippuri","qty":null,"unit":"","pantry":true}],
-     "steps":["Viipaloi perunat ja sipuli ohuiksi, kerrosta kinkun kanssa vuokaan.","Kaada kerma-maitoseos päälle ja mausta.","Paista 200 °C noin 50 min."]},
-
-    {"id":"jauhelihakastike-pasta","name":"Jauhelihakastike ja pasta","categories":["lounas","paivallinen"],"tags":["maidoton"],"huom":"Gluteeniton gluteenittomalla pastalla.","prepMinutes":25,"servings":4,"kcal":470,"protein":30,
-     "ingredients":[{"name":"Jauhelihaa","qty":400,"unit":"g"},{"name":"Tomaattimurskaa","qty":2,"unit":"prk"},{"name":"Sipuli","qty":1,"unit":"kpl"},{"name":"Valkosipulinkynsiä","qty":2,"unit":"kpl"},{"name":"Pastaa","qty":300,"unit":"g"},{"name":"Oregano, basilika, suola","qty":null,"unit":"","pantry":true}],
-     "steps":["Ruskista jauheliha ja sipulit.","Lisää tomaattimurska ja mausteet, hauduta 15 min.","Keitä pasta ja yhdistä."]},
-
-    {"id":"rahka-marjoilla","name":"Maitorahka marjoilla","categories":["iltapala","valipala"],"tags":["gluteeniton","vhh"],"prepMinutes":3,"servings":1,"kcal":180,"protein":22,
-     "ingredients":[{"name":"Maitorahkaa","qty":1,"unit":"prk (200–250 g)"},{"name":"Marjoja","qty":1,"unit":"dl"},{"name":"Makeutusainetta","qty":null,"unit":"","pantry":true}],
-     "steps":["Sekoita marjat rahkaan ja makeuta halutessasi."]},
-
-    {"id":"raejuusto-hedelmalla","name":"Raejuusto ja hedelmä","categories":["iltapala","valipala"],"tags":["gluteeniton"],"prepMinutes":3,"servings":1,"kcal":200,"protein":20,
-     "ingredients":[{"name":"Raejuustoa","qty":150,"unit":"g"},{"name":"Hedelmä (omena, banaani tms.)","qty":1,"unit":"kpl"}],
-     "steps":["Paloittele hedelmä raejuuston sekaan tai syö sellaisenaan."]},
-
-    {"id":"keitetyt-munat-nakkarilla","name":"Keitetyt munat ja näkkäri","categories":["iltapala","valipala"],"tags":["maidoton"],"huom":"Gluteeniton gluteenittomalla näkkärillä.","prepMinutes":12,"servings":1,"kcal":220,"protein":16,
-     "ingredients":[{"name":"Kananmunia","qty":2,"unit":"kpl"},{"name":"Näkkileipää","qty":2,"unit":"kpl"}],
-     "steps":["Keitä munat 8–10 min.","Tarjoile näkkileivän kanssa."]},
-
-    {"id":"proteiinismoothie","name":"Proteiinismoothie","categories":["iltapala","valipala"],"tags":["gluteeniton"],"prepMinutes":5,"servings":1,"kcal":250,"protein":27,
-     "ingredients":[{"name":"Maitoa","qty":2,"unit":"dl"},{"name":"Pakastemarjoja","qty":1,"unit":"dl"},{"name":"Proteiinijauhetta","qty":30,"unit":"g"}],
-     "steps":["Sekoita ainekset blenderissä tasaiseksi."]},
-
-    {"id":"jogurtti-siemenilla","name":"Jogurtti, siemenet ja pähkinät","categories":["iltapala","valipala"],"tags":["gluteeniton","vhh"],"prepMinutes":3,"servings":1,"kcal":280,"protein":16,
-     "ingredients":[{"name":"Maustamatonta jogurttia","qty":2,"unit":"dl"},{"name":"Siemeniä (esim. auringonkukka, chia)","qty":1,"unit":"rkl"},{"name":"Pähkinöitä","qty":1,"unit":"rkl"}],
-     "steps":["Ripottele siemenet ja pähkinät jogurtin päälle."]},
-
-    {"id":"lohileipa","name":"Lohileipä","categories":["iltapala"],"tags":["maidoton"],"prepMinutes":5,"servings":1,"kcal":260,"protein":15,
-     "ingredients":[{"name":"Ruisleipää","qty":1,"unit":"viipale"},{"name":"Kylmäsavulohta tai lohta","qty":50,"unit":"g"},{"name":"Avokado","qty":0.5,"unit":"kpl"},{"name":"Kevätsipulia ja paprikaa","qty":null,"unit":""}],
-     "steps":["Kasaa ainekset leivän päälle ja nauti."]},
-
-    {"id":"lampimat-leivat","name":"Lämpimät tonnikalaleivät","categories":["iltapala"],"tags":[],"prepMinutes":15,"servings":1,"kcal":320,"protein":25,
-     "ingredients":[{"name":"Ruisleipää","qty":2,"unit":"viipaletta"},{"name":"Tonnikalaa","qty":1,"unit":"prk"},{"name":"Kirsikkatomaatteja","qty":4,"unit":"kpl"},{"name":"Juustoviipaleita","qty":2,"unit":"kpl"},{"name":"Ketsuppia","qty":null,"unit":"","pantry":true}],
-     "steps":["Levitä ketsuppi leiville, lisää valutettu tonnikala, tomaatit ja juusto.","Paista 200 °C 10–15 min kunnes juusto ruskistuu."]},
-
-    {"id":"kinkku-munakupit","name":"Kinkku-munakupit","categories":["iltapala","aamupala"],"tags":["gluteeniton","vhh"],"prepMinutes":25,"servings":2,"kcal":260,"protein":24,
-     "ingredients":[{"name":"Kinkkuviipaleita","qty":6,"unit":"kpl"},{"name":"Kananmunia","qty":4,"unit":"kpl"},{"name":"Juustoraastetta","qty":4,"unit":"rkl"},{"name":"Tomaatti","qty":1,"unit":"kpl"},{"name":"Suolaa ja pippuria","qty":null,"unit":"","pantry":true}],
-     "steps":["Asettele kinkkuviipaleet muffinssipellin koloihin kupeiksi.","Ripottele juustoa ja riko muna jokaiseen kuppiin, mausta.","Paista 200 °C 15–20 min. Viimeistele tomaatilla ja yrteillä."]},
-
-    {"id":"porkkanamunakkaat","name":"Pikkuiset porkkanamunakkaat","categories":["iltapala","aamupala"],"tags":["gluteeniton","vhh"],"prepMinutes":15,"servings":1,"kcal":220,"protein":18,
-     "ingredients":[{"name":"Kananmunia","qty":2,"unit":"kpl"},{"name":"Pehmeää raejuustoa (Keso)","qty":50,"unit":"g"},{"name":"Porkkana","qty":1,"unit":"kpl"},{"name":"Kevätsipulia","qty":null,"unit":""},{"name":"Suolaa ja pippuria","qty":null,"unit":"","pantry":true}],
-     "steps":["Vatkaa munat ja sekoita joukkoon raejuusto, porkkanaraaste ja sipulisilppu.","Paista pieninä munakkaina miedolla lämmöllä, käännä varovasti."]},
-
-    {"id":"banaani-maapahkinavoi","name":"Banaani ja maapähkinävoi","categories":["valipala"],"tags":["gluteeniton","maidoton"],"prepMinutes":2,"servings":1,"kcal":250,"protein":7,
-     "ingredients":[{"name":"Banaani","qty":1,"unit":"kpl"},{"name":"Maapähkinävoita","qty":1,"unit":"rkl"}],
-     "steps":["Halkaise banaani ja levitä maapähkinävoi päälle."]},
-
-    {"id":"omena-pahkinat","name":"Omena ja pähkinät","categories":["valipala"],"tags":["gluteeniton","maidoton","vhh"],"prepMinutes":2,"servings":1,"kcal":230,"protein":6,
-     "ingredients":[{"name":"Omena","qty":1,"unit":"kpl"},{"name":"Pähkinöitä","qty":30,"unit":"g"}],
-     "steps":["Nauti sellaisenaan."]},
-
-    {"id":"ruisleipa-kalkkunalla","name":"Ruisleipä kalkkunaleikkeellä","categories":["valipala"],"tags":["maidoton"],"prepMinutes":3,"servings":1,"kcal":180,"protein":14,
-     "ingredients":[{"name":"Ruisleipää","qty":1,"unit":"viipale"},{"name":"Kalkkunaleikettä","qty":3,"unit":"siivua"},{"name":"Kurkkua","qty":null,"unit":""}],
-     "steps":["Kasaa leikkeleet ja kurkku leivän päälle."]},
-
-    {"id":"kasvistikut-hummus","name":"Kasvistikut ja hummus","categories":["valipala"],"tags":["gluteeniton","maidoton"],"prepMinutes":5,"servings":1,"kcal":180,"protein":7,
-     "ingredients":[{"name":"Porkkana","qty":1,"unit":"kpl"},{"name":"Kurkkua","qty":0.5,"unit":"kpl"},{"name":"Hummusta","qty":0.5,"unit":"prk"}],
-     "steps":["Leikkaa kasvikset tikuiksi ja dippaa hummukseen."]},
-
-    {"id":"keitetty-muna-hedelma","name":"Keitetty muna ja hedelmä","categories":["valipala"],"tags":["gluteeniton","maidoton"],"prepMinutes":10,"servings":1,"kcal":160,"protein":9,
-     "ingredients":[{"name":"Kananmuna","qty":1,"unit":"kpl"},{"name":"Hedelmä","qty":1,"unit":"kpl"}],
-     "steps":["Keitä muna 8–10 min ja nauti hedelmän kanssa."]},
-
-    {"id":"proteiinijuoma","name":"Proteiinijuoma tai -rahkajuoma","categories":["valipala"],"tags":["gluteeniton"],"prepMinutes":1,"servings":1,"kcal":150,"protein":25,
-     "ingredients":[{"name":"Proteiinijuoma (valmis, esim. 25 g proteiinia)","qty":1,"unit":"plo"}],
-     "steps":["Kaupan valmis proteiini- tai rahkajuoma — nopein mahdollinen välipala."]},
-
-    {"id":"jogurttipikari-mysli","name":"Jogurttipikari ja mysli","categories":["valipala"],"tags":[],"prepMinutes":2,"servings":1,"kcal":220,"protein":10,
-     "ingredients":[{"name":"Jogurttia","qty":1,"unit":"prk (150–200 g)"},{"name":"Mysliä","qty":0.5,"unit":"dl"}],
-     "steps":["Ripottele mysli jogurtin päälle."]},
-
-    {"id":"raejuustokuppi-kurkku","name":"Raejuustokuppi ja kurkku","categories":["valipala"],"tags":["gluteeniton","vhh"],"prepMinutes":2,"servings":1,"kcal":130,"protein":18,
-     "ingredients":[{"name":"Raejuustoa","qty":1,"unit":"prk (200 g)"},{"name":"Kurkkua","qty":0.5,"unit":"kpl"}],
-     "steps":["Nauti raejuusto kurkkupalojen kanssa, mausta halutessasi mustapippurilla."]}
-  ]
+ "version": 2,
+ "huom": "Määrät ovat suurpiirteisiä ja ravintotiedot arvioita per annos. Kauraa sisältävät reseptit: käytä gluteenitonta kauraa jos tarpeen.",
+ "recipes": [
+  {
+   "id": "mustikka-tuorepuuro",
+   "name": "Mustikkatuorepuuro",
+   "categories": [
+    "aamupala"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "huom": "Gluteeniton, kun käytät gluteenitonta kaurahiutaletta.",
+   "prepMinutes": 5,
+   "servings": 1,
+   "kcal": 430,
+   "protein": 21,
+   "ingredients": [
+    {
+     "name": "Kaurahiutaleita",
+     "qty": 1.5,
+     "unit": "dl"
+    },
+    {
+     "name": "Maitoa",
+     "qty": 1.5,
+     "unit": "dl"
+    },
+    {
+     "name": "Pähkinärouhetta",
+     "qty": 1,
+     "unit": "rkl"
+    },
+    {
+     "name": "Chiansiemeniä",
+     "qty": 2,
+     "unit": "tl"
+    },
+    {
+     "name": "Kardemummaa",
+     "qty": 1,
+     "unit": "tl",
+     "pantry": true
+    },
+    {
+     "name": "Vaniljauutetta",
+     "qty": 1,
+     "unit": "tl",
+     "pantry": true
+    },
+    {
+     "name": "Luonnonjogurttia",
+     "qty": 1,
+     "unit": "prk (150–200 g)"
+    },
+    {
+     "name": "Mustikoita",
+     "qty": 1,
+     "unit": "dl"
+    }
+   ],
+   "steps": [
+    "Sekoita kaikki ainekset kulhossa ja peitä.",
+    "Anna tekeytyä jääkaapissa yön yli. Mausta lisää oman maun mukaan."
+   ]
+  },
+  {
+   "id": "vadelma-tuorepuuro",
+   "name": "Vadelmatuorepuuro",
+   "categories": [
+    "aamupala"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "huom": "Gluteeniton, kun käytät gluteenitonta kaurahiutaletta.",
+   "prepMinutes": 5,
+   "servings": 1,
+   "kcal": 450,
+   "protein": 30,
+   "ingredients": [
+    {
+     "name": "Kaurahiutaleita",
+     "qty": 1.5,
+     "unit": "dl"
+    },
+    {
+     "name": "Pähkinärouhetta",
+     "qty": 1,
+     "unit": "rkl"
+    },
+    {
+     "name": "Chiansiemeniä",
+     "qty": 1,
+     "unit": "rkl"
+    },
+    {
+     "name": "Kardemummaa",
+     "qty": 1,
+     "unit": "tl",
+     "pantry": true
+    },
+    {
+     "name": "Vaniljauutetta",
+     "qty": 1,
+     "unit": "tl",
+     "pantry": true
+    },
+    {
+     "name": "Vadelmaproteiinirahkaa",
+     "qty": 1,
+     "unit": "prk (200–250 g)"
+    },
+    {
+     "name": "Maitoa",
+     "qty": 1.5,
+     "unit": "dl"
+    },
+    {
+     "name": "Vadelmia",
+     "qty": 1,
+     "unit": "dl"
+    }
+   ],
+   "steps": [
+    "Sekoita ainekset ja peitä kelmulla.",
+    "Anna tekeytyä jääkaapissa yön yli."
+   ]
+  },
+  {
+   "id": "kaurapuuro-raejuustolla",
+   "name": "Kaurapuuro raejuustolla ja marjoilla",
+   "categories": [
+    "aamupala"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "huom": "Gluteeniton, kun käytät gluteenitonta kaurahiutaletta.",
+   "prepMinutes": 12,
+   "servings": 1,
+   "kcal": 330,
+   "protein": 19,
+   "ingredients": [
+    {
+     "name": "Kaurahiutaleita",
+     "qty": 1,
+     "unit": "dl"
+    },
+    {
+     "name": "Vettä",
+     "qty": 2.5,
+     "unit": "dl",
+     "pantry": true
+    },
+    {
+     "name": "Suolaa",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    },
+    {
+     "name": "Marjoja",
+     "qty": 1,
+     "unit": "dl"
+    },
+    {
+     "name": "Raejuustoa",
+     "qty": 100,
+     "unit": "g"
+    }
+   ],
+   "steps": [
+    "Keitä puuroa hämmentämättä noin 10 min matalalla lämmöllä.",
+    "Lisää marjat päälle ja raejuusto proteiinilähteeksi."
+   ]
+  },
+  {
+   "id": "pekonia-ja-munia",
+   "name": "Pekonia & munia",
+   "categories": [
+    "aamupala"
+   ],
+   "tags": [
+    "gluteeniton",
+    "maidoton",
+    "vhh"
+   ],
+   "prepMinutes": 10,
+   "servings": 1,
+   "kcal": 350,
+   "protein": 30,
+   "ingredients": [
+    {
+     "name": "Kalkkunapekonia (esim. 4,5 % rasvaa)",
+     "qty": 4,
+     "unit": "siivua"
+    },
+    {
+     "name": "Kananmunia",
+     "qty": 3,
+     "unit": "kpl"
+    },
+    {
+     "name": "Kasviksia ja hedelmiä aterialle",
+     "qty": null,
+     "unit": ""
+    }
+   ],
+   "steps": [
+    "Paista pekonit ja munat pannulla.",
+    "Lisää kasviksia ja hedelmiä aterialle. Testaa Herbamarea mausteeksi!"
+   ]
+  },
+  {
+   "id": "pekoni-muna-toast",
+   "name": "Pekoni-kananmunatoast",
+   "categories": [
+    "aamupala"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "prepMinutes": 10,
+   "servings": 1,
+   "kcal": 450,
+   "protein": 26,
+   "ingredients": [
+    {
+     "name": "Paahtoleipää",
+     "qty": 2,
+     "unit": "viipaletta"
+    },
+    {
+     "name": "Kalkkunapekonia",
+     "qty": 2,
+     "unit": "siivua"
+    },
+    {
+     "name": "Kananmunia",
+     "qty": 2,
+     "unit": "kpl"
+    },
+    {
+     "name": "Salaattia, tomaattia, kevätsipulia ja suolakurkkua",
+     "qty": null,
+     "unit": ""
+    }
+   ],
+   "steps": [
+    "Paista pekoni ja munat.",
+    "Paahda leivät ja kasaa ainekset päälle."
+   ],
+   "huom": "Gluteeniton: vaihda leipä gluteenittomaan."
+  },
+  {
+   "id": "kananmunaleivat",
+   "name": "Kananmunaleivät",
+   "categories": [
+    "aamupala",
+    "iltapala"
+   ],
+   "tags": [
+    "maidoton",
+    "gluteeniton"
+   ],
+   "prepMinutes": 10,
+   "servings": 1,
+   "kcal": 400,
+   "protein": 22,
+   "ingredients": [
+    {
+     "name": "Ruisleipää",
+     "qty": 2,
+     "unit": "viipaletta"
+    },
+    {
+     "name": "Kananmunia",
+     "qty": 3,
+     "unit": "kpl"
+    },
+    {
+     "name": "Tomaattia",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Kevätsipulia",
+     "qty": null,
+     "unit": ""
+    }
+   ],
+   "steps": [
+    "Paista kananmunat pannulla.",
+    "Voitele leivät kevyesti ja kasaa ainekset päälle."
+   ],
+   "huom": "Gluteeniton: vaihda leipä gluteenittomaan."
+  },
+  {
+   "id": "kaura-marjapiirakka",
+   "name": "Kaura-marjapiirakka",
+   "categories": [
+    "aamupala"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "huom": "Iso satsi: 6–8 annosta, säilyy hyvin useamman päivän. Gluteeniton gluteenittomalla kauralla.",
+   "prepMinutes": 55,
+   "servings": 6,
+   "kcal": 380,
+   "protein": 28,
+   "ingredients": [
+    {
+     "name": "Kananmunia",
+     "qty": 9,
+     "unit": "kpl"
+    },
+    {
+     "name": "Kananmunan valkuaisia",
+     "qty": 6,
+     "unit": "kpl"
+    },
+    {
+     "name": "Raejuustoa",
+     "qty": 400,
+     "unit": "g"
+    },
+    {
+     "name": "Kaurahiutaleita",
+     "qty": 300,
+     "unit": "g"
+    },
+    {
+     "name": "Leivinjauhetta",
+     "qty": 1,
+     "unit": "tl",
+     "pantry": true
+    },
+    {
+     "name": "Pöytämakeuttajaa",
+     "qty": 2,
+     "unit": "tl",
+     "pantry": true
+    },
+    {
+     "name": "Vaniljajauhetta tai kanelia",
+     "qty": 2,
+     "unit": "tl",
+     "pantry": true
+    },
+    {
+     "name": "Pakastevadelmia",
+     "qty": 1,
+     "unit": "pss"
+    }
+   ],
+   "steps": [
+    "Vatkaa munat, makeuttaja, leivinjauhe ja mausteet vaahdoksi.",
+    "Lisää kaurahiutaleet ja raejuusto, sekoita kunnolla.",
+    "Kaada taikina leivinpaperoituun vuokaan 3–4 cm kerrokseksi, painele vadelmat pintaan.",
+    "Paista 160 °C (kiertoilma) / 180 °C noin 40 min."
+   ]
+  },
+  {
+   "id": "kauraletut",
+   "name": "Kauraletut",
+   "categories": [
+    "aamupala"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "huom": "Gluteeniton gluteenittomalla kauralla.",
+   "prepMinutes": 45,
+   "servings": 2,
+   "kcal": 380,
+   "protein": 16,
+   "ingredients": [
+    {
+     "name": "Banaani",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Kananmunia",
+     "qty": 2,
+     "unit": "kpl"
+    },
+    {
+     "name": "Maitoa",
+     "qty": 3,
+     "unit": "dl"
+    },
+    {
+     "name": "Kaurahiutaleita",
+     "qty": 3,
+     "unit": "dl"
+    },
+    {
+     "name": "Suolaa",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    },
+    {
+     "name": "Leivinjauhetta",
+     "qty": 0.5,
+     "unit": "tl",
+     "pantry": true
+    },
+    {
+     "name": "Marjoja tarjoiluun",
+     "qty": 1,
+     "unit": "dl"
+    }
+   ],
+   "steps": [
+    "Sekoita ainekset blenderillä tai sauvasekoittimella ja anna turvota 30 min.",
+    "Paista isoina lettuina kullanruskeiksi. Tarjoile marjojen kanssa."
+   ]
+  },
+  {
+   "id": "banaaniletut",
+   "name": "Banaaniletut",
+   "categories": [
+    "aamupala"
+   ],
+   "tags": [
+    "gluteeniton",
+    "maidoton"
+   ],
+   "prepMinutes": 15,
+   "servings": 1,
+   "kcal": 260,
+   "protein": 14,
+   "ingredients": [
+    {
+     "name": "Banaani",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Kananmunia",
+     "qty": 2,
+     "unit": "kpl"
+    },
+    {
+     "name": "Leivinjauhetta",
+     "qty": 0.5,
+     "unit": "tl",
+     "pantry": true
+    },
+    {
+     "name": "Marjoja tarjoiluun",
+     "qty": 1,
+     "unit": "dl"
+    }
+   ],
+   "steps": [
+    "Sekoita ainekset tasaiseksi blenderillä tai sauvasekoittimella.",
+    "Paista pieninä lettuina kullanruskeiksi ja tarjoile marjojen kanssa."
+   ]
+  },
+  {
+   "id": "vhh-tortillaletut",
+   "name": "VHH-tortillaletut pavuilla",
+   "categories": [
+    "aamupala"
+   ],
+   "tags": [
+    "gluteeniton",
+    "vhh"
+   ],
+   "huom": "Isompi satsi, 4 annosta.",
+   "prepMinutes": 35,
+   "servings": 4,
+   "kcal": 430,
+   "protein": 21,
+   "ingredients": [
+    {
+     "name": "Kananmunia",
+     "qty": 6,
+     "unit": "kpl"
+    },
+    {
+     "name": "Ranskankermaa 28 %",
+     "qty": 1,
+     "unit": "prk (200 g)"
+    },
+    {
+     "name": "Mantelijauhoa",
+     "qty": 0.75,
+     "unit": "dl"
+    },
+    {
+     "name": "Psylliumjauhetta",
+     "qty": 1.5,
+     "unit": "rkl"
+    },
+    {
+     "name": "Mustapapuja",
+     "qty": 0.5,
+     "unit": "prk"
+    },
+    {
+     "name": "Kirsikkatomaatteja",
+     "qty": 1,
+     "unit": "rasia"
+    },
+    {
+     "name": "Punasipuli",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Avokado",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Suolaa, pippuria ja Worcester-kastiketta",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Sekoita 2 munaa, ranskankerma ja kuivat aineet löysäksi taikinaksi. Levitä pellille ja paista 200 °C noin 15 min.",
+    "Lämmitä ja muussaa mausteilla maustetut pavut.",
+    "Tee salsa tomaateista ja sipulista. Paista loput munat.",
+    "Kasaa lettujen päälle pavut, muna, salsa ja avokadoviipaleet."
+   ]
+  },
+  {
+   "id": "mustikkasmoothie",
+   "name": "Mustikka-proteiinismoothie",
+   "categories": [
+    "aamupala",
+    "valipala"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "prepMinutes": 5,
+   "servings": 1,
+   "kcal": 350,
+   "protein": 40,
+   "ingredients": [
+    {
+     "name": "Mustikoita",
+     "qty": 1,
+     "unit": "dl"
+    },
+    {
+     "name": "Kreikkalaista jogurttia",
+     "qty": 200,
+     "unit": "g"
+    },
+    {
+     "name": "Raejuustoa",
+     "qty": 70,
+     "unit": "g"
+    },
+    {
+     "name": "Proteiinijauhetta",
+     "qty": 30,
+     "unit": "g"
+    }
+   ],
+   "steps": [
+    "Sekoita kaikki ainekset tehosekoittimessa tasaiseksi ja kaada lasiin."
+   ]
+  },
+  {
+   "id": "chiavanukas-marjoilla",
+   "name": "Chiavanukas marjoilla",
+   "categories": [
+    "aamupala",
+    "iltapala"
+   ],
+   "tags": [
+    "gluteeniton",
+    "vhh"
+   ],
+   "huom": "Tekeytyy jääkaapissa, tee edellisenä iltana.",
+   "prepMinutes": 10,
+   "servings": 1,
+   "kcal": 280,
+   "protein": 14,
+   "ingredients": [
+    {
+     "name": "Maustamatonta jogurttia",
+     "qty": 2,
+     "unit": "dl"
+    },
+    {
+     "name": "Chiansiemeniä",
+     "qty": 2,
+     "unit": "rkl"
+    },
+    {
+     "name": "Soseutettuja marjoja",
+     "qty": 1,
+     "unit": "dl"
+    },
+    {
+     "name": "Makeutusainetta",
+     "qty": 1,
+     "unit": "tl",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Sekoita jogurttiin chiansiemenet ja makeutus. Soseuta marjat ja sekoita joukkoon.",
+    "Peitä ja hyydytä jääkaapissa vähintään 3 tuntia, mieluiten yön yli."
+   ]
+  },
+  {
+   "id": "appelsiini-chiavanukas",
+   "name": "Appelsiini-chiavanukas",
+   "categories": [
+    "aamupala",
+    "iltapala"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "huom": "Tekeytyy jääkaapissa, tee edellisenä iltana.",
+   "prepMinutes": 10,
+   "servings": 2,
+   "kcal": 260,
+   "protein": 12,
+   "ingredients": [
+    {
+     "name": "Chiansiemeniä",
+     "qty": 3,
+     "unit": "rkl"
+    },
+    {
+     "name": "Kookosmaitoa tai mantelijuomaa",
+     "qty": 1,
+     "unit": "dl"
+    },
+    {
+     "name": "Kreikkalaista jogurttia",
+     "qty": 2,
+     "unit": "dl"
+    },
+    {
+     "name": "Appelsiini (mehu + kuori)",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Hunajaa tai muuta makeutta",
+     "qty": 2,
+     "unit": "tl",
+     "pantry": true
+    },
+    {
+     "name": "Pähkinöitä tai manteleita",
+     "qty": 1,
+     "unit": "rkl"
+    }
+   ],
+   "steps": [
+    "Sekoita nesteet, jogurtti, chiansiemenet, makeutus ja appelsiininkuori.",
+    "Lusikoi purkkeihin, peitä ja anna hyytyä jääkaapissa yön yli.",
+    "Ripottele pähkinät päälle."
+   ]
+  },
+  {
+   "id": "raejuusto-jogurttibowl",
+   "name": "Raejuusto-jogurttibowl",
+   "categories": [
+    "aamupala",
+    "iltapala"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "prepMinutes": 5,
+   "servings": 1,
+   "kcal": 330,
+   "protein": 30,
+   "ingredients": [
+    {
+     "name": "Kreikkalaista maustamatonta jogurttia",
+     "qty": 150,
+     "unit": "g"
+    },
+    {
+     "name": "Raejuustoa",
+     "qty": 100,
+     "unit": "g"
+    },
+    {
+     "name": "Appelsiini",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Vadelmia",
+     "qty": 0.5,
+     "unit": "dl"
+    },
+    {
+     "name": "Rouhittuja pähkinöitä",
+     "qty": 1,
+     "unit": "rkl"
+    },
+    {
+     "name": "Hunajaa tai steviaa",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Sekoita jogurtti ja raejuusto kulhossa.",
+    "Lisää appelsiinilohkot, vadelmat, pähkinät ja halutessasi makeutta."
+   ]
+  },
+  {
+   "id": "texmex-salaatti",
+   "name": "Texmex-salaatti",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "gluteeniton",
+    "vhh"
+   ],
+   "prepMinutes": 25,
+   "servings": 3,
+   "kcal": 520,
+   "protein": 32,
+   "ingredients": [
+    {
+     "name": "Jauhelihaa",
+     "qty": 400,
+     "unit": "g"
+    },
+    {
+     "name": "Rapeaa salaattia",
+     "qty": 1,
+     "unit": "kerä"
+    },
+    {
+     "name": "Kirsikkatomaatteja",
+     "qty": 1,
+     "unit": "rasia"
+    },
+    {
+     "name": "Punasipuli",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Kurkku",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Avokado",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Ranskankermaa",
+     "qty": 100,
+     "unit": "g"
+    },
+    {
+     "name": "Sitruunamehua",
+     "qty": 1,
+     "unit": "rkl",
+     "pantry": true
+    },
+    {
+     "name": "Paprikamauste, valkosipuli, oregano, cayenne",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    },
+    {
+     "name": "Juustoraastetta tai fetaa (extra)",
+     "qty": 2,
+     "unit": "rkl"
+    }
+   ],
+   "steps": [
+    "Revi salaatti, lohko tomaatit, kuutioi kurkku ja viipaloi sipuli.",
+    "Soseuta avokadokastike: avokado, ranskankerma, sitruunamehu ja valkosipuli.",
+    "Ruskista jauheliha mausteiden kanssa.",
+    "Annostele salaatin päälle jauheliha, kastike ja juustoraaste."
+   ],
+   "redMeat": 2
+  },
+  {
+   "id": "ketoburgeri",
+   "name": "Ketoburgeri",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "gluteeniton",
+    "vhh"
+   ],
+   "prepMinutes": 25,
+   "servings": 4,
+   "kcal": 430,
+   "protein": 30,
+   "ingredients": [
+    {
+     "name": "Jauhelihaa",
+     "qty": 400,
+     "unit": "g"
+    },
+    {
+     "name": "Mozzarellapallo",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Tomaatteja",
+     "qty": 2,
+     "unit": "kpl"
+    },
+    {
+     "name": "Maustekurkku",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Punasipuli",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Jogurttia tai ranskankermaa",
+     "qty": 4,
+     "unit": "rkl"
+    },
+    {
+     "name": "Ketsuppia",
+     "qty": 4,
+     "unit": "tl",
+     "pantry": true
+    },
+    {
+     "name": "Suola, pippuri, paprikamauste",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Viipaloi tomaatti, maustekurkku ja sipuli. Leikkaa mozzarella neljään osaan.",
+    "Mausta jauheliha, muotoile neljä pihviä ja paista n. 6 min per puoli.",
+    "Sulata mozzarella pihvien päälle lopussa ja kokoa burgerit ilman sämpylää."
+   ],
+   "redMeat": 2
+  },
+  {
+   "id": "pekoni-kaalisalaatti",
+   "name": "Pekoni-kaalisalaatti",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "gluteeniton",
+    "vhh"
+   ],
+   "prepMinutes": 25,
+   "servings": 4,
+   "kcal": 380,
+   "protein": 22,
+   "ingredients": [
+    {
+     "name": "Pekonia",
+     "qty": 8,
+     "unit": "siivua"
+    },
+    {
+     "name": "Pieni kukkakaali",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Pieni parsakaali",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Sellerin vartta",
+     "qty": 2,
+     "unit": "kpl"
+    },
+    {
+     "name": "Punasipuli",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Porkkanoita",
+     "qty": 2,
+     "unit": "kpl"
+    },
+    {
+     "name": "Salaattijuustoa tai raejuustoa",
+     "qty": 200,
+     "unit": "g"
+    },
+    {
+     "name": "Majoneesia tai jogurttia kastikkeeseen",
+     "qty": 1,
+     "unit": "dl"
+    },
+    {
+     "name": "Sitruunamehu, makeutus, suola, pippuri",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Paista pekoni rapeaksi ja paloittele.",
+    "Paloittele kaalit kukinnoiksi, leikkaa selleri ja sipuli, raasta porkkanat.",
+    "Sekoita kastike ja yhdistä kaikki ainekset."
+   ],
+   "redMeat": 2
+  },
+  {
+   "id": "purjo-pekonifritatta",
+   "name": "Purjo-pekonifritatta",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "gluteeniton",
+    "vhh"
+   ],
+   "prepMinutes": 40,
+   "servings": 4,
+   "kcal": 350,
+   "protein": 24,
+   "ingredients": [
+    {
+     "name": "Kananmunia",
+     "qty": 6,
+     "unit": "kpl"
+    },
+    {
+     "name": "Kermaa tai maitoa",
+     "qty": 2,
+     "unit": "rkl"
+    },
+    {
+     "name": "Juustoraastetta",
+     "qty": 1.5,
+     "unit": "dl"
+    },
+    {
+     "name": "Herkkusieniä",
+     "qty": 150,
+     "unit": "g"
+    },
+    {
+     "name": "Pekonia tai kinkkua",
+     "qty": 6,
+     "unit": "siivua"
+    },
+    {
+     "name": "Purjoa",
+     "qty": 1,
+     "unit": "dl silppua"
+    },
+    {
+     "name": "Pinaattia (valinnainen)",
+     "qty": 40,
+     "unit": "g"
+    },
+    {
+     "name": "Suolaa ja pippuria",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Vatkaa munat, lisää kerma ja puolet juustosta.",
+    "Paista pekonit, sienet ja purjo pannulla.",
+    "Yhdistä täyte munaseokseen, kaada vuokaan ja ripottele loppu juusto päälle.",
+    "Paista 200 °C 20–25 min."
+   ],
+   "redMeat": 2
+  },
+  {
+   "id": "nakkimunakas",
+   "name": "Nakkimunakas",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "prepMinutes": 20,
+   "servings": 2,
+   "kcal": 380,
+   "protein": 34,
+   "ingredients": [
+    {
+     "name": "Kalkkunanakkeja (5 %)",
+     "qty": 5,
+     "unit": "kpl"
+    },
+    {
+     "name": "Kananmunia",
+     "qty": 4,
+     "unit": "kpl"
+    },
+    {
+     "name": "Kananmunan valkuaisia",
+     "qty": 4,
+     "unit": "kpl"
+    },
+    {
+     "name": "Sipuli",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Maitoa",
+     "qty": 0.5,
+     "unit": "dl"
+    },
+    {
+     "name": "Kirsikkatomaatteja",
+     "qty": 0.5,
+     "unit": "rasiaa"
+    },
+    {
+     "name": "Suolaa",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Pilko ja ruskista nakit ja sipuli pannulla.",
+    "Sekoita munat ja maito, kaada pannulle ja levitä tomaattiviipaleet pinnalle.",
+    "Hauduta kannen alla miedolla lämmöllä, kunnes pinta on hyytynyt."
+   ]
+  },
+  {
+   "id": "tortillapitsa",
+   "name": "Tortillapitsa",
+   "categories": [
+    "lounas",
+    "paivallinen",
+    "iltapala"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "prepMinutes": 15,
+   "servings": 1,
+   "kcal": 420,
+   "protein": 28,
+   "ingredients": [
+    {
+     "name": "Tortillalättyjä",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Ketsuppia",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    },
+    {
+     "name": "Kinkkua",
+     "qty": 50,
+     "unit": "g"
+    },
+    {
+     "name": "Tonnikalaa",
+     "qty": 0.5,
+     "unit": "prk"
+    },
+    {
+     "name": "Juustoraastetta",
+     "qty": 0.5,
+     "unit": "dl"
+    },
+    {
+     "name": "Kirsikkatomaatteja",
+     "qty": 5,
+     "unit": "kpl"
+    }
+   ],
+   "steps": [
+    "Levitä ketsuppi tortillan päälle ja lisää täytteet vapaasti.",
+    "Lisää tomaatit ja juusto, paista 200 °C n. 10 min kunnes juusto ruskistuu."
+   ],
+   "redMeat": 1,
+   "huom": "Gluteeniton: vaihda tortillat gluteenittomiin."
+  },
+  {
+   "id": "kalkkunawrapit",
+   "name": "Kalkkuna-salaattiwrapit",
+   "categories": [
+    "lounas",
+    "paivallinen",
+    "iltapala"
+   ],
+   "tags": [
+    "gluteeniton",
+    "maidoton",
+    "vhh"
+   ],
+   "prepMinutes": 15,
+   "servings": 1,
+   "kcal": 300,
+   "protein": 25,
+   "ingredients": [
+    {
+     "name": "Jäävuorisalaatin lehtiä",
+     "qty": 3,
+     "unit": "kpl"
+    },
+    {
+     "name": "Kalkkunaleikettä",
+     "qty": 4,
+     "unit": "siivua"
+    },
+    {
+     "name": "Pekonia",
+     "qty": 2,
+     "unit": "siivua"
+    },
+    {
+     "name": "Tomaattia",
+     "qty": 4,
+     "unit": "siivua"
+    },
+    {
+     "name": "Majoneesia",
+     "qty": 1,
+     "unit": "rkl"
+    },
+    {
+     "name": "Sinappia",
+     "qty": 0.5,
+     "unit": "tl",
+     "pantry": true
+    },
+    {
+     "name": "Mustapippuria",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Paahda pekoni rapeaksi.",
+    "Levitä salaatinlehdille majoneesi-sinappiseos ja kasaa täytteet.",
+    "Kääri tiukoiksi wrapeiksi."
+   ],
+   "redMeat": 1
+  },
+  {
+   "id": "juusto-tonnikalakolmiot",
+   "name": "Juusto-tonnikalakolmiot",
+   "categories": [
+    "lounas",
+    "iltapala"
+   ],
+   "tags": [
+    "gluteeniton",
+    "vhh"
+   ],
+   "prepMinutes": 25,
+   "servings": 2,
+   "kcal": 330,
+   "protein": 28,
+   "ingredients": [
+    {
+     "name": "Paksuja juustoviipaleita",
+     "qty": 6,
+     "unit": "kpl"
+    },
+    {
+     "name": "Tonnikalaa vedessä",
+     "qty": 1,
+     "unit": "prk"
+    },
+    {
+     "name": "Ranskankermaa",
+     "qty": 3,
+     "unit": "rkl"
+    },
+    {
+     "name": "Purjoa tai kevätsipulia silputtuna",
+     "qty": 3,
+     "unit": "rkl"
+    },
+    {
+     "name": "Paprika",
+     "qty": 0.5,
+     "unit": "kpl"
+    },
+    {
+     "name": "Suolaa ja sitruunapippuria",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Levitä juustoviipaleet leivinpaperille ja sulata uunissa 200 °C 2–3 min.",
+    "Sekoita täyte: tonnikala, ranskankerma, sipuli, paprika ja mausteet.",
+    "Lisää täyte viipaleille, taita kolmioiksi ja paista 8–10 min kunnes saavat väriä."
+   ]
+  },
+  {
+   "id": "lohikeitto",
+   "name": "Lohikeitto",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "prepMinutes": 30,
+   "servings": 4,
+   "kcal": 380,
+   "protein": 25,
+   "ingredients": [
+    {
+     "name": "Lohta",
+     "qty": 300,
+     "unit": "g"
+    },
+    {
+     "name": "Perunoita",
+     "qty": 500,
+     "unit": "g"
+    },
+    {
+     "name": "Porkkanoita",
+     "qty": 2,
+     "unit": "kpl"
+    },
+    {
+     "name": "Kevytmaitoa",
+     "qty": 5,
+     "unit": "dl"
+    },
+    {
+     "name": "Sipuli",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Tilliä",
+     "qty": null,
+     "unit": ""
+    },
+    {
+     "name": "Kalaliemikuutio, suola, pippuri",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Keitä paloitellut perunat, porkkanat ja sipuli liemessä lähes kypsiksi.",
+    "Lisää maito ja lohikuutiot, kypsennä n. 5 min.",
+    "Mausta tillillä, suolalla ja pippurilla."
+   ]
+  },
+  {
+   "id": "kanapelti",
+   "name": "Kanapelti uunissa",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "gluteeniton",
+    "maidoton",
+    "vhh"
+   ],
+   "prepMinutes": 45,
+   "servings": 4,
+   "kcal": 400,
+   "protein": 35,
+   "ingredients": [
+    {
+     "name": "Broilerin fileitä tai suikaleita",
+     "qty": 600,
+     "unit": "g"
+    },
+    {
+     "name": "Kasviksia (esim. paprika, kesäkurpitsa, sipuli)",
+     "qty": 500,
+     "unit": "g"
+    },
+    {
+     "name": "Öljyä",
+     "qty": 2,
+     "unit": "rkl",
+     "pantry": true
+    },
+    {
+     "name": "Mausteita (paprika, valkosipuli, yrtit)",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Levitä kana ja lohkotut kasvikset pellille, valuta öljy ja mausta reilusti.",
+    "Paista 200 °C noin 35 min."
+   ]
+  },
+  {
+   "id": "kasvispasta-linsseilla",
+   "name": "Kasvispasta ja linssit",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "maidoton",
+    "gluteeniton"
+   ],
+   "huom": "Gluteeniton, jos käytät gluteenitonta pastaa. Gluteeniton: vaihda pasta gluteenittomaan.",
+   "prepMinutes": 25,
+   "servings": 4,
+   "kcal": 450,
+   "protein": 22,
+   "ingredients": [
+    {
+     "name": "Pastaa",
+     "qty": 300,
+     "unit": "g"
+    },
+    {
+     "name": "Tomaattikastiketta",
+     "qty": 1,
+     "unit": "prk"
+    },
+    {
+     "name": "Punaisia linssejä",
+     "qty": 1,
+     "unit": "dl"
+    },
+    {
+     "name": "Sipuli",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Raejuustoa tarjoiluun",
+     "qty": 200,
+     "unit": "g"
+    },
+    {
+     "name": "Suola, pippuri, oregano",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Keitä pasta. Keitä linssit tomaattikastikkeessa sipulin kanssa n. 10 min.",
+    "Yhdistä ja tarjoile raejuuston kanssa."
+   ]
+  },
+  {
+   "id": "makaronilaatikko",
+   "name": "Makaronilaatikko",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "huom": "Gluteeniton gluteenittomalla makaronilla.",
+   "prepMinutes": 60,
+   "servings": 4,
+   "kcal": 480,
+   "protein": 30,
+   "ingredients": [
+    {
+     "name": "Makaronia (gluteeniton käy)",
+     "qty": 300,
+     "unit": "g"
+    },
+    {
+     "name": "Jauhelihaa",
+     "qty": 400,
+     "unit": "g"
+    },
+    {
+     "name": "Kananmunia",
+     "qty": 3,
+     "unit": "kpl"
+    },
+    {
+     "name": "Maitoa",
+     "qty": 5,
+     "unit": "dl"
+    },
+    {
+     "name": "Sipuli",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Suola, pippuri",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Keitä makaroni ja ruskista jauheliha sipulin kanssa.",
+    "Yhdistä vuokaan, kaada päälle muna-maitoseos.",
+    "Paista 180 °C noin 40 min."
+   ],
+   "redMeat": 2
+  },
+  {
+   "id": "kanakastike-ja-peruna",
+   "name": "Kanakastike ja perunat",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "prepMinutes": 30,
+   "servings": 4,
+   "kcal": 450,
+   "protein": 30,
+   "ingredients": [
+    {
+     "name": "Broilerin suikaleita",
+     "qty": 400,
+     "unit": "g"
+    },
+    {
+     "name": "Kevytkermaa tai ruokakermaa",
+     "qty": 2,
+     "unit": "dl"
+    },
+    {
+     "name": "Sipuli",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Perunoita",
+     "qty": 600,
+     "unit": "g"
+    },
+    {
+     "name": "Suola, pippuri, paprikamauste",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Keitä perunat.",
+    "Paista kana ja sipuli, lisää kerma ja hauduta 10 min.",
+    "Mausta ja tarjoile perunoiden kanssa."
+   ]
+  },
+  {
+   "id": "kasvis-fetavuoka",
+   "name": "Kasvis-fetavuoka",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "prepMinutes": 40,
+   "servings": 4,
+   "kcal": 380,
+   "protein": 20,
+   "ingredients": [
+    {
+     "name": "Kasviksia (esim. kesäkurpitsa, paprika, tomaatti)",
+     "qty": 500,
+     "unit": "g"
+    },
+    {
+     "name": "Fetaa",
+     "qty": 200,
+     "unit": "g"
+    },
+    {
+     "name": "Keitettyjä linssejä",
+     "qty": 1,
+     "unit": "dl"
+    },
+    {
+     "name": "Öljyä ja yrttejä",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Lohko kasvikset vuokaan, lisää linssit ja murustele feta päälle.",
+    "Valuta öljy, mausta ja paista 200 °C noin 30 min."
+   ]
+  },
+  {
+   "id": "kanawokki-ja-riisi",
+   "name": "Kanawokki ja riisi",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "gluteeniton",
+    "maidoton"
+   ],
+   "huom": "Käytä gluteenitonta soijakastiketta.",
+   "prepMinutes": 25,
+   "servings": 4,
+   "kcal": 450,
+   "protein": 32,
+   "ingredients": [
+    {
+     "name": "Broilerin suikaleita",
+     "qty": 400,
+     "unit": "g"
+    },
+    {
+     "name": "Wokkivihanneksia",
+     "qty": 300,
+     "unit": "g"
+    },
+    {
+     "name": "Riisiä",
+     "qty": 2,
+     "unit": "dl"
+    },
+    {
+     "name": "Gluteenitonta soijakastiketta",
+     "qty": 2,
+     "unit": "rkl",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Keitä riisi.",
+    "Paista kana wokkipannulla, lisää vihannekset ja soija.",
+    "Wokkaa kunnes kasvikset ovat napakan kypsiä."
+   ]
+  },
+  {
+   "id": "uuniperunat-taytteella",
+   "name": "Uuniperunat ja täyte",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "prepMinutes": 65,
+   "servings": 4,
+   "kcal": 380,
+   "protein": 28,
+   "ingredients": [
+    {
+     "name": "Isoja perunoita",
+     "qty": 4,
+     "unit": "kpl"
+    },
+    {
+     "name": "Raejuustoa",
+     "qty": 200,
+     "unit": "g"
+    },
+    {
+     "name": "Tonnikalaa tai kypsää kanaa",
+     "qty": 1,
+     "unit": "prk / 200 g"
+    },
+    {
+     "name": "Kevätsipulia",
+     "qty": null,
+     "unit": ""
+    },
+    {
+     "name": "Suola, pippuri",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Paista perunat uunissa 200 °C noin 60 min.",
+    "Halkaise ja täytä raejuusto-tonnikalatäytteellä."
+   ]
+  },
+  {
+   "id": "bataatti-linssikeitto",
+   "name": "Bataatti-linssikeitto",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "gluteeniton",
+    "maidoton"
+   ],
+   "huom": "Raejuusto tarjoiluun ei ole maidoton — jätä pois tarvittaessa.",
+   "prepMinutes": 30,
+   "servings": 4,
+   "kcal": 350,
+   "protein": 18,
+   "ingredients": [
+    {
+     "name": "Bataatti",
+     "qty": 1,
+     "unit": "iso"
+    },
+    {
+     "name": "Punaisia linssejä",
+     "qty": 1,
+     "unit": "dl"
+    },
+    {
+     "name": "Kevytkookosmaitoa",
+     "qty": 4,
+     "unit": "dl"
+    },
+    {
+     "name": "Sipuli",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Vettä tai kasvislientä",
+     "qty": 5,
+     "unit": "dl",
+     "pantry": true
+    },
+    {
+     "name": "Raejuustoa tarjoiluun",
+     "qty": 200,
+     "unit": "g"
+    },
+    {
+     "name": "Currya, suolaa",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Kuutioi bataatti ja sipuli, keitä linssien kanssa liemessä pehmeäksi.",
+    "Lisää kookosmaito ja soseuta.",
+    "Tarjoile raejuustonokareen kanssa."
+   ]
+  },
+  {
+   "id": "linssikeitto",
+   "name": "Linssikeitto",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "gluteeniton",
+    "maidoton"
+   ],
+   "huom": "Raejuusto tarjoiluun ei ole maidoton — jätä pois tarvittaessa.",
+   "prepMinutes": 30,
+   "servings": 4,
+   "kcal": 340,
+   "protein": 25,
+   "ingredients": [
+    {
+     "name": "Punaisia linssejä",
+     "qty": 2,
+     "unit": "dl"
+    },
+    {
+     "name": "Tomaattimurskaa",
+     "qty": 1,
+     "unit": "prk"
+    },
+    {
+     "name": "Sipuli",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Porkkanoita",
+     "qty": 2,
+     "unit": "kpl"
+    },
+    {
+     "name": "Vettä",
+     "qty": 1,
+     "unit": "l",
+     "pantry": true
+    },
+    {
+     "name": "Raejuustoa tarjoiluun",
+     "qty": 150,
+     "unit": "g"
+    },
+    {
+     "name": "Kasvisliemikuutio, kumina",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Pilko kasvikset ja keitä kaikkia yhdessä noin 20 min.",
+    "Tarjoile raejuuston kanssa."
+   ]
+  },
+  {
+   "id": "jauheliha-kasvispannu",
+   "name": "Jauheliha-kasvispannu",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "gluteeniton",
+    "vhh"
+   ],
+   "prepMinutes": 25,
+   "servings": 4,
+   "kcal": 400,
+   "protein": 32,
+   "ingredients": [
+    {
+     "name": "Naudan jauhelihaa",
+     "qty": 400,
+     "unit": "g"
+    },
+    {
+     "name": "Kasviksia (pakastesekoitus käy)",
+     "qty": 400,
+     "unit": "g"
+    },
+    {
+     "name": "Tomaattimurskaa",
+     "qty": 1,
+     "unit": "prk"
+    },
+    {
+     "name": "Raejuustoa tarjoiluun",
+     "qty": 100,
+     "unit": "g"
+    },
+    {
+     "name": "Suola, pippuri, paprikamauste",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Ruskista jauheliha, lisää kasvikset ja tomaattimurska.",
+    "Hauduta 15 min ja tarjoile raejuuston kanssa."
+   ],
+   "redMeat": 2
+  },
+  {
+   "id": "uunimunakas",
+   "name": "Uunimunakas",
+   "categories": [
+    "lounas",
+    "paivallinen",
+    "iltapala"
+   ],
+   "tags": [
+    "gluteeniton",
+    "vhh"
+   ],
+   "prepMinutes": 35,
+   "servings": 4,
+   "kcal": 320,
+   "protein": 28,
+   "ingredients": [
+    {
+     "name": "Kananmunia",
+     "qty": 6,
+     "unit": "kpl"
+    },
+    {
+     "name": "Maitoa",
+     "qty": 2,
+     "unit": "dl"
+    },
+    {
+     "name": "Raejuustoa",
+     "qty": 200,
+     "unit": "g"
+    },
+    {
+     "name": "Kasviksia",
+     "qty": 300,
+     "unit": "g"
+    },
+    {
+     "name": "Suola, pippuri",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Sekoita kaikki ainekset ja kaada voideltuun vuokaan.",
+    "Paista 180 °C 25–30 min."
+   ]
+  },
+  {
+   "id": "uunilohi-ja-kasvikset",
+   "name": "Uunilohi ja kasvikset",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "gluteeniton",
+    "maidoton",
+    "vhh"
+   ],
+   "prepMinutes": 30,
+   "servings": 4,
+   "kcal": 420,
+   "protein": 33,
+   "ingredients": [
+    {
+     "name": "Lohifilee",
+     "qty": 500,
+     "unit": "g"
+    },
+    {
+     "name": "Uunikasviksia (esim. parsakaali, paprika, sipuli)",
+     "qty": 600,
+     "unit": "g"
+    },
+    {
+     "name": "Sitruuna",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Öljyä, suolaa, sitruunapippuria",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Nosta lohi ja lohkotut kasvikset pellille, öljyä ja mausta.",
+    "Paista 200 °C noin 20–25 min. Viimeistele sitruunalla."
+   ]
+  },
+  {
+   "id": "broileri-pastasalaatti",
+   "name": "Broileri-pastasalaatti",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "huom": "Gluteeniton gluteenittomalla pastalla. Hyvä kylmänä eväänä. Gluteeniton: vaihda pasta gluteenittomaan.",
+   "prepMinutes": 25,
+   "servings": 3,
+   "kcal": 450,
+   "protein": 32,
+   "ingredients": [
+    {
+     "name": "Pastaa",
+     "qty": 200,
+     "unit": "g"
+    },
+    {
+     "name": "Broilerin suikaleita",
+     "qty": 400,
+     "unit": "g"
+    },
+    {
+     "name": "Kurkku",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Paprika",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Kirsikkatomaatteja",
+     "qty": 0.5,
+     "unit": "rasiaa"
+    },
+    {
+     "name": "Maustamatonta jogurttia kastikkeeseen",
+     "qty": 1.5,
+     "unit": "dl"
+    },
+    {
+     "name": "Sitruunamehu, yrtit, suola",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Keitä pasta ja paista broileri.",
+    "Pilko kasvikset ja sekoita jogurttikastike.",
+    "Yhdistä kaikki — maistuu myös kylmänä seuraavana päivänä."
+   ]
+  },
+  {
+   "id": "tonnikalapasta",
+   "name": "Tonnikalapasta",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "maidoton",
+    "gluteeniton"
+   ],
+   "huom": "Gluteeniton gluteenittomalla pastalla. Gluteeniton: vaihda pasta gluteenittomaan.",
+   "prepMinutes": 20,
+   "servings": 4,
+   "kcal": 430,
+   "protein": 26,
+   "ingredients": [
+    {
+     "name": "Pastaa",
+     "qty": 300,
+     "unit": "g"
+    },
+    {
+     "name": "Tonnikalaa",
+     "qty": 2,
+     "unit": "prk"
+    },
+    {
+     "name": "Tomaattimurskaa",
+     "qty": 1,
+     "unit": "prk"
+    },
+    {
+     "name": "Sipuli",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Valkosipulinkynsiä",
+     "qty": 2,
+     "unit": "kpl"
+    },
+    {
+     "name": "Öljy, oregano, chilihiutaleet",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Keitä pasta. Kuullota sipulit, lisää tomaattimurska ja mausteet.",
+    "Lisää valutettu tonnikala ja yhdistä pastaan."
+   ]
+  },
+  {
+   "id": "jauhelihakeitto",
+   "name": "Jauhelihakeitto",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "gluteeniton",
+    "maidoton"
+   ],
+   "prepMinutes": 35,
+   "servings": 4,
+   "kcal": 380,
+   "protein": 26,
+   "ingredients": [
+    {
+     "name": "Jauhelihaa",
+     "qty": 400,
+     "unit": "g"
+    },
+    {
+     "name": "Perunoita",
+     "qty": 500,
+     "unit": "g"
+    },
+    {
+     "name": "Porkkanoita",
+     "qty": 2,
+     "unit": "kpl"
+    },
+    {
+     "name": "Sipuli",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Lihaliemikuutioita",
+     "qty": 2,
+     "unit": "kpl",
+     "pantry": true
+    },
+    {
+     "name": "Vettä",
+     "qty": 1,
+     "unit": "l",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Ruskista jauheliha kattilassa.",
+    "Lisää paloitellut kasvikset ja liemi, keitä n. 20 min kunnes perunat kypsyvät."
+   ],
+   "redMeat": 2
+  },
+  {
+   "id": "chili-con-carne",
+   "name": "Chili con carne",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "gluteeniton",
+    "maidoton"
+   ],
+   "huom": "Iso satsi — paranee toisena päivänä. Riisi lisukkeeksi.",
+   "prepMinutes": 40,
+   "servings": 4,
+   "kcal": 480,
+   "protein": 32,
+   "ingredients": [
+    {
+     "name": "Jauhelihaa",
+     "qty": 400,
+     "unit": "g"
+    },
+    {
+     "name": "Papuja (kidney tms.)",
+     "qty": 2,
+     "unit": "prk"
+    },
+    {
+     "name": "Tomaattimurskaa",
+     "qty": 2,
+     "unit": "prk"
+    },
+    {
+     "name": "Sipuli",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Riisiä",
+     "qty": 2,
+     "unit": "dl"
+    },
+    {
+     "name": "Chilimauste, kumina, valkosipuli",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Ruskista jauheliha ja sipuli, lisää mausteet.",
+    "Lisää tomaattimurska ja huuhdellut pavut, hauduta 20–30 min.",
+    "Keitä riisi lisukkeeksi."
+   ],
+   "redMeat": 2
+  },
+  {
+   "id": "broileri-riisivuoka",
+   "name": "Broileri-riisivuoka",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "prepMinutes": 50,
+   "servings": 4,
+   "kcal": 470,
+   "protein": 33,
+   "ingredients": [
+    {
+     "name": "Broilerin suikaleita",
+     "qty": 500,
+     "unit": "g"
+    },
+    {
+     "name": "Riisiä",
+     "qty": 2,
+     "unit": "dl"
+    },
+    {
+     "name": "Ruokakermaa",
+     "qty": 2,
+     "unit": "dl"
+    },
+    {
+     "name": "Paprika",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Vettä tai kanalientä",
+     "qty": 3,
+     "unit": "dl",
+     "pantry": true
+    },
+    {
+     "name": "Currya, suolaa",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Sekoita kaikki ainekset uunivuokaan.",
+    "Paista kannen tai folion alla 200 °C noin 40 min, kunnes riisi on kypsää."
+   ]
+  },
+  {
+   "id": "kinkkukiusaus",
+   "name": "Kevyt kinkkukiusaus",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "prepMinutes": 60,
+   "servings": 4,
+   "kcal": 430,
+   "protein": 22,
+   "ingredients": [
+    {
+     "name": "Perunoita",
+     "qty": 700,
+     "unit": "g"
+    },
+    {
+     "name": "Kinkkusuikaleita",
+     "qty": 250,
+     "unit": "g"
+    },
+    {
+     "name": "Sipuli",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Ruokakermaa (kevyt)",
+     "qty": 2,
+     "unit": "dl"
+    },
+    {
+     "name": "Maitoa",
+     "qty": 2,
+     "unit": "dl"
+    },
+    {
+     "name": "Suola, pippuri",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Viipaloi perunat ja sipuli ohuiksi, kerrosta kinkun kanssa vuokaan.",
+    "Kaada kerma-maitoseos päälle ja mausta.",
+    "Paista 200 °C noin 50 min."
+   ],
+   "redMeat": 2
+  },
+  {
+   "id": "jauhelihakastike-pasta",
+   "name": "Jauhelihakastike ja pasta",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "maidoton",
+    "gluteeniton"
+   ],
+   "huom": "Gluteeniton gluteenittomalla pastalla. Gluteeniton: vaihda pasta gluteenittomaan.",
+   "prepMinutes": 25,
+   "servings": 4,
+   "kcal": 470,
+   "protein": 30,
+   "ingredients": [
+    {
+     "name": "Jauhelihaa",
+     "qty": 400,
+     "unit": "g"
+    },
+    {
+     "name": "Tomaattimurskaa",
+     "qty": 2,
+     "unit": "prk"
+    },
+    {
+     "name": "Sipuli",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Valkosipulinkynsiä",
+     "qty": 2,
+     "unit": "kpl"
+    },
+    {
+     "name": "Pastaa",
+     "qty": 300,
+     "unit": "g"
+    },
+    {
+     "name": "Oregano, basilika, suola",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Ruskista jauheliha ja sipulit.",
+    "Lisää tomaattimurska ja mausteet, hauduta 15 min.",
+    "Keitä pasta ja yhdistä."
+   ],
+   "redMeat": 2
+  },
+  {
+   "id": "rahka-marjoilla",
+   "name": "Maitorahka marjoilla",
+   "categories": [
+    "iltapala",
+    "valipala"
+   ],
+   "tags": [
+    "gluteeniton",
+    "vhh"
+   ],
+   "prepMinutes": 3,
+   "servings": 1,
+   "kcal": 180,
+   "protein": 22,
+   "ingredients": [
+    {
+     "name": "Maitorahkaa",
+     "qty": 1,
+     "unit": "prk (200–250 g)"
+    },
+    {
+     "name": "Marjoja",
+     "qty": 1,
+     "unit": "dl"
+    },
+    {
+     "name": "Makeutusainetta",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Sekoita marjat rahkaan ja makeuta halutessasi."
+   ]
+  },
+  {
+   "id": "raejuusto-hedelmalla",
+   "name": "Raejuusto ja hedelmä",
+   "categories": [
+    "iltapala",
+    "valipala"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "prepMinutes": 3,
+   "servings": 1,
+   "kcal": 200,
+   "protein": 20,
+   "ingredients": [
+    {
+     "name": "Raejuustoa",
+     "qty": 150,
+     "unit": "g"
+    },
+    {
+     "name": "Hedelmä (omena, banaani tms.)",
+     "qty": 1,
+     "unit": "kpl"
+    }
+   ],
+   "steps": [
+    "Paloittele hedelmä raejuuston sekaan tai syö sellaisenaan."
+   ]
+  },
+  {
+   "id": "keitetyt-munat-nakkarilla",
+   "name": "Keitetyt munat ja näkkäri",
+   "categories": [
+    "iltapala",
+    "valipala"
+   ],
+   "tags": [
+    "maidoton",
+    "gluteeniton"
+   ],
+   "huom": "Gluteeniton gluteenittomalla näkkärillä. Gluteeniton: vaihda näkkileipä gluteenittomaan.",
+   "prepMinutes": 12,
+   "servings": 1,
+   "kcal": 220,
+   "protein": 16,
+   "ingredients": [
+    {
+     "name": "Kananmunia",
+     "qty": 2,
+     "unit": "kpl"
+    },
+    {
+     "name": "Näkkileipää",
+     "qty": 2,
+     "unit": "kpl"
+    }
+   ],
+   "steps": [
+    "Keitä munat 8–10 min.",
+    "Tarjoile näkkileivän kanssa."
+   ]
+  },
+  {
+   "id": "proteiinismoothie",
+   "name": "Proteiinismoothie",
+   "categories": [
+    "iltapala",
+    "valipala"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "prepMinutes": 5,
+   "servings": 1,
+   "kcal": 250,
+   "protein": 27,
+   "ingredients": [
+    {
+     "name": "Maitoa",
+     "qty": 2,
+     "unit": "dl"
+    },
+    {
+     "name": "Pakastemarjoja",
+     "qty": 1,
+     "unit": "dl"
+    },
+    {
+     "name": "Proteiinijauhetta",
+     "qty": 30,
+     "unit": "g"
+    }
+   ],
+   "steps": [
+    "Sekoita ainekset blenderissä tasaiseksi."
+   ]
+  },
+  {
+   "id": "jogurtti-siemenilla",
+   "name": "Jogurtti, siemenet ja pähkinät",
+   "categories": [
+    "iltapala",
+    "valipala"
+   ],
+   "tags": [
+    "gluteeniton",
+    "vhh"
+   ],
+   "prepMinutes": 3,
+   "servings": 1,
+   "kcal": 280,
+   "protein": 16,
+   "ingredients": [
+    {
+     "name": "Maustamatonta jogurttia",
+     "qty": 2,
+     "unit": "dl"
+    },
+    {
+     "name": "Siemeniä (esim. auringonkukka, chia)",
+     "qty": 1,
+     "unit": "rkl"
+    },
+    {
+     "name": "Pähkinöitä",
+     "qty": 1,
+     "unit": "rkl"
+    }
+   ],
+   "steps": [
+    "Ripottele siemenet ja pähkinät jogurtin päälle."
+   ]
+  },
+  {
+   "id": "lohileipa",
+   "name": "Lohileipä",
+   "categories": [
+    "iltapala"
+   ],
+   "tags": [
+    "maidoton",
+    "gluteeniton"
+   ],
+   "prepMinutes": 5,
+   "servings": 1,
+   "kcal": 260,
+   "protein": 15,
+   "ingredients": [
+    {
+     "name": "Ruisleipää",
+     "qty": 1,
+     "unit": "viipale"
+    },
+    {
+     "name": "Kylmäsavulohta tai lohta",
+     "qty": 50,
+     "unit": "g"
+    },
+    {
+     "name": "Avokado",
+     "qty": 0.5,
+     "unit": "kpl"
+    },
+    {
+     "name": "Kevätsipulia ja paprikaa",
+     "qty": null,
+     "unit": ""
+    }
+   ],
+   "steps": [
+    "Kasaa ainekset leivän päälle ja nauti."
+   ],
+   "huom": "Gluteeniton: vaihda leipä gluteenittomaan."
+  },
+  {
+   "id": "lampimat-leivat",
+   "name": "Lämpimät tonnikalaleivät",
+   "categories": [
+    "iltapala"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "prepMinutes": 15,
+   "servings": 1,
+   "kcal": 320,
+   "protein": 25,
+   "ingredients": [
+    {
+     "name": "Ruisleipää",
+     "qty": 2,
+     "unit": "viipaletta"
+    },
+    {
+     "name": "Tonnikalaa",
+     "qty": 1,
+     "unit": "prk"
+    },
+    {
+     "name": "Kirsikkatomaatteja",
+     "qty": 4,
+     "unit": "kpl"
+    },
+    {
+     "name": "Juustoviipaleita",
+     "qty": 2,
+     "unit": "kpl"
+    },
+    {
+     "name": "Ketsuppia",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Levitä ketsuppi leiville, lisää valutettu tonnikala, tomaatit ja juusto.",
+    "Paista 200 °C 10–15 min kunnes juusto ruskistuu."
+   ],
+   "huom": "Gluteeniton: vaihda leipä gluteenittomaan."
+  },
+  {
+   "id": "kinkku-munakupit",
+   "name": "Kinkku-munakupit",
+   "categories": [
+    "iltapala",
+    "aamupala"
+   ],
+   "tags": [
+    "gluteeniton",
+    "vhh"
+   ],
+   "prepMinutes": 25,
+   "servings": 2,
+   "kcal": 260,
+   "protein": 24,
+   "ingredients": [
+    {
+     "name": "Kinkkuviipaleita",
+     "qty": 6,
+     "unit": "kpl"
+    },
+    {
+     "name": "Kananmunia",
+     "qty": 4,
+     "unit": "kpl"
+    },
+    {
+     "name": "Juustoraastetta",
+     "qty": 4,
+     "unit": "rkl"
+    },
+    {
+     "name": "Tomaatti",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Suolaa ja pippuria",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Asettele kinkkuviipaleet muffinssipellin koloihin kupeiksi.",
+    "Ripottele juustoa ja riko muna jokaiseen kuppiin, mausta.",
+    "Paista 200 °C 15–20 min. Viimeistele tomaatilla ja yrteillä."
+   ],
+   "redMeat": 1
+  },
+  {
+   "id": "porkkanamunakkaat",
+   "name": "Pikkuiset porkkanamunakkaat",
+   "categories": [
+    "iltapala",
+    "aamupala"
+   ],
+   "tags": [
+    "gluteeniton",
+    "vhh"
+   ],
+   "prepMinutes": 15,
+   "servings": 1,
+   "kcal": 220,
+   "protein": 18,
+   "ingredients": [
+    {
+     "name": "Kananmunia",
+     "qty": 2,
+     "unit": "kpl"
+    },
+    {
+     "name": "Pehmeää raejuustoa (Keso)",
+     "qty": 50,
+     "unit": "g"
+    },
+    {
+     "name": "Porkkana",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Kevätsipulia",
+     "qty": null,
+     "unit": ""
+    },
+    {
+     "name": "Suolaa ja pippuria",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Vatkaa munat ja sekoita joukkoon raejuusto, porkkanaraaste ja sipulisilppu.",
+    "Paista pieninä munakkaina miedolla lämmöllä, käännä varovasti."
+   ]
+  },
+  {
+   "id": "banaani-maapahkinavoi",
+   "name": "Banaani ja maapähkinävoi",
+   "categories": [
+    "valipala"
+   ],
+   "tags": [
+    "gluteeniton",
+    "maidoton"
+   ],
+   "prepMinutes": 2,
+   "servings": 1,
+   "kcal": 250,
+   "protein": 7,
+   "ingredients": [
+    {
+     "name": "Banaani",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Maapähkinävoita",
+     "qty": 1,
+     "unit": "rkl"
+    }
+   ],
+   "steps": [
+    "Halkaise banaani ja levitä maapähkinävoi päälle."
+   ]
+  },
+  {
+   "id": "omena-pahkinat",
+   "name": "Omena ja pähkinät",
+   "categories": [
+    "valipala"
+   ],
+   "tags": [
+    "gluteeniton",
+    "maidoton",
+    "vhh"
+   ],
+   "prepMinutes": 2,
+   "servings": 1,
+   "kcal": 230,
+   "protein": 6,
+   "ingredients": [
+    {
+     "name": "Omena",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Pähkinöitä",
+     "qty": 30,
+     "unit": "g"
+    }
+   ],
+   "steps": [
+    "Nauti sellaisenaan."
+   ]
+  },
+  {
+   "id": "ruisleipa-kalkkunalla",
+   "name": "Ruisleipä kalkkunaleikkeellä",
+   "categories": [
+    "valipala"
+   ],
+   "tags": [
+    "maidoton",
+    "gluteeniton"
+   ],
+   "prepMinutes": 3,
+   "servings": 1,
+   "kcal": 180,
+   "protein": 14,
+   "ingredients": [
+    {
+     "name": "Ruisleipää",
+     "qty": 1,
+     "unit": "viipale"
+    },
+    {
+     "name": "Kalkkunaleikettä",
+     "qty": 3,
+     "unit": "siivua"
+    },
+    {
+     "name": "Kurkkua",
+     "qty": null,
+     "unit": ""
+    }
+   ],
+   "steps": [
+    "Kasaa leikkeleet ja kurkku leivän päälle."
+   ],
+   "huom": "Gluteeniton: vaihda leipä gluteenittomaan."
+  },
+  {
+   "id": "kasvistikut-hummus",
+   "name": "Kasvistikut ja hummus",
+   "categories": [
+    "valipala"
+   ],
+   "tags": [
+    "gluteeniton",
+    "maidoton"
+   ],
+   "prepMinutes": 5,
+   "servings": 1,
+   "kcal": 180,
+   "protein": 7,
+   "ingredients": [
+    {
+     "name": "Porkkana",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Kurkkua",
+     "qty": 0.5,
+     "unit": "kpl"
+    },
+    {
+     "name": "Hummusta",
+     "qty": 0.5,
+     "unit": "prk"
+    }
+   ],
+   "steps": [
+    "Leikkaa kasvikset tikuiksi ja dippaa hummukseen."
+   ]
+  },
+  {
+   "id": "keitetty-muna-hedelma",
+   "name": "Keitetty muna ja hedelmä",
+   "categories": [
+    "valipala"
+   ],
+   "tags": [
+    "gluteeniton",
+    "maidoton"
+   ],
+   "prepMinutes": 10,
+   "servings": 1,
+   "kcal": 160,
+   "protein": 9,
+   "ingredients": [
+    {
+     "name": "Kananmuna",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Hedelmä",
+     "qty": 1,
+     "unit": "kpl"
+    }
+   ],
+   "steps": [
+    "Keitä muna 8–10 min ja nauti hedelmän kanssa."
+   ]
+  },
+  {
+   "id": "proteiinijuoma",
+   "name": "Proteiinijuoma tai -rahkajuoma",
+   "categories": [
+    "valipala"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "prepMinutes": 1,
+   "servings": 1,
+   "kcal": 150,
+   "protein": 25,
+   "ingredients": [
+    {
+     "name": "Proteiinijuoma (valmis, esim. 25 g proteiinia)",
+     "qty": 1,
+     "unit": "plo"
+    }
+   ],
+   "steps": [
+    "Kaupan valmis proteiini- tai rahkajuoma — nopein mahdollinen välipala."
+   ]
+  },
+  {
+   "id": "jogurttipikari-mysli",
+   "name": "Jogurttipikari ja mysli",
+   "categories": [
+    "valipala"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "prepMinutes": 2,
+   "servings": 1,
+   "kcal": 220,
+   "protein": 10,
+   "ingredients": [
+    {
+     "name": "Jogurttia",
+     "qty": 1,
+     "unit": "prk (150–200 g)"
+    },
+    {
+     "name": "Mysliä",
+     "qty": 0.5,
+     "unit": "dl"
+    }
+   ],
+   "steps": [
+    "Ripottele mysli jogurtin päälle."
+   ],
+   "huom": "Gluteeniton: vaihda granola/mysli gluteenittomaan."
+  },
+  {
+   "id": "raejuustokuppi-kurkku",
+   "name": "Raejuustokuppi ja kurkku",
+   "categories": [
+    "valipala"
+   ],
+   "tags": [
+    "gluteeniton",
+    "vhh"
+   ],
+   "prepMinutes": 2,
+   "servings": 1,
+   "kcal": 130,
+   "protein": 18,
+   "ingredients": [
+    {
+     "name": "Raejuustoa",
+     "qty": 1,
+     "unit": "prk (200 g)"
+    },
+    {
+     "name": "Kurkkua",
+     "qty": 0.5,
+     "unit": "kpl"
+    }
+   ],
+   "steps": [
+    "Nauti raejuusto kurkkupalojen kanssa, mausta halutessasi mustapippurilla."
+   ]
+  },
+  {
+   "id": "proteiinikaurapuuro",
+   "name": "Proteiinikaurapuuro",
+   "categories": [
+    "aamupala"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "huom": "Gluteeniton gluteenittomalla kauralla. Sekoita proteiinijauhe vasta keittämisen jälkeen.",
+   "prepMinutes": 12,
+   "servings": 1,
+   "kcal": 330,
+   "protein": 32,
+   "ingredients": [
+    {
+     "name": "Kaurahiutaleita",
+     "qty": 1,
+     "unit": "dl"
+    },
+    {
+     "name": "Vettä",
+     "qty": 2.5,
+     "unit": "dl",
+     "pantry": true
+    },
+    {
+     "name": "Proteiinijauhetta",
+     "qty": 30,
+     "unit": "g"
+    },
+    {
+     "name": "Marjoja",
+     "qty": 1,
+     "unit": "dl"
+    },
+    {
+     "name": "Suolaa",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Keitä puuro miedolla lämmöllä n. 10 min.",
+    "Anna jäähtyä hetki ja sekoita proteiinijauhe joukkoon. Lisää marjat päälle."
+   ]
+  },
+  {
+   "id": "rahkaletut",
+   "name": "Rahkaletut",
+   "categories": [
+    "aamupala"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "huom": "Gluteeniton gluteenittomalla kauralla.",
+   "prepMinutes": 15,
+   "servings": 2,
+   "kcal": 300,
+   "protein": 25,
+   "ingredients": [
+    {
+     "name": "Maitorahkaa",
+     "qty": 1,
+     "unit": "prk (250 g)"
+    },
+    {
+     "name": "Kananmunia",
+     "qty": 2,
+     "unit": "kpl"
+    },
+    {
+     "name": "Kaurahiutaleita",
+     "qty": 1,
+     "unit": "dl"
+    },
+    {
+     "name": "Leivinjauhetta",
+     "qty": 0.5,
+     "unit": "tl",
+     "pantry": true
+    },
+    {
+     "name": "Marjoja tarjoiluun",
+     "qty": 1,
+     "unit": "dl"
+    }
+   ],
+   "steps": [
+    "Sekoita ainekset tasaiseksi taikinaksi.",
+    "Paista pieninä lettuina keskilämmöllä kullanruskeiksi."
+   ]
+  },
+  {
+   "id": "skyr-granolabowl",
+   "name": "Skyr-granolabowl",
+   "categories": [
+    "aamupala"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "prepMinutes": 3,
+   "servings": 1,
+   "kcal": 340,
+   "protein": 22,
+   "ingredients": [
+    {
+     "name": "Skyriä",
+     "qty": 1,
+     "unit": "prk (200 g)"
+    },
+    {
+     "name": "Granolaa",
+     "qty": 0.5,
+     "unit": "dl"
+    },
+    {
+     "name": "Banaani",
+     "qty": 1,
+     "unit": "kpl"
+    }
+   ],
+   "steps": [
+    "Kaada skyr kulhoon, lisää granola ja banaaniviipaleet."
+   ],
+   "huom": "Gluteeniton: vaihda granola/mysli gluteenittomaan."
+  },
+  {
+   "id": "avokado-munaleipa",
+   "name": "Avokado-munaleipä",
+   "categories": [
+    "aamupala",
+    "iltapala"
+   ],
+   "tags": [
+    "maidoton",
+    "gluteeniton"
+   ],
+   "prepMinutes": 10,
+   "servings": 1,
+   "kcal": 380,
+   "protein": 17,
+   "ingredients": [
+    {
+     "name": "Ruisleipää",
+     "qty": 1,
+     "unit": "viipale"
+    },
+    {
+     "name": "Kananmunia",
+     "qty": 2,
+     "unit": "kpl"
+    },
+    {
+     "name": "Avokado",
+     "qty": 0.5,
+     "unit": "kpl"
+    },
+    {
+     "name": "Suolaa ja mustapippuria",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Paista tai keitä munat.",
+    "Muussaa avokado leivälle, nosta munat päälle ja mausta."
+   ],
+   "huom": "Gluteeniton: vaihda leipä gluteenittomaan."
+  },
+  {
+   "id": "kaakao-banaanichia",
+   "name": "Kaakao-banaanichiavanukas",
+   "categories": [
+    "aamupala",
+    "iltapala"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "huom": "Tee edellisenä iltana.",
+   "prepMinutes": 8,
+   "servings": 1,
+   "kcal": 310,
+   "protein": 14,
+   "ingredients": [
+    {
+     "name": "Chiansiemeniä",
+     "qty": 2,
+     "unit": "rkl"
+    },
+    {
+     "name": "Kaakaojauhetta",
+     "qty": 1,
+     "unit": "rkl",
+     "pantry": true
+    },
+    {
+     "name": "Maitoa tai kasvijuomaa",
+     "qty": 1.5,
+     "unit": "dl"
+    },
+    {
+     "name": "Maustamatonta jogurttia",
+     "qty": 1,
+     "unit": "dl"
+    },
+    {
+     "name": "Banaani",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Makeutusainetta",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Sekoita chia, kaakao, maito ja jogurtti, makeuta.",
+    "Hyydytä jääkaapissa yön yli. Lisää banaaniviipaleet päälle."
+   ]
+  },
+  {
+   "id": "kasvismunakas",
+   "name": "Kasvismunakas",
+   "categories": [
+    "aamupala",
+    "iltapala"
+   ],
+   "tags": [
+    "gluteeniton",
+    "vhh"
+   ],
+   "prepMinutes": 12,
+   "servings": 1,
+   "kcal": 320,
+   "protein": 22,
+   "ingredients": [
+    {
+     "name": "Kananmunia",
+     "qty": 3,
+     "unit": "kpl"
+    },
+    {
+     "name": "Paprika",
+     "qty": 0.5,
+     "unit": "kpl"
+    },
+    {
+     "name": "Kevätsipulia",
+     "qty": null,
+     "unit": ""
+    },
+    {
+     "name": "Juustoraastetta",
+     "qty": 2,
+     "unit": "rkl"
+    },
+    {
+     "name": "Suolaa ja pippuria",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Kuullota kasvikset pannulla.",
+    "Kaada vatkatut munat päälle, ripottele juusto ja hauduta kannen alla kypsäksi."
+   ]
+  },
+  {
+   "id": "uunipannari-kaura",
+   "name": "Kaurainen uunipannari",
+   "categories": [
+    "aamupala"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "huom": "Iso satsi — säilyy jääkaapissa pari päivää. Gluteeniton gluteenittomalla kauralla.",
+   "prepMinutes": 40,
+   "servings": 6,
+   "kcal": 310,
+   "protein": 16,
+   "ingredients": [
+    {
+     "name": "Kananmunia",
+     "qty": 6,
+     "unit": "kpl"
+    },
+    {
+     "name": "Maitoa",
+     "qty": 5,
+     "unit": "dl"
+    },
+    {
+     "name": "Kaurahiutaleita",
+     "qty": 3,
+     "unit": "dl"
+    },
+    {
+     "name": "Pakastemarjoja",
+     "qty": 2,
+     "unit": "dl"
+    },
+    {
+     "name": "Vaniljasokeria tai makeutusta",
+     "qty": 1,
+     "unit": "tl",
+     "pantry": true
+    },
+    {
+     "name": "Suolaa",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Sekoita ainekset ja anna turvota 10 min.",
+    "Kaada leivinpaperoidulle pellille, ripottele marjat pintaan.",
+    "Paista 200 °C noin 25 min."
+   ]
+  },
+  {
+   "id": "vihersmoothie-proteiinilla",
+   "name": "Vihersmoothie proteiinilla",
+   "categories": [
+    "aamupala",
+    "valipala"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "prepMinutes": 5,
+   "servings": 1,
+   "kcal": 300,
+   "protein": 30,
+   "ingredients": [
+    {
+     "name": "Pinaattia",
+     "qty": 1,
+     "unit": "kourallinen"
+    },
+    {
+     "name": "Banaani",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Maitoa tai kasvijuomaa",
+     "qty": 2,
+     "unit": "dl"
+    },
+    {
+     "name": "Proteiinijauhetta",
+     "qty": 30,
+     "unit": "g"
+    }
+   ],
+   "steps": [
+    "Sekoita kaikki blenderissä tasaiseksi."
+   ]
+  },
+  {
+   "id": "raejuustoleivat",
+   "name": "Raejuustoleivät tomaatilla",
+   "categories": [
+    "aamupala",
+    "iltapala"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "prepMinutes": 5,
+   "servings": 1,
+   "kcal": 330,
+   "protein": 20,
+   "ingredients": [
+    {
+     "name": "Paahtoleipää tai ruisleipää",
+     "qty": 2,
+     "unit": "viipaletta"
+    },
+    {
+     "name": "Raejuustoa",
+     "qty": 100,
+     "unit": "g"
+    },
+    {
+     "name": "Tomaatti",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Mustapippuria",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Levitä raejuusto leiville, lisää tomaattiviipaleet ja pippuroi."
+   ],
+   "huom": "Gluteeniton: vaihda leipä gluteenittomaan."
+  },
+  {
+   "id": "mapavoi-banaanitoast",
+   "name": "Maapähkinävoi-banaanitoast",
+   "categories": [
+    "aamupala"
+   ],
+   "tags": [
+    "maidoton",
+    "gluteeniton"
+   ],
+   "prepMinutes": 5,
+   "servings": 1,
+   "kcal": 400,
+   "protein": 13,
+   "ingredients": [
+    {
+     "name": "Täysjyväpaahtoleipää",
+     "qty": 2,
+     "unit": "viipaletta"
+    },
+    {
+     "name": "Maapähkinävoita",
+     "qty": 1,
+     "unit": "rkl"
+    },
+    {
+     "name": "Banaani",
+     "qty": 1,
+     "unit": "kpl"
+    }
+   ],
+   "steps": [
+    "Paahda leivät, levitä maapähkinävoi ja lisää banaaniviipaleet."
+   ],
+   "huom": "Gluteeniton: vaihda leipä gluteenittomaan."
+  },
+  {
+   "id": "munakokkelileipa",
+   "name": "Munakokkelileipä",
+   "categories": [
+    "aamupala"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "prepMinutes": 8,
+   "servings": 1,
+   "kcal": 380,
+   "protein": 22,
+   "ingredients": [
+    {
+     "name": "Kananmunia",
+     "qty": 3,
+     "unit": "kpl"
+    },
+    {
+     "name": "Maitoa",
+     "qty": 2,
+     "unit": "rkl"
+    },
+    {
+     "name": "Ruisleipää",
+     "qty": 1,
+     "unit": "viipale"
+    },
+    {
+     "name": "Ruohosipulia",
+     "qty": null,
+     "unit": ""
+    },
+    {
+     "name": "Suolaa ja pippuria",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Sekoita munat ja maito, kypsennä kokkeliksi miedolla lämmöllä välillä sekoittaen.",
+    "Tarjoile leivän päällä ruohosipulilla."
+   ],
+   "huom": "Gluteeniton: vaihda leipä gluteenittomaan."
+  },
+  {
+   "id": "karjalanpiirakat-munavoilla",
+   "name": "Karjalanpiirakat munavoilla",
+   "categories": [
+    "aamupala",
+    "iltapala"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "prepMinutes": 10,
+   "servings": 1,
+   "kcal": 350,
+   "protein": 12,
+   "ingredients": [
+    {
+     "name": "Karjalanpiirakoita",
+     "qty": 2,
+     "unit": "kpl"
+    },
+    {
+     "name": "Kananmuna",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Margariinia tai voita",
+     "qty": 1,
+     "unit": "rkl"
+    }
+   ],
+   "steps": [
+    "Keitä muna kovaksi ja hienonna margariinin joukkoon.",
+    "Lämmitä piirakat ja lusikoi munavoi päälle."
+   ],
+   "huom": "Gluteeniton: vaihda piirakat gluteenittomiin."
+  },
+  {
+   "id": "uuniseiti-perunamuusi",
+   "name": "Uuniseiti ja perunamuusi",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "prepMinutes": 35,
+   "servings": 4,
+   "kcal": 380,
+   "protein": 28,
+   "ingredients": [
+    {
+     "name": "Seitifilettä (pakaste käy)",
+     "qty": 400,
+     "unit": "g"
+    },
+    {
+     "name": "Perunoita",
+     "qty": 600,
+     "unit": "g"
+    },
+    {
+     "name": "Maitoa muusiin",
+     "qty": 1,
+     "unit": "dl"
+    },
+    {
+     "name": "Sitruuna",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Tilliä",
+     "qty": null,
+     "unit": ""
+    },
+    {
+     "name": "Voita, suolaa, pippuria",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Paista seiti uunissa 200 °C n. 20 min sitruunan ja tillin kanssa.",
+    "Keitä perunat ja muusaa maidon kanssa."
+   ]
+  },
+  {
+   "id": "lohimurekepihvit",
+   "name": "Lohimurekepihvit ja perunat",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "huom": "Gluteeniton gluteenittomalla kauralla.",
+   "prepMinutes": 35,
+   "servings": 4,
+   "kcal": 400,
+   "protein": 30,
+   "ingredients": [
+    {
+     "name": "Lohta (ruodoton)",
+     "qty": 400,
+     "unit": "g"
+    },
+    {
+     "name": "Kananmuna",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Kaurahiutaleita",
+     "qty": 0.5,
+     "unit": "dl"
+    },
+    {
+     "name": "Kevätsipulia",
+     "qty": null,
+     "unit": ""
+    },
+    {
+     "name": "Perunoita",
+     "qty": 600,
+     "unit": "g"
+    },
+    {
+     "name": "Suolaa, tilliä, sitruunapippuria",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Hienonna lohi ja sekoita muna, kaurahiutaleet ja mausteet joukkoon.",
+    "Muotoile pihveiksi ja paista pannulla n. 4 min per puoli.",
+    "Tarjoile keitettyjen perunoiden kanssa."
+   ]
+  },
+  {
+   "id": "broilerikeitto",
+   "name": "Broilerikeitto",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "gluteeniton",
+    "maidoton"
+   ],
+   "prepMinutes": 30,
+   "servings": 4,
+   "kcal": 350,
+   "protein": 30,
+   "ingredients": [
+    {
+     "name": "Broilerin suikaleita",
+     "qty": 400,
+     "unit": "g"
+    },
+    {
+     "name": "Perunoita",
+     "qty": 400,
+     "unit": "g"
+    },
+    {
+     "name": "Porkkanoita",
+     "qty": 2,
+     "unit": "kpl"
+    },
+    {
+     "name": "Purjoa",
+     "qty": 0.5,
+     "unit": "kpl"
+    },
+    {
+     "name": "Kanaliemikuutioita",
+     "qty": 2,
+     "unit": "kpl",
+     "pantry": true
+    },
+    {
+     "name": "Vettä",
+     "qty": 1,
+     "unit": "l",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Ruskista broileri kattilassa.",
+    "Lisää paloitellut kasvikset ja liemi, keitä n. 20 min."
+   ]
+  },
+  {
+   "id": "broileri-nuudeliwokki",
+   "name": "Broileri-nuudeliwokki",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "maidoton",
+    "gluteeniton"
+   ],
+   "prepMinutes": 20,
+   "servings": 4,
+   "kcal": 440,
+   "protein": 32,
+   "ingredients": [
+    {
+     "name": "Broilerin suikaleita",
+     "qty": 400,
+     "unit": "g"
+    },
+    {
+     "name": "Nuudeleita",
+     "qty": 200,
+     "unit": "g"
+    },
+    {
+     "name": "Wokkivihanneksia",
+     "qty": 300,
+     "unit": "g"
+    },
+    {
+     "name": "Soijakastiketta",
+     "qty": 2,
+     "unit": "rkl",
+     "pantry": true
+    },
+    {
+     "name": "Inkivääriä ja valkosipulia",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Keitä nuudelit pakkauksen ohjeen mukaan.",
+    "Paista broileri kuumalla pannulla, lisää vihannekset ja soija.",
+    "Yhdistä nuudelit joukkoon."
+   ],
+   "huom": "Gluteeniton: vaihda nuudelit gluteenittomiin."
+  },
+  {
+   "id": "kanafajitas",
+   "name": "Kanafajitas-tortillat",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "prepMinutes": 25,
+   "servings": 4,
+   "kcal": 480,
+   "protein": 33,
+   "ingredients": [
+    {
+     "name": "Broilerin suikaleita",
+     "qty": 400,
+     "unit": "g"
+    },
+    {
+     "name": "Tortillalättyjä",
+     "qty": 4,
+     "unit": "kpl"
+    },
+    {
+     "name": "Paprikoita",
+     "qty": 2,
+     "unit": "kpl"
+    },
+    {
+     "name": "Sipuli",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Fajitamausteseos",
+     "qty": 1,
+     "unit": "pss"
+    },
+    {
+     "name": "Maustamatonta jogurttia",
+     "qty": 1,
+     "unit": "dl"
+    }
+   ],
+   "steps": [
+    "Paista broileri, paprikasuikaleet ja sipuli mausteseoksen kanssa.",
+    "Lämmitä tortillat ja täytä. Viimeistele jogurtilla."
+   ],
+   "huom": "Gluteeniton: vaihda tortillat gluteenittomiin."
+  },
+  {
+   "id": "jauheliha-tacot",
+   "name": "Jauhelihatacot",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "redMeat": 2,
+   "prepMinutes": 25,
+   "servings": 4,
+   "kcal": 520,
+   "protein": 30,
+   "ingredients": [
+    {
+     "name": "Jauhelihaa",
+     "qty": 400,
+     "unit": "g"
+    },
+    {
+     "name": "Tortillalättyjä tai tacokuoria",
+     "qty": 8,
+     "unit": "kpl"
+    },
+    {
+     "name": "Tacomausteseos",
+     "qty": 1,
+     "unit": "pss"
+    },
+    {
+     "name": "Salaattia",
+     "qty": null,
+     "unit": ""
+    },
+    {
+     "name": "Tomaatteja",
+     "qty": 2,
+     "unit": "kpl"
+    },
+    {
+     "name": "Juustoraastetta",
+     "qty": 1,
+     "unit": "dl"
+    },
+    {
+     "name": "Salsakastiketta",
+     "qty": 0.5,
+     "unit": "prk"
+    }
+   ],
+   "steps": [
+    "Ruskista jauheliha ja mausta tacomausteella.",
+    "Kasaa tortilloihin liha, kasvikset, juusto ja salsa."
+   ],
+   "huom": "Gluteeniton: vaihda tortillat gluteenittomiin."
+  },
+  {
+   "id": "kaalilaatikko",
+   "name": "Kaalilaatikko",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "gluteeniton",
+    "maidoton"
+   ],
+   "redMeat": 2,
+   "huom": "Edullinen klassikko — paranee lämmitettäessä.",
+   "prepMinutes": 75,
+   "servings": 4,
+   "kcal": 420,
+   "protein": 26,
+   "ingredients": [
+    {
+     "name": "Keräkaalia",
+     "qty": 800,
+     "unit": "g"
+    },
+    {
+     "name": "Jauhelihaa",
+     "qty": 400,
+     "unit": "g"
+    },
+    {
+     "name": "Riisiä",
+     "qty": 1,
+     "unit": "dl"
+    },
+    {
+     "name": "Sipuli",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Siirappia",
+     "qty": 1,
+     "unit": "rkl",
+     "pantry": true
+    },
+    {
+     "name": "Suolaa, pippuria, meiramia",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Keitä riisi. Suikaloi ja kuullota kaali, ruskista jauheliha sipulin kanssa.",
+    "Yhdistä vuokaan, mausta ja valuta siirappi pinnalle.",
+    "Paista 175 °C noin 1 tunti."
+   ]
+  },
+  {
+   "id": "hernekeitto",
+   "name": "Hernekeitto",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "gluteeniton",
+    "maidoton"
+   ],
+   "redMeat": 1,
+   "huom": "Liota herneet yön yli. Todella edullinen — tee iso satsi.",
+   "prepMinutes": 90,
+   "servings": 4,
+   "kcal": 380,
+   "protein": 28,
+   "ingredients": [
+    {
+     "name": "Kuivattuja herneitä",
+     "qty": 3,
+     "unit": "dl"
+    },
+    {
+     "name": "Kinkkusuikaleita",
+     "qty": 150,
+     "unit": "g"
+    },
+    {
+     "name": "Sipuli",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Vettä",
+     "qty": 1.5,
+     "unit": "l",
+     "pantry": true
+    },
+    {
+     "name": "Sinappia ja suolaa",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Liota herneitä yön yli ja keitä liotusvedessä n. 1,5 h kuoria kuorien.",
+    "Lisää kinkku ja sipuli loppuvaiheessa. Mausta sinapilla."
+   ]
+  },
+  {
+   "id": "tonnikala-riisisalaatti",
+   "name": "Tonnikala-riisisalaatti",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "gluteeniton",
+    "maidoton"
+   ],
+   "huom": "Hyvä kylmänä eväänä — tee isompi satsi.",
+   "prepMinutes": 20,
+   "servings": 4,
+   "kcal": 420,
+   "protein": 26,
+   "ingredients": [
+    {
+     "name": "Riisiä",
+     "qty": 2,
+     "unit": "dl"
+    },
+    {
+     "name": "Tonnikalaa",
+     "qty": 2,
+     "unit": "prk"
+    },
+    {
+     "name": "Kurkku",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Paprika",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Herne-maissi-paprikaa (pakaste)",
+     "qty": 200,
+     "unit": "g"
+    },
+    {
+     "name": "Öljyä ja sitruunamehua",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Keitä riisi ja anna jäähtyä.",
+    "Sekoita joukkoon valutettu tonnikala, kasvikset ja kastike."
+   ]
+  },
+  {
+   "id": "broilerinkoivet-lohkoperunat",
+   "name": "Broilerinkoivet ja lohkoperunat",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "gluteeniton",
+    "maidoton"
+   ],
+   "huom": "Edullinen peltiruoka — uuni tekee työn.",
+   "prepMinutes": 60,
+   "servings": 4,
+   "kcal": 520,
+   "protein": 35,
+   "ingredients": [
+    {
+     "name": "Broilerin koipireisiä",
+     "qty": 800,
+     "unit": "g"
+    },
+    {
+     "name": "Perunoita",
+     "qty": 700,
+     "unit": "g"
+    },
+    {
+     "name": "Öljyä",
+     "qty": 2,
+     "unit": "rkl",
+     "pantry": true
+    },
+    {
+     "name": "Paprikamaustetta, valkosipulia, suolaa",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Lohko perunat ja levitä pellille koipien kanssa.",
+    "Öljyä, mausta reilusti ja paista 200 °C noin 50 min."
+   ]
+  },
+  {
+   "id": "kirjolohipasta",
+   "name": "Kermainen kirjolohipasta",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "huom": "Gluteeniton gluteenittomalla pastalla. Gluteeniton: vaihda pasta gluteenittomaan.",
+   "prepMinutes": 25,
+   "servings": 4,
+   "kcal": 520,
+   "protein": 28,
+   "ingredients": [
+    {
+     "name": "Pastaa",
+     "qty": 300,
+     "unit": "g"
+    },
+    {
+     "name": "Kirjolohta",
+     "qty": 300,
+     "unit": "g"
+    },
+    {
+     "name": "Ruokakermaa",
+     "qty": 2,
+     "unit": "dl"
+    },
+    {
+     "name": "Sipuli",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Tilliä ja sitruunaa",
+     "qty": null,
+     "unit": ""
+    },
+    {
+     "name": "Suolaa ja pippuria",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Keitä pasta. Paista lohikuutiot ja sipuli.",
+    "Lisää kerma ja tilli, hauduta hetki ja yhdistä pastaan."
+   ]
+  },
+  {
+   "id": "kikhernecurry",
+   "name": "Kikhernecurry ja riisi",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "gluteeniton",
+    "maidoton"
+   ],
+   "huom": "Edullinen kasvisruoka — paranee toisena päivänä.",
+   "prepMinutes": 25,
+   "servings": 4,
+   "kcal": 450,
+   "protein": 15,
+   "ingredients": [
+    {
+     "name": "Kikherneitä",
+     "qty": 2,
+     "unit": "prk"
+    },
+    {
+     "name": "Kookosmaitoa",
+     "qty": 4,
+     "unit": "dl"
+    },
+    {
+     "name": "Tomaattimurskaa",
+     "qty": 1,
+     "unit": "prk"
+    },
+    {
+     "name": "Sipuli",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Riisiä",
+     "qty": 2,
+     "unit": "dl"
+    },
+    {
+     "name": "Currya, valkosipulia, inkivääriä",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Kuullota sipuli ja mausteet, lisää tomaattimurska ja kookosmaito.",
+    "Lisää huuhdellut kikherneet, hauduta 15 min. Keitä riisi lisukkeeksi."
+   ]
+  },
+  {
+   "id": "tofu-kasviswokki",
+   "name": "Tofu-kasviswokki",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "gluteeniton",
+    "maidoton"
+   ],
+   "huom": "Käytä gluteenitonta soijakastiketta. Marinoitu tofu on helpoin.",
+   "prepMinutes": 20,
+   "servings": 4,
+   "kcal": 400,
+   "protein": 22,
+   "ingredients": [
+    {
+     "name": "Marinoitua tofua",
+     "qty": 400,
+     "unit": "g"
+    },
+    {
+     "name": "Wokkivihanneksia",
+     "qty": 400,
+     "unit": "g"
+    },
+    {
+     "name": "Riisiä tai nuudeleita",
+     "qty": 2,
+     "unit": "dl"
+    },
+    {
+     "name": "Soijakastiketta",
+     "qty": 2,
+     "unit": "rkl",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Keitä riisi. Paista tofukuutiot rapeiksi.",
+    "Lisää vihannekset ja soija, wokkaa napakan kypsäksi."
+   ]
+  },
+  {
+   "id": "pinaattiletut-raejuustolla",
+   "name": "Pinaattiletut ja raejuusto",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [],
+   "huom": "Kaupan valmisletut — arjen nopein lounas.",
+   "prepMinutes": 10,
+   "servings": 2,
+   "kcal": 400,
+   "protein": 22,
+   "ingredients": [
+    {
+     "name": "Pinaattilettuja (valmis)",
+     "qty": 1,
+     "unit": "pss (400 g)"
+    },
+    {
+     "name": "Raejuustoa",
+     "qty": 200,
+     "unit": "g"
+    },
+    {
+     "name": "Puolukkahilloa",
+     "qty": 2,
+     "unit": "rkl"
+    }
+   ],
+   "steps": [
+    "Lämmitä letut pannulla tai uunissa.",
+    "Tarjoile raejuuston ja puolukkahillon kanssa."
+   ]
+  },
+  {
+   "id": "broileripyorykat-pasta",
+   "name": "Broileripyörykät ja täysjyväpasta",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "maidoton"
+   ],
+   "huom": "Kaupan valmispyörykät — nopea arkiruoka.",
+   "prepMinutes": 20,
+   "servings": 4,
+   "kcal": 470,
+   "protein": 28,
+   "ingredients": [
+    {
+     "name": "Broileripyöryköitä (valmis)",
+     "qty": 300,
+     "unit": "g"
+    },
+    {
+     "name": "Täysjyväpastaa",
+     "qty": 300,
+     "unit": "g"
+    },
+    {
+     "name": "Tomaattipohjaista pastakastiketta",
+     "qty": 1,
+     "unit": "prk"
+    },
+    {
+     "name": "Sipuli",
+     "qty": 1,
+     "unit": "kpl"
+    }
+   ],
+   "steps": [
+    "Keitä pasta ja lämmitä pyörykät pannulla.",
+    "Lisää kastike ja hauduta hetki, yhdistä pastaan."
+   ]
+  },
+  {
+   "id": "jauhelihapihvit-linsseilla",
+   "name": "Jauhelihapihvit linsseillä ja muusi",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "redMeat": 2,
+   "huom": "Linssit jatkavat jauhelihaa — edullisempi ja kuitupitoisempi.",
+   "prepMinutes": 35,
+   "servings": 4,
+   "kcal": 460,
+   "protein": 32,
+   "ingredients": [
+    {
+     "name": "Jauhelihaa",
+     "qty": 400,
+     "unit": "g"
+    },
+    {
+     "name": "Keitettyjä linssejä",
+     "qty": 1,
+     "unit": "prk"
+    },
+    {
+     "name": "Kananmuna",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Sipuli",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Perunoita",
+     "qty": 600,
+     "unit": "g"
+    },
+    {
+     "name": "Maitoa muusiin",
+     "qty": 1,
+     "unit": "dl"
+    },
+    {
+     "name": "Suolaa ja pippuria",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Sekoita jauheliha, valutetut linssit, muna ja sipulisilppu. Muotoile pihveiksi.",
+    "Paista pannulla n. 5 min per puoli.",
+    "Keitä perunat ja muusaa."
+   ]
+  },
+  {
+   "id": "hunaja-sinappibroileri",
+   "name": "Hunaja-sinappibroileri ja riisi",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "gluteeniton",
+    "maidoton"
+   ],
+   "prepMinutes": 30,
+   "servings": 4,
+   "kcal": 470,
+   "protein": 34,
+   "ingredients": [
+    {
+     "name": "Broilerin fileitä",
+     "qty": 500,
+     "unit": "g"
+    },
+    {
+     "name": "Hunajaa",
+     "qty": 2,
+     "unit": "rkl",
+     "pantry": true
+    },
+    {
+     "name": "Sinappia",
+     "qty": 2,
+     "unit": "rkl",
+     "pantry": true
+    },
+    {
+     "name": "Riisiä",
+     "qty": 2,
+     "unit": "dl"
+    },
+    {
+     "name": "Salaattia ja kurkkua lisukkeeksi",
+     "qty": null,
+     "unit": ""
+    }
+   ],
+   "steps": [
+    "Sekoita hunaja ja sinappi, sivele fileille.",
+    "Paista uunissa 200 °C n. 25 min. Keitä riisi ja tee salaatti."
+   ]
+  },
+  {
+   "id": "taysjyvawrapit-broilerilla",
+   "name": "Täysjyväwrapit broilerilla",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "prepMinutes": 20,
+   "servings": 4,
+   "kcal": 450,
+   "protein": 32,
+   "ingredients": [
+    {
+     "name": "Täysjyvätortilloja",
+     "qty": 4,
+     "unit": "kpl"
+    },
+    {
+     "name": "Broilerin suikaleita",
+     "qty": 400,
+     "unit": "g"
+    },
+    {
+     "name": "Salaattia",
+     "qty": null,
+     "unit": ""
+    },
+    {
+     "name": "Tomaatteja",
+     "qty": 2,
+     "unit": "kpl"
+    },
+    {
+     "name": "Maustamatonta jogurttia",
+     "qty": 1,
+     "unit": "dl"
+    },
+    {
+     "name": "Paprikamauste, valkosipuli",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Paista maustetut broilerisuikaleet.",
+    "Levitä tortilloille jogurtti, täytä kanalla ja kasviksilla, kääri."
+   ],
+   "huom": "Gluteeniton: vaihda tortillat gluteenittomiin."
+  },
+  {
+   "id": "pyttipannu-kananmunalla",
+   "name": "Pyttipannu kananmunalla",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "gluteeniton",
+    "maidoton"
+   ],
+   "huom": "Kalkkunanakeilla kevyempi versio klassikosta.",
+   "prepMinutes": 25,
+   "servings": 4,
+   "kcal": 450,
+   "protein": 26,
+   "ingredients": [
+    {
+     "name": "Perunoita (tai valmis pyttipannupohja)",
+     "qty": 600,
+     "unit": "g"
+    },
+    {
+     "name": "Kalkkunanakkeja",
+     "qty": 200,
+     "unit": "g"
+    },
+    {
+     "name": "Sipuli",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Kananmunia",
+     "qty": 4,
+     "unit": "kpl"
+    },
+    {
+     "name": "Öljyä, suolaa, pippuria",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Kuutioi ja paista perunat kullanruskeiksi.",
+    "Lisää nakkipalat ja sipuli, paista hetki.",
+    "Paista munat päälle tai sekaan."
+   ]
+  },
+  {
+   "id": "kalkkunacurry",
+   "name": "Kalkkunacurry ja riisi",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "gluteeniton",
+    "maidoton"
+   ],
+   "prepMinutes": 25,
+   "servings": 4,
+   "kcal": 450,
+   "protein": 33,
+   "ingredients": [
+    {
+     "name": "Kalkkunan suikaleita",
+     "qty": 400,
+     "unit": "g"
+    },
+    {
+     "name": "Kookosmaitoa",
+     "qty": 2,
+     "unit": "dl"
+    },
+    {
+     "name": "Paprika",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Sipuli",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Riisiä",
+     "qty": 2,
+     "unit": "dl"
+    },
+    {
+     "name": "Currytahnaa tai -jauhetta",
+     "qty": 1,
+     "unit": "rkl",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Paista kalkkuna ja kasvikset, lisää curry.",
+    "Kaada kookosmaito ja hauduta 10 min. Keitä riisi."
+   ]
+  },
+  {
+   "id": "kesakurpitsavuoka-jauhelihalla",
+   "name": "Kesäkurpitsavuoka jauhelihalla",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "gluteeniton",
+    "vhh"
+   ],
+   "redMeat": 2,
+   "prepMinutes": 45,
+   "servings": 4,
+   "kcal": 380,
+   "protein": 30,
+   "ingredients": [
+    {
+     "name": "Kesäkurpitsoja",
+     "qty": 2,
+     "unit": "kpl"
+    },
+    {
+     "name": "Jauhelihaa",
+     "qty": 400,
+     "unit": "g"
+    },
+    {
+     "name": "Tomaattimurskaa",
+     "qty": 1,
+     "unit": "prk"
+    },
+    {
+     "name": "Juustoraastetta",
+     "qty": 1,
+     "unit": "dl"
+    },
+    {
+     "name": "Sipuli",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Suolaa, pippuria, oreganoa",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Ruskista jauheliha sipulin kanssa, lisää tomaattimurska.",
+    "Kerrosta vuokaan kesäkurpitsaviipaleiden kanssa, juustoraaste pintaan.",
+    "Paista 200 °C noin 30 min."
+   ]
+  },
+  {
+   "id": "tonnikalamunakas",
+   "name": "Tonnikalamunakas",
+   "categories": [
+    "lounas",
+    "iltapala"
+   ],
+   "tags": [
+    "gluteeniton",
+    "maidoton",
+    "vhh"
+   ],
+   "prepMinutes": 12,
+   "servings": 2,
+   "kcal": 330,
+   "protein": 35,
+   "ingredients": [
+    {
+     "name": "Kananmunia",
+     "qty": 4,
+     "unit": "kpl"
+    },
+    {
+     "name": "Tonnikalaa",
+     "qty": 1,
+     "unit": "prk"
+    },
+    {
+     "name": "Kevätsipulia",
+     "qty": null,
+     "unit": ""
+    },
+    {
+     "name": "Suolaa ja pippuria",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Vatkaa munat ja sekoita valutettu tonnikala joukkoon.",
+    "Paista pannulla kannen alla kypsäksi."
+   ]
+  },
+  {
+   "id": "kevyt-kanacaesar",
+   "name": "Kevyt kanacaesar",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "prepMinutes": 20,
+   "servings": 3,
+   "kcal": 400,
+   "protein": 35,
+   "ingredients": [
+    {
+     "name": "Broilerin fileitä",
+     "qty": 400,
+     "unit": "g"
+    },
+    {
+     "name": "Roomansalaattia",
+     "qty": 1,
+     "unit": "kerä"
+    },
+    {
+     "name": "Parmesaania",
+     "qty": 30,
+     "unit": "g"
+    },
+    {
+     "name": "Täysjyväleipää krutonkeihin",
+     "qty": 2,
+     "unit": "viipaletta"
+    },
+    {
+     "name": "Maustamatonta jogurttia kastikkeeseen",
+     "qty": 1,
+     "unit": "dl"
+    },
+    {
+     "name": "Sitruunamehu, valkosipuli, sinappi",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Paista broileri ja paahda leipäkuutiot krutongeiksi.",
+    "Sekoita jogurttipohjainen kastike.",
+    "Kokoa salaatti ja viimeistele parmesaanilla."
+   ],
+   "huom": "Gluteeniton: vaihda leipä gluteenittomaan."
+  },
+  {
+   "id": "mustapapuchili",
+   "name": "Mustapapuchili",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "gluteeniton",
+    "maidoton"
+   ],
+   "huom": "Edullinen kasvisversio chilistä — iso satsi.",
+   "prepMinutes": 30,
+   "servings": 4,
+   "kcal": 430,
+   "protein": 16,
+   "ingredients": [
+    {
+     "name": "Mustapapuja",
+     "qty": 2,
+     "unit": "prk"
+    },
+    {
+     "name": "Tomaattimurskaa",
+     "qty": 2,
+     "unit": "prk"
+    },
+    {
+     "name": "Maissia",
+     "qty": 1,
+     "unit": "prk"
+    },
+    {
+     "name": "Sipuli",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Riisiä",
+     "qty": 2,
+     "unit": "dl"
+    },
+    {
+     "name": "Chilimauste, kumina, valkosipuli",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Kuullota sipuli ja mausteet, lisää tomaattimurska, pavut ja maissi.",
+    "Hauduta 20 min. Keitä riisi lisukkeeksi."
+   ]
+  },
+  {
+   "id": "nyhtokaura-bolognese",
+   "name": "Nyhtökaura-bolognese",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "maidoton"
+   ],
+   "huom": "Gluteeniton gluteenittomalla pastalla.",
+   "prepMinutes": 25,
+   "servings": 4,
+   "kcal": 440,
+   "protein": 26,
+   "ingredients": [
+    {
+     "name": "Nyhtökauraa",
+     "qty": 250,
+     "unit": "g"
+    },
+    {
+     "name": "Tomaattimurskaa",
+     "qty": 2,
+     "unit": "prk"
+    },
+    {
+     "name": "Sipuli",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Porkkana",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Täysjyväpastaa",
+     "qty": 300,
+     "unit": "g"
+    },
+    {
+     "name": "Oregano, basilika, valkosipuli",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Kuullota sipuli ja porkkanaraaste, lisää nyhtökaura ja paista hetki.",
+    "Lisää tomaattimurska ja mausteet, hauduta 15 min. Keitä pasta."
+   ]
+  },
+  {
+   "id": "uuniperuna-kanataytteella",
+   "name": "Uuniperuna kanatäytteellä",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "prepMinutes": 65,
+   "servings": 4,
+   "kcal": 420,
+   "protein": 30,
+   "ingredients": [
+    {
+     "name": "Isoja perunoita",
+     "qty": 4,
+     "unit": "kpl"
+    },
+    {
+     "name": "Kypsää broileria (esim. paistisuikale)",
+     "qty": 300,
+     "unit": "g"
+    },
+    {
+     "name": "Kermaviiliä tai jogurttia",
+     "qty": 2,
+     "unit": "dl"
+    },
+    {
+     "name": "Kurkkua",
+     "qty": 0.5,
+     "unit": "kpl"
+    },
+    {
+     "name": "Paprikamauste, suola",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Paista perunat uunissa 200 °C noin 60 min.",
+    "Sekoita täyte: broileri, kermaviili, kurkkukuutiot ja mausteet.",
+    "Halkaise perunat ja täytä."
+   ]
+  },
+  {
+   "id": "lohiwokki-nuudeleilla",
+   "name": "Lohiwokki nuudeleilla",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "maidoton",
+    "gluteeniton"
+   ],
+   "prepMinutes": 20,
+   "servings": 4,
+   "kcal": 470,
+   "protein": 28,
+   "ingredients": [
+    {
+     "name": "Lohta",
+     "qty": 300,
+     "unit": "g"
+    },
+    {
+     "name": "Nuudeleita",
+     "qty": 200,
+     "unit": "g"
+    },
+    {
+     "name": "Wokkivihanneksia",
+     "qty": 300,
+     "unit": "g"
+    },
+    {
+     "name": "Soijakastiketta",
+     "qty": 2,
+     "unit": "rkl",
+     "pantry": true
+    },
+    {
+     "name": "Inkivääriä ja valkosipulia",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Keitä nuudelit. Paista lohikuutiot nopeasti kuumalla pannulla.",
+    "Lisää vihannekset, soija ja mausteet, wokkaa ja yhdistä nuudeleihin."
+   ],
+   "huom": "Gluteeniton: vaihda nuudelit gluteenittomiin."
+  },
+  {
+   "id": "burgeripasta",
+   "name": "Burgeripasta",
+   "categories": [
+    "lounas",
+    "paivallinen"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "redMeat": 2,
+   "huom": "Gluteeniton gluteenittomalla pastalla. Gluteeniton: vaihda pasta gluteenittomaan.",
+   "prepMinutes": 25,
+   "servings": 4,
+   "kcal": 520,
+   "protein": 32,
+   "ingredients": [
+    {
+     "name": "Jauhelihaa",
+     "qty": 400,
+     "unit": "g"
+    },
+    {
+     "name": "Pastaa",
+     "qty": 300,
+     "unit": "g"
+    },
+    {
+     "name": "Tomaattimurskaa",
+     "qty": 1,
+     "unit": "prk"
+    },
+    {
+     "name": "Suolakurkkuja",
+     "qty": 2,
+     "unit": "kpl"
+    },
+    {
+     "name": "Juustoraastetta",
+     "qty": 1,
+     "unit": "dl"
+    },
+    {
+     "name": "Sipuli",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Sinappi, ketsuppi, paprikamauste",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Ruskista jauheliha ja sipuli, mausta burgerimaisesti sinapilla ja ketsupilla.",
+    "Lisää tomaattimurska, hauduta ja yhdistä keitettyyn pastaan.",
+    "Viimeistele kurkkukuutioilla ja juustolla."
+   ]
+  },
+  {
+   "id": "iltapuuro-banaanilla",
+   "name": "Iltapuuro banaanilla",
+   "categories": [
+    "iltapala"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "huom": "Gluteeniton gluteenittomalla kauralla.",
+   "prepMinutes": 10,
+   "servings": 1,
+   "kcal": 260,
+   "protein": 10,
+   "ingredients": [
+    {
+     "name": "Kaurahiutaleita",
+     "qty": 0.75,
+     "unit": "dl"
+    },
+    {
+     "name": "Maitoa",
+     "qty": 2,
+     "unit": "dl"
+    },
+    {
+     "name": "Banaani",
+     "qty": 0.5,
+     "unit": "kpl"
+    },
+    {
+     "name": "Kanelia",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Keitä puuro maitoon miedolla lämmöllä.",
+    "Lisää banaaniviipaleet ja kaneli."
+   ]
+  },
+  {
+   "id": "skyr-marjoilla",
+   "name": "Skyr marjoilla",
+   "categories": [
+    "iltapala",
+    "valipala"
+   ],
+   "tags": [
+    "gluteeniton",
+    "vhh"
+   ],
+   "prepMinutes": 2,
+   "servings": 1,
+   "kcal": 160,
+   "protein": 20,
+   "ingredients": [
+    {
+     "name": "Skyriä",
+     "qty": 1,
+     "unit": "prk (200 g)"
+    },
+    {
+     "name": "Marjoja",
+     "qty": 1,
+     "unit": "dl"
+    }
+   ],
+   "steps": [
+    "Sekoita marjat skyrin joukkoon."
+   ]
+  },
+  {
+   "id": "viili-marjoilla",
+   "name": "Viili marjoilla",
+   "categories": [
+    "iltapala"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "prepMinutes": 2,
+   "servings": 1,
+   "kcal": 200,
+   "protein": 8,
+   "ingredients": [
+    {
+     "name": "Viiliä",
+     "qty": 1,
+     "unit": "prk (200 g)"
+    },
+    {
+     "name": "Marjoja",
+     "qty": 1,
+     "unit": "dl"
+    },
+    {
+     "name": "Mysliä (valinnainen)",
+     "qty": 2,
+     "unit": "rkl"
+    }
+   ],
+   "steps": [
+    "Kaada viili kulhoon, lisää marjat ja mysli."
+   ]
+  },
+  {
+   "id": "proteiinivanukas",
+   "name": "Proteiinivanukas",
+   "categories": [
+    "iltapala",
+    "valipala"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "prepMinutes": 1,
+   "servings": 1,
+   "kcal": 160,
+   "protein": 20,
+   "ingredients": [
+    {
+     "name": "Proteiinivanukas (kauppavalmis)",
+     "qty": 1,
+     "unit": "prk"
+    }
+   ],
+   "steps": [
+    "Kaupan valmis proteiinivanukas — nollavaivainen iltapala."
+   ]
+  },
+  {
+   "id": "ruisleipa-raejuustolla",
+   "name": "Ruisleipä raejuustolla",
+   "categories": [
+    "iltapala"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "prepMinutes": 3,
+   "servings": 1,
+   "kcal": 220,
+   "protein": 18,
+   "ingredients": [
+    {
+     "name": "Ruisleipää",
+     "qty": 1,
+     "unit": "viipale"
+    },
+    {
+     "name": "Raejuustoa",
+     "qty": 100,
+     "unit": "g"
+    },
+    {
+     "name": "Kurkkua",
+     "qty": null,
+     "unit": ""
+    }
+   ],
+   "steps": [
+    "Levitä raejuusto leivälle ja lisää kurkkuviipaleet."
+   ],
+   "huom": "Gluteeniton: vaihda leipä gluteenittomaan."
+  },
+  {
+   "id": "nakkari-tuorejuusto-kalkkuna",
+   "name": "Näkkärit tuorejuustolla ja kalkkunalla",
+   "categories": [
+    "iltapala"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "prepMinutes": 3,
+   "servings": 1,
+   "kcal": 220,
+   "protein": 15,
+   "ingredients": [
+    {
+     "name": "Näkkileipää",
+     "qty": 2,
+     "unit": "kpl"
+    },
+    {
+     "name": "Tuorejuustoa",
+     "qty": 2,
+     "unit": "rkl"
+    },
+    {
+     "name": "Kalkkunaleikettä",
+     "qty": 3,
+     "unit": "siivua"
+    }
+   ],
+   "steps": [
+    "Levitä tuorejuusto näkkäreille ja lisää leikkeleet."
+   ],
+   "huom": "Gluteeniton: vaihda näkkileipä gluteenittomaan."
+  },
+  {
+   "id": "iltakaakao-proteiinilla",
+   "name": "Lämmin proteiinikaakao",
+   "categories": [
+    "iltapala"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "prepMinutes": 5,
+   "servings": 1,
+   "kcal": 230,
+   "protein": 28,
+   "ingredients": [
+    {
+     "name": "Maitoa",
+     "qty": 2.5,
+     "unit": "dl"
+    },
+    {
+     "name": "Kaakaojauhetta",
+     "qty": 1,
+     "unit": "rkl",
+     "pantry": true
+    },
+    {
+     "name": "Proteiinijauhetta",
+     "qty": 20,
+     "unit": "g"
+    }
+   ],
+   "steps": [
+    "Lämmitä maito (ei kiehuvaksi) ja vatkaa kaakao joukkoon.",
+    "Sekoita proteiinijauhe lopuksi."
+   ]
+  },
+  {
+   "id": "banaanirahkapirtelo",
+   "name": "Banaanirahkapirtelö",
+   "categories": [
+    "iltapala",
+    "valipala"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "prepMinutes": 4,
+   "servings": 1,
+   "kcal": 260,
+   "protein": 20,
+   "ingredients": [
+    {
+     "name": "Maitorahkaa",
+     "qty": 150,
+     "unit": "g"
+    },
+    {
+     "name": "Banaani",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Maitoa",
+     "qty": 1.5,
+     "unit": "dl"
+    }
+   ],
+   "steps": [
+    "Sekoita ainekset blenderissä tasaiseksi pirtelöksi."
+   ]
+  },
+  {
+   "id": "omenalohkot-kanelijogurtilla",
+   "name": "Omenalohkot kanelijogurtilla",
+   "categories": [
+    "iltapala",
+    "valipala"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "prepMinutes": 4,
+   "servings": 1,
+   "kcal": 200,
+   "protein": 9,
+   "ingredients": [
+    {
+     "name": "Omena",
+     "qty": 1,
+     "unit": "kpl"
+    },
+    {
+     "name": "Maustamatonta jogurttia",
+     "qty": 2,
+     "unit": "dl"
+    },
+    {
+     "name": "Kanelia ja hunajaa",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Lohko omena ja sekoita jogurttiin kaneli ja tilkka hunajaa dipiksi."
+   ]
+  },
+  {
+   "id": "nakkarit-juustolla-tomaatilla",
+   "name": "Näkkärit juustolla ja tomaatilla",
+   "categories": [
+    "iltapala"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "prepMinutes": 3,
+   "servings": 1,
+   "kcal": 240,
+   "protein": 12,
+   "ingredients": [
+    {
+     "name": "Näkkileipää",
+     "qty": 2,
+     "unit": "kpl"
+    },
+    {
+     "name": "Juustoviipaleita",
+     "qty": 2,
+     "unit": "kpl"
+    },
+    {
+     "name": "Tomaatti",
+     "qty": 1,
+     "unit": "kpl"
+    }
+   ],
+   "steps": [
+    "Kasaa juusto ja tomaattiviipaleet näkkäreille."
+   ],
+   "huom": "Gluteeniton: vaihda näkkileipä gluteenittomaan."
+  },
+  {
+   "id": "proteiinipatukka",
+   "name": "Proteiinipatukka",
+   "categories": [
+    "valipala"
+   ],
+   "tags": [],
+   "prepMinutes": 1,
+   "servings": 1,
+   "kcal": 200,
+   "protein": 20,
+   "ingredients": [
+    {
+     "name": "Proteiinipatukka (kauppavalmis)",
+     "qty": 1,
+     "unit": "kpl"
+    }
+   ],
+   "steps": [
+    "Repäise ja syö — reppuvälipala liikkuvaan päivään."
+   ]
+  },
+  {
+   "id": "maissikakut-mapavoilla",
+   "name": "Maissikakut maapähkinävoilla",
+   "categories": [
+    "valipala"
+   ],
+   "tags": [
+    "gluteeniton",
+    "maidoton"
+   ],
+   "prepMinutes": 2,
+   "servings": 1,
+   "kcal": 190,
+   "protein": 6,
+   "ingredients": [
+    {
+     "name": "Maissikakkuja",
+     "qty": 2,
+     "unit": "kpl"
+    },
+    {
+     "name": "Maapähkinävoita",
+     "qty": 1,
+     "unit": "rkl"
+    }
+   ],
+   "steps": [
+    "Levitä maapähkinävoi maissikakuille."
+   ]
+  },
+  {
+   "id": "pahkina-hedelmasekoitus",
+   "name": "Pähkinä-hedelmäsekoitus",
+   "categories": [
+    "valipala"
+   ],
+   "tags": [
+    "gluteeniton",
+    "maidoton"
+   ],
+   "prepMinutes": 1,
+   "servings": 1,
+   "kcal": 220,
+   "protein": 6,
+   "ingredients": [
+    {
+     "name": "Pähkinä-rusinasekoitusta",
+     "qty": 40,
+     "unit": "g"
+    }
+   ],
+   "steps": [
+    "Annostele kouraan ja nauti."
+   ]
+  },
+  {
+   "id": "rypaleet-juustokuutiot",
+   "name": "Viinirypäleet ja juustokuutiot",
+   "categories": [
+    "valipala"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "prepMinutes": 2,
+   "servings": 1,
+   "kcal": 210,
+   "protein": 10,
+   "ingredients": [
+    {
+     "name": "Viinirypäleitä",
+     "qty": 100,
+     "unit": "g"
+    },
+    {
+     "name": "Juustoa kuutioina",
+     "qty": 40,
+     "unit": "g"
+    }
+   ],
+   "steps": [
+    "Kuutioi juusto ja nauti rypäleiden kanssa."
+   ]
+  },
+  {
+   "id": "turkkilainen-jogurtti-hunajalla",
+   "name": "Turkkilainen jogurtti hunajalla",
+   "categories": [
+    "valipala"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "prepMinutes": 2,
+   "servings": 1,
+   "kcal": 230,
+   "protein": 8,
+   "ingredients": [
+    {
+     "name": "Turkkilaista jogurttia",
+     "qty": 150,
+     "unit": "g"
+    },
+    {
+     "name": "Hunajaa",
+     "qty": 1,
+     "unit": "tl",
+     "pantry": true
+    },
+    {
+     "name": "Pähkinöitä",
+     "qty": 1,
+     "unit": "rkl"
+    }
+   ],
+   "steps": [
+    "Valuta hunaja jogurtin päälle ja ripottele pähkinät."
+   ]
+  },
+  {
+   "id": "ruisnaksut-tuorejuustodippi",
+   "name": "Ruisnaksut ja tuorejuustodippi",
+   "categories": [
+    "valipala"
+   ],
+   "tags": [
+    "gluteeniton"
+   ],
+   "prepMinutes": 3,
+   "servings": 1,
+   "kcal": 200,
+   "protein": 7,
+   "ingredients": [
+    {
+     "name": "Ruisnaksuja",
+     "qty": 30,
+     "unit": "g"
+    },
+    {
+     "name": "Tuorejuustoa",
+     "qty": 2,
+     "unit": "rkl"
+    },
+    {
+     "name": "Yrttejä tai valkosipulijauhetta",
+     "qty": null,
+     "unit": "",
+     "pantry": true
+    }
+   ],
+   "steps": [
+    "Sekoita tuorejuustoon mausteet dipiksi ja dippaa naksut."
+   ],
+   "huom": "Gluteeniton: vaihda naksut gluteenittomiin."
+  }
+ ]
 }
