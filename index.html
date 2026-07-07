@@ -245,6 +245,16 @@ function recentlyUsed(id){
 }
 const TREAT=/pitsa|pizza|tacot|burger|fajitas|wrapit|tortilla|kiusaus|hampurilais|grilli/i;
 const isTreat = r => TREAT.test(r.id)||TREAT.test(r.name);
+const FAMS=[
+  ['tortilla',/tortilla|wrap|fajita|taco|pitsa|burrito|kolmioleip/i],
+  ['keitto',/keitto|soppa/i],
+  ['pasta',/pasta|spagetti|makaroni|bolognese|lasagne/i],
+  ['salaatti',/salaatti/i],
+  ['vuoka',/laatikko|kiusaus|vuoka|fritatta/i],
+  ['wokki',/wokki|wok/i],
+  ['munakas',/munakas|kokkeli|munakupit/i],
+];
+const famOf = r => { const t=r.id+' '+r.name; const f=FAMS.find(([,re])=>re.test(t)); return f?f[0]:null };
 function weightedPick(cands, ideal, wFn){
   const list=cands;
   const ws=list.map(r=>Math.exp(-Math.pow((kc(r)-ideal)/(170*PF()),2))*(wFn?wFn(r):1));
@@ -280,13 +290,17 @@ function poolRange(cat){
   const ks=p.map(kc);
   return {min:Math.min(...ks),max:Math.max(...ks)};
 }
-function pickOneMain(source, state, lo, hi, weekend){
+function pickOneMain(source, state, lo, hi, weekend, avoidFams){
   // filter: no duplicates, red-meat budget, feasibility window, rotation freshness — relaxing in that order
   let cands=source.filter(r=>!state.used.includes(r.id));
   if(!cands.length) cands=source;
   if(settings.redMeat==='vahan'){
     const c2=cands.filter(r=>rm(r)<2||state.rm2<1);
     if(c2.length) cands=c2;
+  }
+  if(avoidFams&&avoidFams.size){
+    const cf=cands.filter(r=>!avoidFams.has(famOf(r)));
+    if(cf.length) cands=cf;
   }
   const inWin=cands.filter(r=>kc(r)>=lo&&kc(r)<=hi);
   const winDist=r=>kc(r)<lo?lo-kc(r):kc(r)>hi?kc(r)-hi:0;
@@ -359,7 +373,9 @@ function generateWeekOnce(){
     plan.paivallinen=pd.map((len,ci)=>{
       const days=[];for(let k=0;k<len;k++)days.push(d++);
       const lks=days.map(lunchK);
-      const r=pickOneMain(genPool('paivallinen'), state, Mlo-Math.min(...lks), Mhi-Math.max(...lks), ci===pd.length-1);
+      const lunchFam=day=>{const c=plan.lounas.find(c=>c.days.includes(day));return famOf(byId(c.recipeId))};
+      const avoid=new Set(days.map(lunchFam).filter(Boolean));
+      const r=pickOneMain(genPool('paivallinen'), state, Mlo-Math.min(...lks), Mhi-Math.max(...lks), ci===pd.length-1, avoid);
       return {recipeId:r.id,days,hue:HUES[(4+ci)%6]};
     });
     plan._shared=false;
@@ -431,11 +447,18 @@ function rerollChunk(mk,ci){
   if(!cands.length){ toast('Ei vaihtoehtoja tällä suodatuksella'); return }
   const c=week.plan[mk][ci];
   const weekend=c.days.includes(5)||c.days.includes(6);
+  let pool2=cands;
+  if(!week.plan._shared){
+    const other=mk==='lounas'?'paivallinen':'lounas';
+    const avoid=new Set(c.days.map(d=>{const oc=week.plan[other].find(x=>x.days.includes(d));return oc?famOf(byId(oc.recipeId)):null}).filter(Boolean));
+    const cf=cands.filter(r=>!avoid.has(famOf(r)));
+    if(cf.length) pool2=cf;
+  }
   const T=settings.kcalTarget;
   const ideal=T*(weekend?0.33:0.29);
   const wFn=weekend ? r=>(isTreat(r)?2.5:1) : r=>(r.prepMinutes>35?0.55:1)*(isTreat(r)?0.5:1);
-  const fresh=cands.filter(r=>!recentlyUsed(r.id));
-  const pick=weightedPick(fresh.length?fresh:cands, ideal, wFn);
+  const fresh=pool2.filter(r=>!recentlyUsed(r.id));
+  const pick=weightedPick(fresh.length?fresh:pool2, ideal, wFn);
   applyMainPick(mk,ci,pick,false);
   toast('Vaihdettu: '+pick.name);
 }
@@ -478,6 +501,21 @@ function applyMainPick(mk,ci,pick,manual){
 }
 
 /* ============================ Scaling & shopping ============================ */
+const COUNTABLE=/kpl|viipale|siivu|kourallinen/i;
+function scaledIngredient(i,r,portions,pf){
+  // returns display/shopping quantity for `portions` equal portions at portion factor `pf`
+  if(i.qty==null) return {name:i.name,pantry:i.pantry,qty:null,unit:i.unit||''};
+  const u=(i.unit||'');
+  if(COUNTABLE.test(u)){
+    const perServ=i.qty/r.servings;
+    if(perServ>=1){
+      const perInt=Math.max(1,Math.round(perServ*pf));   // whole units per portion, all portions equal
+      return {name:i.name,pantry:i.pantry,qty:perInt*portions,unit:u,perPortion:perInt};
+    }
+    return {name:i.name,pantry:i.pantry,qty:Math.max(1,Math.round(i.qty*portions*pf/r.servings)),unit:u}; // garnish amounts: whole total
+  }
+  return {name:i.name,pantry:i.pantry,qty:i.qty*portions*pf/r.servings,unit:u};
+}
 function chunkServingsNeeded(mk,c){
   const mult=(week.plan._shared&&(mk==='lounas'||mk==='paivallinen'))?2:1;
   return settings.persons*c.days.length*mult;
@@ -548,19 +586,19 @@ function buildShopping(){
     if(week.plan._shared&&mk==='paivallinen') return;
     week.plan[mk].forEach(c=>{
       const r=byId(c.recipeId); if(!r) return;
-      r.ingredients.forEach(i=>add(i, chunkServingsNeeded(mk,c)*PF()/r.servings));
+      r.ingredients.forEach(i=>add(scaledIngredient(i,r,chunkServingsNeeded(mk,c),PF()), 1));
     });
   });
   ['aamupala','iltapala'].forEach(mk=>{
     week.plan[mk].forEach(e=>{
       const r=byId(e.recipeId); if(!r) return;
-      r.ingredients.forEach(i=>add(i, settings.persons*PF()/r.servings));
+      r.ingredients.forEach(i=>add(scaledIngredient(i,r,settings.persons,PF()), 1));
     });
   });
   if(week.snacksToList){
     Object.values(week.snacks).forEach(sid=>{
       const r=byId(sid); if(!r) return;
-      r.ingredients.forEach(i=>add(i, settings.persons*PF()/r.servings));
+      r.ingredients.forEach(i=>add(scaledIngredient(i,r,settings.persons,1), 1));
     });
   }
   const items=[...map.values()].map(packageize)
@@ -758,24 +796,25 @@ function openRecipe(id,ctx){
     <h3>${esc(r.name)}</h3>
     <div class="sub num">≈ ${kc(r)} kcal · ${pr(r)} g proteiinia / annos · ${r.prepMinutes} min
       ${r.ready?' · valmisruoka':''}${r.tags.length?' · '+r.tags.map(t=>t==='vhh'?'VHH':t).join(', '):''}${rm(r)?' · sisältää punaista lihaa':''}</div>
-    ${PF()!==1?`<div class="huom">Annoskoko skaalattu ×${fmtQty(PF())} kaloritavoitteesi (${fmtK(settings.kcalTarget)} kcal/pv) mukaan — myös ainesmäärissä.</div>`:''}
+    ${PF()!==1?`<div class="huom">Annoskoko skaalattu ×${fmtQty(PF())} kaloritavoitteesi (${fmtK(settings.kcalTarget)} kcal/pv) mukaan. Kappaletavarat (tortillat, munat, leivät...) pyöristetään tasan annoksille — kalorit joustavat silloin hieman päivien välillä.</div>`:''}
     ${r.ready?`<div class="huom" style="margin:10px 0 2px">🏷️ <b>${esc(r.brand||'Useita valmistajia')}</b> — tuotteet, koot ja ravintoarvot vaihtelevat kaupoittain.
       <a href="https://www.google.com/search?tbm=isch&q=${encodeURIComponent(((r.brand||'').replace('esim. ','').split(',')[0]+' '+r.name.replace(' (valmis)','')).trim())}" target="_blank" rel="noopener">Katso pakkauskuvat kuvahaulla ›</a></div>
       ${r.img?`<img src="${esc(r.img)}" alt="${esc(r.name)}" loading="lazy" style="max-width:200px;border-radius:12px;display:block;margin:10px 0;border:1px solid var(--line)">`:''}`:''}
     ${note?`<div class="huom">${esc(note)} — ainekset skaalattu ${fmtQty(servings)} annokselle.</div>`:''}
     <h4>Ainekset <span style="color:var(--muted);font-weight:400">(${fmtQty(servings)} annosta${PF()!==1?`, annoskoko ×${fmtQty(PF())}`:''})</span></h4>
     <ul class="ing">${r.ingredients.map(i=>{
-      if(i.qty!=null){
-        const u=(i.unit||'').toLowerCase(), scaled=i.qty*mult;
-        const p=PACK.find(p=>p.g&&p.re.test(i.name)&&(u==='g'));
-        if(p&&scaled>=p.size*0.5){
-          hasPack=true;
-          const pkts=Math.max(1,Math.round(scaled/p.size));
-          return `<li><b class="num">${pkts} ${p.label||('pkt ('+p.size+' g)')}</b> ${esc(i.name)} <span style="color:var(--muted)">— käytä kokonaan</span></li>`;
-        }
+      const sc=scaledIngredient(i,r,servings,PF());
+      if(sc.qty==null) return `<li>${esc(i.name)}</li>`;
+      if(sc.perPortion!=null)
+        return `<li><b class="num">${fmtQty(sc.qty)} ${esc(sc.unit)}</b> ${esc(i.name)} <span style="color:var(--muted)">— ${sc.perPortion}/annos</span></li>`;
+      const u=(sc.unit||'').toLowerCase();
+      const p=PACK.find(p=>p.g&&p.re.test(i.name)&&u==='g');
+      if(p&&sc.qty>=p.size*0.5){
+        hasPack=true;
+        const pkts=Math.max(1,Math.round(sc.qty/p.size));
+        return `<li><b class="num">${pkts} ${p.label||('pkt ('+p.size+' g)')}</b> ${esc(i.name)} <span style="color:var(--muted)">— käytä kokonaan</span></li>`;
       }
-      const q=i.qty==null?null:niceQty(i.qty*mult,i.unit);
-      return `<li>${q!=null?`<b class="num">${fmtQty(q)} ${esc(i.unit)}</b> `:''}${esc(i.name)}</li>`}).join('')}</ul>
+      return `<li><b class="num">${fmtQty(niceQty(sc.qty,sc.unit))} ${esc(sc.unit)}</b> ${esc(i.name)}</li>`}).join('')}</ul>
     ${hasPack?`<p class="sub" style="margin-top:-4px">📦 Pakkausraaka-aineet valmistetaan kokonaisina paketteina — annoskoko joustaa hieman, jämiä ei jää.</p>`:''}
     <h4>Valmistus</h4>
     <ol class="stp">${r.steps.map(s=>`<li>${esc(s)}</li>`).join('')}</ol>
