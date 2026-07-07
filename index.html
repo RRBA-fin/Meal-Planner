@@ -491,10 +491,54 @@ function niceQty(q,unit){
   if(/(kpl|prk|pss|plo|rasia|ker|iso|siivu|viipale|kourallinen)/.test(u)) return Math.ceil(q);
   return Math.max(0.1, Math.round(q*10)/10);
 }
+/* common store package sizes: shopping list shows whole packages, rounded up */
+const PACK=[
+  {re:/broilerin (filee)?suikale|kanan (filee)?suikale/i, size:350, g:1},
+  {re:/broilerin filee|fileepihv/i,                       size:450, g:1},
+  {re:/koipireis/i,                                       size:900, g:1},
+  {re:/kalkkunan? ?(filee)?suikale/i,                     size:350, g:1},
+  {re:/kalkkunanakke/i,                                   size:250, g:1},
+  {re:/jauheliha/i,                                       size:400, g:1},
+  {re:/pekoni/i,                                          size:170, g:1},
+  {re:/kinkkusuikale/i,                                   size:200, g:1},
+  {re:/pasta|makaroni|spagetti/i,                         size:400, g:1},
+  {re:/nuudel/i,                                          size:200, g:1},
+  {re:/nyhtökaura/i,                                      size:250, g:1},
+  {re:/tofu/i,                                            size:270, g:1},
+  {re:/seiti/i,                                           size:400, g:1},
+  {re:/loh(ta|i)|kirjoloh/i,                              size:400, g:1},
+  {re:/perunoita/i,                                       size:1000,g:1, label:'pss (1 kg)'},
+  {re:/keräkaali/i,                                       size:1000,g:1, label:'kerä (n. 1 kg)'},
+  {re:/tortilla|tacokuor/i,                               size:6,   g:0, label:'pkt (6 kpl)'},
+  {re:/kananmun/i,                                        size:10,  g:0, label:'kenno (10 kpl)'},
+];
+function packageize(it){
+  if(it.qty==null||it._pack) return it;
+  const u=(it.unit||'').toLowerCase();
+  const isG=u==='g'||u.startsWith('g ');
+  const isKpl=u.startsWith('kpl');
+  const p=PACK.find(p=>p.re.test(it.name)&&((p.g&&isG)||(!p.g&&isKpl)));
+  if(!p) return {...it, qty:niceQty(it.qty,it.unit)};
+  // countables (eggs, tortillas) and small garnish amounts: round up, exact need must be covered
+  const pkts=Math.max(1,Math.ceil(it.qty/p.size));
+  return {...it, qty:pkts, unit:(p.label||('pkt ('+p.size+' g)'))};
+}
 function buildShopping(){
   const map=new Map(), pantry=new Set();
   const add=(ing,mult)=>{
     if(ing.pantry){ pantry.add(ing.name); return }
+    ing={...ing, name:/^kananmun/i.test(ing.name)?'Kananmunia':ing.name};
+    const u0=(ing.unit||'').toLowerCase();
+    if(ing.qty!=null&&u0==='g'){
+      const p=PACK.find(p=>p.g&&p.re.test(ing.name));
+      if(p&&ing.qty*mult>=p.size*0.5){
+        const lbl=p.label||('pkt ('+p.size+' g)');
+        const pk=Math.max(1,Math.round(ing.qty*mult/p.size));
+        const key=ing.name+'|'+lbl;
+        const cur=map.get(key)||{name:ing.name,unit:lbl,qty:0,_pack:true};
+        cur.qty+=pk; map.set(key,cur); return;
+      }
+    }
     const key=ing.name+'|'+(ing.unit||'');
     if(ing.qty==null){ if(!map.has(key)) map.set(key,{name:ing.name,unit:ing.unit||'',qty:null}); return }
     const cur=map.get(key)||{name:ing.name,unit:ing.unit||'',qty:0};
@@ -519,7 +563,7 @@ function buildShopping(){
       r.ingredients.forEach(i=>add(i, settings.persons*PF()/r.servings));
     });
   }
-  const items=[...map.values()].map(it=>({...it,qty:it.qty==null?null:niceQty(it.qty,it.unit)}))
+  const items=[...map.values()].map(packageize)
     .sort((a,b)=>a.name.localeCompare(b.name,'fi'));
   return { items, pantry:[...pantry].sort((a,b)=>a.localeCompare(b,'fi')) };
 }
@@ -720,8 +764,18 @@ function openRecipe(id,ctx){
     ${note?`<div class="huom">${esc(note)} — ainekset skaalattu ${fmtQty(servings)} annokselle.</div>`:''}
     <h4>Ainekset <span style="color:var(--muted);font-weight:400">(${fmtQty(servings)} annosta${PF()!==1?`, annoskoko ×${fmtQty(PF())}`:''})</span></h4>
     <ul class="ing">${r.ingredients.map(i=>{
+      if(i.qty!=null){
+        const u=(i.unit||'').toLowerCase(), scaled=i.qty*mult;
+        const p=PACK.find(p=>p.g&&p.re.test(i.name)&&(u==='g'));
+        if(p&&scaled>=p.size*0.5){
+          hasPack=true;
+          const pkts=Math.max(1,Math.round(scaled/p.size));
+          return `<li><b class="num">${pkts} ${p.label||('pkt ('+p.size+' g)')}</b> ${esc(i.name)} <span style="color:var(--muted)">— käytä kokonaan</span></li>`;
+        }
+      }
       const q=i.qty==null?null:niceQty(i.qty*mult,i.unit);
       return `<li>${q!=null?`<b class="num">${fmtQty(q)} ${esc(i.unit)}</b> `:''}${esc(i.name)}</li>`}).join('')}</ul>
+    ${hasPack?`<p class="sub" style="margin-top:-4px">📦 Pakkausraaka-aineet valmistetaan kokonaisina paketteina — annoskoko joustaa hieman, jämiä ei jää.</p>`:''}
     <h4>Valmistus</h4>
     <ol class="stp">${r.steps.map(s=>`<li>${esc(s)}</li>`).join('')}</ol>
     ${r.huom?`<div class="huom">ℹ️ ${esc(r.huom)}</div>`:''}
