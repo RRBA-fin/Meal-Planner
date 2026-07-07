@@ -5434,7 +5434,9 @@
     "lounas",
     "paivallinen"
    ],
-   "tags": [],
+   "tags": [
+    "gluteeniton"
+   ],
    "ready": true,
    "prepMinutes": 6,
    "servings": 1,
@@ -5461,7 +5463,9 @@
     "lounas",
     "paivallinen"
    ],
-   "tags": [],
+   "tags": [
+    "gluteeniton"
+   ],
    "ready": true,
    "prepMinutes": 6,
    "servings": 1,
@@ -5488,7 +5492,9 @@
     "lounas",
     "paivallinen"
    ],
-   "tags": [],
+   "tags": [
+    "gluteeniton"
+   ],
    "ready": true,
    "prepMinutes": 6,
    "servings": 1,
@@ -5515,7 +5521,10 @@
     "lounas",
     "paivallinen"
    ],
-   "tags": [],
+   "tags": [
+    "gluteeniton",
+    "maidoton"
+   ],
    "ready": true,
    "prepMinutes": 6,
    "servings": 1,
@@ -5543,7 +5552,10 @@
     "lounas",
     "paivallinen"
    ],
-   "tags": [],
+   "tags": [
+    "gluteeniton",
+    "maidoton"
+   ],
    "ready": true,
    "prepMinutes": 6,
    "servings": 1,
@@ -5571,7 +5583,9 @@
     "lounas",
     "paivallinen"
    ],
-   "tags": [],
+   "tags": [
+    "gluteeniton"
+   ],
    "ready": true,
    "prepMinutes": 6,
    "servings": 1,
@@ -5632,7 +5646,9 @@
     "lounas",
     "paivallinen"
    ],
-   "tags": [],
+   "tags": [
+    "gluteeniton"
+   ],
    "ready": true,
    "prepMinutes": 6,
    "servings": 1,
@@ -5659,7 +5675,9 @@
     "lounas",
     "paivallinen"
    ],
-   "tags": [],
+   "tags": [
+    "maidoton"
+   ],
    "ready": true,
    "prepMinutes": 6,
    "servings": 1,
