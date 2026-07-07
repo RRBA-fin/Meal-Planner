@@ -439,6 +439,33 @@ function rerollChunk(mk,ci){
   applyMainPick(mk,ci,pick,false);
   toast('Vaihdettu: '+pick.name);
 }
+function shiftChunkManual(k,from){
+  const nm={};
+  Object.keys(week.manual).forEach(key=>{
+    const m=key.match(new RegExp('^'+k+'(\\d+)c$'));
+    if(m && +m[1]>=from) nm[k+(+m[1]+1)+'c']=true; else nm[key]=week.manual[key];
+  });
+  week.manual=nm;
+}
+function replaceDayWithReady(mk,ci,d,pick){
+  const keys=week.plan._shared?['lounas','paivallinen']:[mk];
+  keys.forEach(k=>{
+    const c=week.plan[k][ci];
+    const rest=c.days.filter(x=>x!==d);
+    const nc={recipeId:pick.id,days:[d],hue:c.hue};
+    if(rest.length){
+      c.days=rest;
+      const pos=d<rest[0]?ci:ci+1;
+      shiftChunkManual(k,pos);
+      week.plan[k].splice(pos,0,nc);
+      week.manual[k+pos+'c']=true;
+    }else{
+      week.plan[k][ci]=nc;
+      week.manual[k+ci+'c']=true;
+    }
+  });
+  LS.set('week',week); renderAll();
+}
 function applyMainPick(mk,ci,pick,manual){
   week.plan[mk][ci].recipeId=pick.id;
   if(week.plan._shared){
@@ -558,7 +585,7 @@ function renderWeek(){
       const c=week.plan[mk][ci], r=byId(c.recipeId);
       const label=week.plan._shared?'Lounas + päivällinen':CATS[mk];
       rows+=mealRow({label,r,hue:c.hue,pill:(c.days.indexOf(d)+1)+'/'+c.days.length,
-        btns:{ctx:mk+'#'+ci},manualKey:mk+ci+'c',day:d});
+        btns:{ctx:mk+'#'+ci+'@'+d},manualKey:mk+ci+'c',day:d});
     });
     // evening snack (daily)
     const iR=byId(week.plan.iltapala[d].recipeId);
@@ -592,7 +619,7 @@ function renderWeek(){
     e.stopPropagation(); routeCtx(b.dataset.reroll,(mk,d)=>rerollDaily(mk,d),(mk,ci)=>rerollChunk(mk,ci));
   });
   el.querySelectorAll('[data-pick]').forEach(b=>b.onclick=e=>{
-    e.stopPropagation(); routeCtx(b.dataset.pick,(mk,d)=>openPickerDaily(mk,d),(mk,ci)=>openPickerChunk(mk,ci));
+    e.stopPropagation(); routeCtx(b.dataset.pick,(mk,d)=>openPickerDaily(mk,d),(mk,ci,d)=>openPickerChunk(mk,ci,d));
   });
   el.querySelectorAll('[data-open]').forEach(b=>b.onclick=()=>openRecipe(b.dataset.open,b.dataset.ctx));
   el.querySelectorAll('[data-snack]').forEach(b=>b.onclick=()=>openPickerSnack(+b.dataset.snack));
@@ -601,7 +628,7 @@ function renderWeek(){
   });
 }
 function routeCtx(ctx,dailyFn,chunkFn){
-  if(ctx.includes('#')){ const [mk,ci]=ctx.split('#'); chunkFn(mk,+ci) }
+  if(ctx.includes('#')){ const [mk,rest]=ctx.split('#'); const [ci,d]=rest.split('@'); chunkFn(mk,+ci,d==null?null:+d) }
   else{ const [mk,d]=ctx.split(':'); dailyFn(mk,+d) }
 }
 
@@ -675,9 +702,9 @@ function openRecipe(id,ctx){
   let servings=settings.persons, note='';
   if(week&&ctx){
     if(ctx.includes('#')){
-      const [mk,ci]=ctx.split('#'); const c=week.plan[mk][+ci];
+      const [mk,rest]=ctx.split('#'); const ci=parseInt(rest); const c=week.plan[mk][ci];
       servings=chunkServingsNeeded(mk,c);
-      note=`Koko satsi: ${c.days.map(d=>DAYS_S[d]).join('–')} · ${settings.persons} hlö`+(week.plan._shared?' · lounas + päivällinen':'');
+      note=`Koko satsi: ${c.days.map(d=>DAYS_S[d]).join(', ')} · ${settings.persons} hlö`+(week.plan._shared?' · lounas + päivällinen':'');
     }
   }
   const mult=servings*PF()/r.servings;
@@ -781,12 +808,14 @@ function openPickerDaily(mk,d){
   render(false);
   openSheet(sh);
 }
-function openPickerChunk(mk,ci){
+function openPickerChunk(mk,ci,day){
   const sh=document.getElementById('sheetPick');
   const c=week.plan[mk][ci], cur=byId(c.recipeId);
   const factor=week.plan._shared?2:1;
-  // projected: average day total across the chunk's days with the candidate swapped in
+  const d0=(day!=null&&c.days.includes(day))?day:c.days[0];
+  // normal recipe: average day total across the chunk's days; ready meal: only the tapped day changes
   const proj=r=>{
+    if(r.ready) return dayTotal(d0).kcal-(kc(cur)*factor)+(kc(r)*factor);
     let s=0;
     c.days.forEach(d=>{ s+=dayTotal(d).kcal-(kc(cur)*factor)+(kc(r)*factor) });
     return s/c.days.length;
@@ -795,17 +824,21 @@ function openPickerChunk(mk,ci){
     .sort((a,b)=>Math.abs(proj(a)-settings.kcalTarget)-Math.abs(proj(b)-settings.kcalTarget));
   const render=(readyOnly)=>{
     const cands=readyOnly?all.filter(r=>r.ready):all;
-    sh.innerHTML=`<div class="grab"></div><h3>${week.plan._shared?'Lounas + päivällinen':CATS[mk]} · ${c.days.map(d=>DAYS_S[d]).join('–')}</h3>
-      <div class="sub">Sopivimmat ensin. Väri kertoo satsin päivien keskimääräisen kalorikertymän valinnalla. Valmisruoka korvaa koko satsin — ostoslistaan tulee annospakkaukset kappaleina.</div>`+
+    sh.innerHTML=`<div class="grab"></div><h3>${week.plan._shared?'Lounas + päivällinen':CATS[mk]} · ${c.days.map(d=>DAYS_S[d]).join(', ')}</h3>
+      <div class="sub">Sopivimmat ensin. Resepti korvaa koko satsin (${c.days.length} pv), valmisruoka vain päivän ${DAYS_S[d0]} aterian — ostoslistaan tulee annospakkaukset kappaleina.</div>`+
       (all.some(r=>r.ready)?readyToggleHtml():'')+
       pickerRows(cands, proj, 'data-sel');
     ensureClosex(sh);
     if(readyOnly) sh.querySelector('#readyOnly')?.classList.add('on');
     bindReadyToggle(sh,render);
     sh.querySelectorAll('[data-sel]').forEach(b=>b.onclick=()=>{
-      applyMainPick(mk,ci,byId(b.dataset.sel),true);
-      week.manual[mk+ci+'c']=true; LS.set('week',week);
-      closeSheets(); renderAll();
+      const pick=byId(b.dataset.sel);
+      closeSheets();
+      if(pick.ready){ replaceDayWithReady(mk,ci,d0,pick) }
+      else{
+        applyMainPick(mk,ci,pick,true);
+        week.manual[mk+ci+'c']=true; LS.set('week',week); renderAll();
+      }
     });
   };
   render(false);
