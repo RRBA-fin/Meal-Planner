@@ -752,6 +752,7 @@ function openRecipe(id,ctx){
     }
   }
   const mult=servings*PF()/r.servings;
+  let hasPack=false;
   const sh=document.getElementById('sheetRecipe');
   sh.innerHTML=`<div class="grab"></div>
     <h3>${esc(r.name)}</h3>
