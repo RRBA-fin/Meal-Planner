@@ -15,6 +15,10 @@ Mobiilikäyttöinen viikkoruokalista- ja ostoslistasovellus. Toimii GitHub Pages
 
 - **Kaloritavoite asetuksissa** (1500/2000/2500/3000 kcal/pv, toleranssi ±300). Annoskoot, kalorit ja ostoslista skaalautuvat tavoitteeseen annoskertoimella (tavoite ÷ 1750, esim. 2500 kcal → ×1,43) — näin isotkin tavoitteet täyttyvät ilman välipalakikkailua. Arvonta tasapainottaa viikkoa: jos yksi päivä jää kevyeksi, seuraavia ohjataan raskaammiksi niin että viikkokeskiarvo pysyy tavoitteessa.
 - **Lautasmalli reseptikortin lopussa** (lounas/päivällinen): komponenttiruuille ½ kasviksia + ¼ proteiinia + ¼ lisäkettä, sekoiteruuille (keitot, padat, pastat...) ⅔ ruokaa + ⅓ kasviksia. Proteiini- ja lisäkemäärät skaalautuvat kaloritavoitteen mukaan.
+- **Vaihtelupaino aamu- ja iltapaloissa:** sama resepti saa toistua, mutta kolmannen viikkokerran jälkeen sen todennäköisyys putoaa jyrkästi — enää ei tule kahdeksaa kananmunaleipäviikkoa.
+- **Ateriakohtainen lukitus:** 🔒-nappi jokaisella aterialla. "Arvo uusiksi" säilyttää lukitut ateriat (myös kokonaiset satsit) ja arpoo loput niiden ympärille; lukitun aterian arvonta- ja valintanapit on estetty kunnes lukko avataan. Jos lounas & päivällinen -tilaa vaihtaa, pääruokalukot eivät siirry.
+- **Ostoslista kaupan osastoittain:** Valmisruuat, Pakasteet, Hedelmät & vihannekset, Liha & kala, Maito & juusto & munat, Leipä, Kuivat & säilykkeet, Muut — myös leikepöytäkopio ryhmitellään.
+- **Hakukenttä** reseptipankissa ja ☰-valitsimissa (hakee nimestä ja valmistajasta, toimii yhdessä "Vain valmisruuat" -suodattimen kanssa).
 - **Saman päivän vaihtelu:** erilliset lounas & päivällinen -tilassa arvonta välttää saman ruokaperheen (tortillat/wrapit, pastat, keitot, salaatit, vuoat, wokit) osumista samalle päivälle molempiin aterioihin.
 - **Viikonloppupainotus:** lauantain–sunnuntain satsiin arvonta suosii herkkuruokia (pitsa, tacot, burgerit, kiusaukset...) ja sallii työläämmät reseptit; arkena painottuvat nopeat ruuat.
 - **Punainen liha -asetus:** Saa olla / Vähän (korkeintaan yksi punaisen lihan pääruokasatsi viikossa) / Ei ollenkaan (poistaa myös kinkun ja pekonin sisältävät reseptit).

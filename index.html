@@ -75,6 +75,9 @@ h2.sec{font-family:var(--h1);font-weight:700;font-size:17px;margin:4px 0 10px}
 .pill{flex:none;font-size:10.5px;font-weight:600;color:var(--pine-deep);background:var(--pine-soft);border-radius:99px;padding:3px 8px}
 .icb{flex:none;width:32px;height:32px;border-radius:10px;background:var(--bg);font-size:14px;color:var(--muted)}
 .icb:active{background:var(--pine-soft);color:var(--pine-deep)}
+.icb.on{background:var(--pine-soft)}
+.meal .icb{width:30px;height:30px;font-size:13px}
+.meal.locked{background:linear-gradient(0deg,rgba(47,107,79,.045),rgba(47,107,79,.045))}
 
 .snackrow{border-top:1px dashed var(--line);margin-left:14px;padding:8px 12px 8px 0}
 .addsnack{width:100%;text-align:left;color:var(--muted);font-size:13.5px;padding:4px 0;display:flex;align-items:center;gap:8px}
@@ -89,6 +92,7 @@ h2.sec{font-family:var(--h1);font-weight:700;font-size:17px;margin:4px 0 10px}
 .shopcard{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--shadow);padding:6px 14px;margin-bottom:12px}
 .shoprow{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--line)}
 .shoprow:last-child{border-bottom:0}
+.shopsec{font-family:var(--h1);font-weight:700;font-size:13px;color:var(--pine-deep);padding:12px 0 2px;border-bottom:1px solid var(--line)}
 .shoprow input{width:21px;height:21px;accent-color:var(--pine);flex:none}
 .shoprow label{flex:1;min-width:0}
 .shoprow .qty{font-weight:600;margin-right:6px}
@@ -100,6 +104,9 @@ details.pantry{margin:4px 0 14px}
 details.pantry summary{font-size:13.5px;color:var(--muted);font-weight:600;cursor:pointer;padding:6px 2px}
 details.pantry .plist{font-size:13.5px;color:var(--muted);padding:4px 2px 2px;line-height:1.7}
 
+.search{width:100%;border:1.5px solid var(--line);background:var(--card);border-radius:12px;
+  padding:11px 14px;font:inherit;font-size:14px;margin-bottom:12px;color:var(--ink)}
+.search::placeholder{color:var(--muted)}
 .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
 .chip{border:1.5px solid var(--line);background:var(--card);border-radius:99px;padding:7px 13px;font-size:13px;font-weight:600;color:var(--muted)}
 .chip.on{border-color:var(--pine);background:var(--pine-soft);color:var(--pine-deep)}
@@ -191,6 +198,7 @@ let RECIPES = [];
 let settings = Object.assign({ persons:2, mainsMode:'sama', filters:[], kcalTarget:2000, redMeat:'salli' }, LS.get('settings', {}));
 let week     = LS.get('week', null);
 if(week && week.v!==2) week=null;                 // old data format -> fresh start
+if(week && !week.locks){ week.locks={} }
 let history_ = LS.get('history', {});             // main-course rotation memory
 let checked  = LS.get('checked', {});
 const DAYS = ['Maanantai','Tiistai','Keskiviikko','Torstai','Perjantai','Lauantai','Sunnuntai'];
@@ -325,11 +333,41 @@ function planDayKcal(plan,d){
   add(plan.iltapala[d].recipeId);
   return k;
 }
+function resolveLocks(){
+  // snapshot locked meals from the current week so a re-generation can preserve them
+  const out={daily:{},mains:[]};
+  if(!week||!week.locks) return out;
+  Object.keys(week.locks).forEach(key=>{
+    if(key.includes(':')){
+      const [mk,d]=key.split(':');
+      const e=week.plan[mk]&&week.plan[mk][+d];
+      if(e) out.daily[key]=e.recipeId;
+    }else{
+      const [mk,ci]=key.split('#');
+      const c=week.plan[mk]&&week.plan[mk][+ci];
+      if(c) out.mains.push({mk,recipeId:c.recipeId,days:[...c.days],hue:c.hue,shared:!!week.plan._shared});
+    }
+  });
+  return out;
+}
+function carveMains(plan,lock){
+  // remove the locked days from freshly generated chunks and insert the locked chunk
+  if(lock.shared!==!!plan._shared) return false;   // lunch mode changed -> lock not applicable
+  const keys=lock.shared?['lounas','paivallinen']:[lock.mk];
+  keys.forEach(k=>{
+    plan[k].forEach(c=>{ c.days=c.days.filter(d=>!lock.days.includes(d)) });
+    plan[k]=plan[k].filter(c=>c.days.length);
+    plan[k].push({recipeId:lock.recipeId,days:[...lock.days],hue:lock.hue});
+    plan[k].sort((a,b)=>a.days[0]-b.days[0]);
+  });
+  return true;
+}
 function generateWeek(){
   // retry a few times and keep the attempt with fewest days outside the tolerance band
+  const locks=resolveLocks();
   let best=null;
   for(let a=0;a<4;a++){
-    const cand=generateWeekOnce();
+    const cand=generateWeekOnce(locks);
     let off=0;
     for(let d=0;d<7;d++) if(Math.abs(planDayKcal(cand.plan,d)-settings.kcalTarget)>TOL) off++;
     if(!best||off<best.off) best={...cand,off};
@@ -337,11 +375,16 @@ function generateWeek(){
   }
   best.used.forEach(id=>history_[id]=new Date().toISOString());
   LS.set('history',history_);
-  week={ v:2, id:Date.now(), created:new Date().toISOString(), plan:best.plan, snacks:{}, snacksToList:true, manual:{} };
+  const newLocks={};
+  Object.keys(locks.daily).forEach(k=>newLocks[k]=true);
+  ['lounas','paivallinen'].forEach(mk=>best.plan[mk].forEach((c,ci)=>{
+    if(locks.mains.some(l=>(l.mk===mk||l.shared)&&l.recipeId===c.recipeId&&l.days[0]===c.days[0])) newLocks[mk+'#'+ci]=true;
+  }));
+  week={ v:2, id:Date.now(), created:new Date().toISOString(), plan:best.plan, snacks:{}, snacksToList:true, manual:{}, locks:newLocks };
   checked={}; LS.set('checked',checked);
   LS.set('week',week);
 }
-function generateWeekOnce(){
+function generateWeekOnce(locks){
   const plan={};
   const T=settings.kcalTarget;
   const bR=poolRange('aamupala'), iR=poolRange('iltapala');
@@ -381,14 +424,18 @@ function generateWeekOnce(){
     plan._shared=false;
   }
   // daily breakfasts & evening snacks fitted to the calorie target (no rotation memory)
+  if(locks) locks.mains.forEach(l=>carveMains(plan,l));
   plan.aamupala=[]; plan.iltapala=[];
+  const usage={};
   let carry=0; // weekly balance: deficit/surplus so far steers the next day's aim
   for(let d=0;d<7;d++){
     const m=mainsKcalOfDay(plan,d);
     const aim=T+Math.max(-TOL,Math.min(TOL,carry));
-    const [b,i]=fitDay(m,aim);
+    const lockB=locks&&locks.daily['aamupala:'+d], lockI=locks&&locks.daily['iltapala:'+d];
+    const [b,i]=fitDay(m,aim,usage,lockB&&byId(lockB),lockI&&byId(lockI));
     plan.aamupala.push({recipeId:b.id});
     plan.iltapala.push({recipeId:i.id});
+    usage[b.id]=(usage[b.id]||0)+1; usage[i.id]=(usage[i.id]||0)+1;
     carry+=T-(m+kc(b)+kc(i));
   }
   return {plan, used:state.used};
@@ -401,19 +448,23 @@ function mainsKcalOfDay(plan,d){
   });
   return k;
 }
-function fitDay(mainsKcal,aim){
+const REPEAT_DAMP=c=>c<2?1:c===2?0.35:0.08; // repeats allowed, but 3rd+ time gets unlikely
+function fitDay(mainsKcal,aim,usage,fixedB,fixedI){
   const T=settings.kcalTarget;
   aim=aim==null?T:aim;
-  const bs=genPool('aamupala'), is=genPool('iltapala');
+  usage=usage||{};
+  const bs=fixedB?[fixedB]:genPool('aamupala'), is=fixedI?[fixedI]:genPool('iltapala');
   const combos=[];
   for(const b of bs) for(const i of is){
     const tot=mainsKcal+kc(b)+kc(i);
-    combos.push({b,i,diff:Math.abs(tot-T),aimDiff:Math.abs(tot-aim)});
+    combos.push({b,i,diff:Math.abs(tot-T),aimDiff:Math.abs(tot-aim),
+      w:REPEAT_DAMP(usage[b.id]||0)*REPEAT_DAMP(usage[i.id]||0)*(b.id===i.id?0.3:1)});
   }
   // hard rule: stay within T±TOL if possible; among those, prefer combos nearest the weekly-balance aim
   const ok=combos.filter(c=>c.diff<=TOL);
-  const src=(ok.length?ok:combos).sort((a,b)=>a.aimDiff-b.aimDiff).slice(0,ok.length?12:3);
-  const pick=src[Math.floor(Math.random()*src.length)];
+  const src=(ok.length?ok:combos).sort((a,b)=>a.aimDiff-b.aimDiff).slice(0,ok.length?24:3);
+  let sum=src.reduce((a,c)=>a+c.w,0)*Math.random(), pick=src[src.length-1];
+  for(const c of src){ sum-=c.w; if(sum<=0){ pick=c; break } }
   return [pick.b,pick.i];
 }
 
@@ -434,9 +485,12 @@ function rerollDaily(mk,d){
   const others=genPool(mk).filter(r=>r.id!==cur);
   if(!others.length){ toast('Ei vaihtoehtoja tällä suodatuksella'); return }
   const base=dayTotal(d).kcal - kc(byId(cur));
+  const usage={};
+  week.plan[mk].forEach(e=>usage[e.recipeId]=(usage[e.recipeId]||0)+1);
   const ok=others.filter(r=>Math.abs(base+kc(r)-settings.kcalTarget)<=TOL);
   const src=ok.length?ok:others;
-  const pick=src[Math.floor(Math.random()*src.length)];
+  let sum=src.reduce((a,r)=>a+REPEAT_DAMP(usage[r.id]||0),0)*Math.random(), pick=src[src.length-1];
+  for(const r of src){ sum-=REPEAT_DAMP(usage[r.id]||0); if(sum<=0){ pick=r; break } }
   week.plan[mk][d]={recipeId:pick.id};
   delete week.manual[mk+d];
   LS.set('week',week); renderAll(); toast('Vaihdettu: '+pick.name);
@@ -550,6 +604,19 @@ const PACK=[
   {re:/tortilla|tacokuor/i,                               size:6,   g:0, label:'pkt (6 kpl)'},
   {re:/kananmun/i,                                        size:10,  g:0, label:'kenno (10 kpl)'},
 ];
+const SECTIONS=[
+  ['Valmisruuat',/valmisateria/i],
+  ['Pakasteet',/pakaste/i],
+  ['Hedelmät & vihannekset',/paprik|sipuli|tomaat(?!timurska)|kurkku|salaatti|avokado|banaani|omena|sitruuna|lime|marja|mustikk|vadelm|mansik|pinaatti|kaali|porkkan|perunoita|peruna|bataatti|kesäkurpits|purjo|inkivääri|hedelm|rypäle|appelsiini|ruohosipuli|tilli|basilika|korianteri|yrtt|sieni|banaan|kevätsipuli/i],
+  ['Liha & kala',/broileri|kanan |jauheliha|kalkkuna|nakke|nakki|kinkku|pekoni|lohta|lohi|kirjoloh|seiti|tonnikala|maksa|liha/i],
+  ['Maito, juusto & munat',/maito|kerma|jogurtti|rahka|viili|juusto|skyr|voita|margariini|kananmun|vanukas|proteiinijuoma/i],
+  ['Leipä',/leipä|leiv|sämpyl|näkki|tortilla|wrap|karjalanpiirak|maissikak|naksut|paahto|piirak/i],
+  ['Kuivat & säilykkeet',/pasta|makaroni|spagetti|riisi|nuudel|kaura|hiutale|jauho|mysli|granola|siemen|pähkin|hunaja|öljy|murska|kookosmaito|linssej|kikhern|papuja|maissia|liemi|mauste|soija|sinappi|ketsuppi|hillo|siirappi|kaakao|proteiinijauhe|patukka|chia|kuivattuja|salsa|tacokuor|herneitä/i],
+];
+function sectionOf(name){
+  const hit=SECTIONS.find(([,re])=>re.test(name));
+  return hit?hit[0]:'Muut';
+}
 function packageize(it){
   if(it.qty==null||it._pack) return it;
   const u=(it.unit||'').toLowerCase();
@@ -601,8 +668,9 @@ function buildShopping(){
       r.ingredients.forEach(i=>add(scaledIngredient(i,r,settings.persons,1), 1));
     });
   }
-  const items=[...map.values()].map(packageize)
-    .sort((a,b)=>a.name.localeCompare(b.name,'fi'));
+  const order=SECTIONS.map(x=>x[0]).concat('Muut');
+  const items=[...map.values()].map(packageize).map(it=>({...it,section:sectionOf(it.name)}))
+    .sort((a,b)=>(order.indexOf(a.section)-order.indexOf(b.section))||a.name.localeCompare(b.name,'fi'));
   return { items, pantry:[...pantry].sort((a,b)=>a.localeCompare(b,'fi')) };
 }
 
@@ -622,17 +690,20 @@ function renderHeader(){
     (week?'Viikko '+weekNumber(new Date(week.created))+' · ':'')+'tavoite '+fmtK(settings.kcalTarget)+' kcal/pv';
 }
 
+function lockKeyOf(ctx){ return ctx.includes('#')?ctx.split('@')[0]:ctx }
 function mealRow({label,r,hue,pill,btns,manualKey,day}){
   const st=day!=null?kcStatus(dayTotal(day).kcal):null;
   const kcCls=(manualKey&&week.manual[manualKey]&&st)?('kc-'+st):'';
-  return `<div class="meal">
+  const lk=lockKeyOf(btns.ctx), locked=!!week.locks[lk];
+  return `<div class="meal${locked?' locked':''}">
     <span class="rail" style="background:${hue||'#CBD5CC'}"></span>
     <button class="mt" data-open="${r.id}" data-ctx="${btns.ctx}">
-      <div class="mlabel">${label}</div>
+      <div class="mlabel">${label}${locked?' 🔒':''}</div>
       <div class="mname">${esc(r.name)}</div>
       <div class="mmeta num"><span class="kcal ${kcCls}">≈ ${kc(r)} kcal</span> · <b>${pr(r)} g prot.</b> · ${r.prepMinutes} min</div>
     </button>
     ${pill?`<span class="pill num">${pill}</span>`:''}
+    <button class="icb${locked?' on':''}" data-lock="${lk}" aria-label="${locked?'Avaa lukitus':'Lukitse ateria'}">${locked?'🔒':'🔓'}</button>
     <button class="icb" data-pick="${btns.ctx}" aria-label="Valitse itse listasta">☰</button>
     <button class="icb" data-reroll="${btns.ctx}" aria-label="Arvo tilalle toinen">⟳</button>
   </div>`;
@@ -695,13 +766,23 @@ function renderWeek(){
   }
   el.innerHTML=h;
   el.querySelector('#btnRegen').onclick=()=>{
-    if(confirm('Arvotaanko koko viikko uusiksi? Nykyinen lista ja ostoslistan ruksit nollataan.')){ generateWeek(); renderAll(); }
+    if(confirm((Object.keys(week.locks).length?'Arvotaanko viikko uusiksi? Lukitut ateriat (🔒) säilytetään, muut arvotaan ja ostoslistan ruksit nollataan.':'Arvotaanko koko viikko uusiksi? Nykyinen lista ja ostoslistan ruksit nollataan.'))){ generateWeek(); renderAll(); }
   };
+  el.querySelectorAll('[data-lock]').forEach(b=>b.onclick=e=>{
+    e.stopPropagation();
+    const k=b.dataset.lock;
+    if(week.locks[k]) delete week.locks[k]; else week.locks[k]=true;
+    LS.set('week',week); renderWeek();
+  });
   el.querySelectorAll('[data-reroll]').forEach(b=>b.onclick=e=>{
-    e.stopPropagation(); routeCtx(b.dataset.reroll,(mk,d)=>rerollDaily(mk,d),(mk,ci)=>rerollChunk(mk,ci));
+    e.stopPropagation();
+    if(week.locks[lockKeyOf(b.dataset.reroll)]){ toast('Ateria on lukittu — avaa 🔒 ensin'); return }
+    routeCtx(b.dataset.reroll,(mk,d)=>rerollDaily(mk,d),(mk,ci)=>rerollChunk(mk,ci));
   });
   el.querySelectorAll('[data-pick]').forEach(b=>b.onclick=e=>{
-    e.stopPropagation(); routeCtx(b.dataset.pick,(mk,d)=>openPickerDaily(mk,d),(mk,ci,d)=>openPickerChunk(mk,ci,d));
+    e.stopPropagation();
+    if(week.locks[lockKeyOf(b.dataset.pick)]){ toast('Ateria on lukittu — avaa 🔒 ensin'); return }
+    routeCtx(b.dataset.pick,(mk,d)=>openPickerDaily(mk,d),(mk,ci,d)=>openPickerChunk(mk,ci,d));
   });
   el.querySelectorAll('[data-open]').forEach(b=>b.onclick=()=>openRecipe(b.dataset.open,b.dataset.ctx));
   el.querySelectorAll('[data-snack]').forEach(b=>b.onclick=()=>openPickerSnack(+b.dataset.snack));
@@ -727,9 +808,12 @@ function renderShop(){
         Ota välipalat mukaan (${snackCount} valittu)</label>
     </div>
     <div class="shopcard">`;
+  let lastSec=null;
   h+=items.map((it,i)=>{
     const key=it.name+'|'+it.unit, done=!!checked[key];
-    return `<div class="shoprow ${done?'done':''}">
+    const head=it.section!==lastSec?`<div class="shopsec">${esc(it.section)}</div>`:'';
+    lastSec=it.section;
+    return head+`<div class="shoprow ${done?'done':''}">
       <input type="checkbox" id="s${i}" data-key="${esc(key)}" ${done?'checked':''}>
       <label for="s${i}">${it.qty!=null?`<span class="qty num">${fmtQty(it.qty)} ${esc(it.unit)}</span>`:''}${esc(it.name)}</label></div>`;
   }).join('')||'<div style="padding:14px 0;color:var(--muted)">Lista on tyhjä.</div>';
@@ -745,22 +829,28 @@ function renderShop(){
   const os=el.querySelector('#optSnacks');
   if(os) os.onchange=()=>{ week.snacksToList=os.checked; LS.set('week',week); renderShop(); };
   el.querySelector('#btnCopy').onclick=()=>{
-    const txt='Ostoslista – viikko '+weekNumber(new Date(week.created))+'\n'+
-      items.map(it=>'- '+(it.qty!=null?fmtQty(it.qty)+' '+it.unit+' ':'')+it.name).join('\n');
+    let txt='Ostoslista – viikko '+weekNumber(new Date(week.created)), sec=null;
+    items.forEach(it=>{
+      if(it.section!==sec){ sec=it.section; txt+='\n\n'+sec.toUpperCase(); }
+      txt+='\n- '+(it.qty!=null?fmtQty(it.qty)+' '+it.unit+' ':'')+it.name;
+    });
     navigator.clipboard?.writeText(txt).then(()=>toast('Kopioitu leikepöydälle'))
       .catch(()=>toast('Kopiointi ei onnistunut'));
   };
 }
 
 /* ----- Recipe bank ----- */
+let bankQuery='';
+const nameMatch=(r,q)=>!q||(r.name+' '+(r.brand||'')).toLowerCase().includes(q.toLowerCase());
 function renderBank(){
   const el=document.getElementById('viewBank');
   let h=`<h2 class="sec">Reseptipankki <span style="color:var(--muted);font-weight:400">(${RECIPES.filter(matchFilters).length})</span></h2>
+    <input type="search" id="bankSearch" class="search" placeholder="Hae reseptiä tai valmistajaa..." value="${esc(bankQuery)}" autocomplete="off">
     <div class="filters">${['gluteeniton','maidoton','vhh'].map(f=>
       `<button class="chip ${settings.filters.includes(f)?'on':''}" data-f="${f}">${f==='vhh'?'VHH':f[0].toUpperCase()+f.slice(1)}</button>`).join('')}
     </div>`;
   ['aamupala','lounas','paivallinen','iltapala','valipala'].forEach(cat=>{
-    const rs=pool(cat); if(!rs.length) return;
+    const rs=pool(cat).filter(r=>nameMatch(r,bankQuery)); if(!rs.length) return;
     h+=`<div class="catgrp"><h2 class="sec">${CATS[cat]} <span style="color:var(--muted);font-weight:400">(${rs.length})</span></h2>`;
     h+=rs.map(r=>`<button class="rrow" data-open="${r.id}">
       <div class="mt"><div class="mname">${esc(r.name)}</div>
@@ -775,6 +865,9 @@ function renderBank(){
     i<0?settings.filters.push(f):settings.filters.splice(i,1);
     LS.set('settings',settings); renderBank(); renderSettingsIfOpen();
   });
+  const bs=el.querySelector('#bankSearch');
+  bs.oninput=()=>{ bankQuery=bs.value; renderBank();
+    const nb=el.querySelector('#bankSearch'); nb.focus(); nb.setSelectionRange(nb.value.length,nb.value.length); };
   el.querySelectorAll('[data-open]').forEach(b=>b.onclick=()=>openRecipe(b.dataset.open,null));
 }
 
@@ -875,6 +968,14 @@ function pickerRows(cands, projFn, dataAttr){
 function readyToggleHtml(){
   return `<div class="filters" style="margin:0 0 10px"><button class="chip" id="readyOnly">🕐 Vain valmisruuat</button></div>`;
 }
+function pickerSearchHtml(q){
+  return `<input type="search" class="search" id="pickSearch" placeholder="Hae listasta..." value="${esc(q||'')}" autocomplete="off" style="margin-bottom:10px">`;
+}
+function bindPickerSearch(sh,state,rerender){
+  const inp=sh.querySelector('#pickSearch'); if(!inp) return;
+  inp.oninput=()=>{ state.q=inp.value; rerender(state.readyOnly);
+    const ni=sh.querySelector('#pickSearch'); ni.focus(); ni.setSelectionRange(ni.value.length,ni.value.length); };
+}
 function bindReadyToggle(sh,rerender){
   const b=sh.querySelector('#readyOnly'); if(!b) return;
   b.onclick=()=>{ b.classList.toggle('on'); rerender(b.classList.contains('on')) };
@@ -884,14 +985,18 @@ function openPickerDaily(mk,d){
   const cur=week.plan[mk][d].recipeId;
   const base=dayTotal(d).kcal - kc(byId(cur));
   const all=pool(mk).slice().sort((a,b)=>Math.abs(base+kc(a)-settings.kcalTarget)-Math.abs(base+kc(b)-settings.kcalTarget));
+  const ps={q:'',readyOnly:false};
   const render=(readyOnly)=>{
-    const cands=readyOnly?all.filter(r=>r.ready):all;
+    ps.readyOnly=!!readyOnly;
+    const cands=(readyOnly?all.filter(r=>r.ready):all).filter(r=>nameMatch(r,ps.q));
     sh.innerHTML=`<div class="grab"></div><h3>${CATS[mk]} · ${DAYS[d]}</h3>
       <div class="sub">Sopivimmat ensin. Väri kertoo mihin päivän kalorit asettuvat valinnalla (tavoite ${fmtK(settings.kcalTarget)} ± ${TOL} kcal).</div>`+
+      pickerSearchHtml(ps.q)+
       (all.some(r=>r.ready)?readyToggleHtml():'')+
       pickerRows(cands, r=>base+kc(r), 'data-sel');
     ensureClosex(sh);
     if(readyOnly) sh.querySelector('#readyOnly')?.classList.add('on');
+    bindPickerSearch(sh,ps,render);
     bindReadyToggle(sh,render);
     sh.querySelectorAll('[data-sel]').forEach(b=>b.onclick=()=>{
       week.plan[mk][d]={recipeId:b.dataset.sel};
@@ -916,14 +1021,18 @@ function openPickerChunk(mk,ci,day){
   };
   const all=(week.plan._shared?mainsPool():pool(mk)).slice()
     .sort((a,b)=>Math.abs(proj(a)-settings.kcalTarget)-Math.abs(proj(b)-settings.kcalTarget));
+  const ps={q:'',readyOnly:false};
   const render=(readyOnly)=>{
-    const cands=readyOnly?all.filter(r=>r.ready):all;
+    ps.readyOnly=!!readyOnly;
+    const cands=(readyOnly?all.filter(r=>r.ready):all).filter(r=>nameMatch(r,ps.q));
     sh.innerHTML=`<div class="grab"></div><h3>${week.plan._shared?'Lounas + päivällinen':CATS[mk]} · ${c.days.map(d=>DAYS_S[d]).join(', ')}</h3>
       <div class="sub">Sopivimmat ensin. Resepti korvaa koko satsin (${c.days.length} pv), valmisruoka vain päivän ${DAYS_S[d0]} aterian — ostoslistaan tulee annospakkaukset kappaleina.</div>`+
+      pickerSearchHtml(ps.q)+
       (all.some(r=>r.ready)?readyToggleHtml():'')+
       pickerRows(cands, proj, 'data-sel');
     ensureClosex(sh);
     if(readyOnly) sh.querySelector('#readyOnly')?.classList.add('on');
+    bindPickerSearch(sh,ps,render);
     bindReadyToggle(sh,render);
     sh.querySelectorAll('[data-sel]').forEach(b=>b.onclick=()=>{
       const pick=byId(b.dataset.sel);
