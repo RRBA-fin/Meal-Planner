@@ -34,8 +34,8 @@
     },
     {
      "name": "Chiansiemeniä",
-     "qty": 2,
-     "unit": "tl"
+     "qty": 0.67,
+     "unit": "rkl"
     },
     {
      "name": "Kardemummaa",
@@ -167,8 +167,8 @@
     },
     {
      "name": "Raejuustoa",
-     "qty": 100,
-     "unit": "g"
+     "qty": 0.5,
+     "unit": "prk (200 g)"
     }
    ],
    "steps": [
@@ -324,13 +324,13 @@
     },
     {
      "name": "Raejuustoa",
-     "qty": 400,
-     "unit": "g"
+     "qty": 2.0,
+     "unit": "prk (200 g)"
     },
     {
      "name": "Kaurahiutaleita",
-     "qty": 300,
-     "unit": "g"
+     "qty": 7.5,
+     "unit": "dl"
     },
     {
      "name": "Leivinjauhetta",
@@ -351,7 +351,7 @@
      "pantry": true
     },
     {
-     "name": "Pakastevadelmia",
+     "name": "Vadelmia (pakaste)",
      "qty": 1,
      "unit": "pss"
     }
@@ -411,7 +411,7 @@
      "pantry": true
     },
     {
-     "name": "Marjoja tarjoiluun",
+     "name": "Marjoja",
      "qty": 1,
      "unit": "dl"
     }
@@ -453,7 +453,7 @@
      "pantry": true
     },
     {
-     "name": "Marjoja tarjoiluun",
+     "name": "Marjoja",
      "qty": 1,
      "unit": "dl"
     }
@@ -502,7 +502,7 @@
     {
      "name": "Mustapapuja",
      "qty": 0.5,
-     "unit": "prk"
+     "unit": "prk (380 g)"
     },
     {
      "name": "Kirsikkatomaatteja",
@@ -555,13 +555,13 @@
     },
     {
      "name": "Kreikkalaista jogurttia",
-     "qty": 200,
-     "unit": "g"
+     "qty": 2.0,
+     "unit": "dl"
     },
     {
      "name": "Raejuustoa",
-     "qty": 70,
-     "unit": "g"
+     "qty": 0.35,
+     "unit": "prk (200 g)"
     },
     {
      "name": "Proteiinijauhetta",
@@ -693,8 +693,8 @@
     },
     {
      "name": "Raejuustoa",
-     "qty": 100,
-     "unit": "g"
+     "qty": 0.5,
+     "unit": "prk (200 g)"
     },
     {
      "name": "Appelsiini",
@@ -771,8 +771,8 @@
     },
     {
      "name": "Ranskankermaa",
-     "qty": 100,
-     "unit": "g"
+     "qty": 6.67,
+     "unit": "rkl"
     },
     {
      "name": "Sitruunamehua",
@@ -788,8 +788,8 @@
     },
     {
      "name": "Juustoraastetta tai fetaa (extra)",
-     "qty": 2,
-     "unit": "rkl"
+     "qty": 0.3,
+     "unit": "dl"
     }
    ],
    "steps": [
@@ -958,7 +958,7 @@
      "unit": "kpl"
     },
     {
-     "name": "Kermaa tai maitoa",
+     "name": "Ruokakermaa (alle 7 %) tai maitoa",
      "qty": 2,
      "unit": "rkl"
     },
@@ -979,8 +979,8 @@
     },
     {
      "name": "Purjoa",
-     "qty": 1,
-     "unit": "dl silppua"
+     "qty": 0.3,
+     "unit": "kpl"
     },
     {
      "name": "Pinaattia (valinnainen)",
@@ -1045,7 +1045,7 @@
     {
      "name": "Kirsikkatomaatteja",
      "qty": 0.5,
-     "unit": "rasiaa"
+     "unit": "rasia"
     },
     {
      "name": "Suolaa",
@@ -1095,7 +1095,7 @@
     {
      "name": "Tonnikalaa",
      "qty": 0.5,
-     "unit": "prk"
+     "unit": "prk (150 g)"
     },
     {
      "name": "Juustoraastetta",
@@ -1104,8 +1104,8 @@
     },
     {
      "name": "Kirsikkatomaatteja",
-     "qty": 5,
-     "unit": "kpl"
+     "qty": 0.33,
+     "unit": "rasia"
     }
    ],
    "steps": [
@@ -1150,8 +1150,8 @@
     },
     {
      "name": "Tomaattia",
-     "qty": 4,
-     "unit": "siivua"
+     "qty": 1.0,
+     "unit": "kpl"
     },
     {
      "name": "Majoneesia",
@@ -1200,9 +1200,9 @@
      "unit": "kpl"
     },
     {
-     "name": "Tonnikalaa vedessä",
+     "name": "Tonnikalaa",
      "qty": 1,
-     "unit": "prk"
+     "unit": "prk (150 g)"
     },
     {
      "name": "Ranskankermaa",
@@ -1360,7 +1360,7 @@
     {
      "name": "Tomaattikastiketta",
      "qty": 1,
-     "unit": "prk"
+     "unit": "prk (n. 400 g)"
     },
     {
      "name": "Punaisia linssejä",
@@ -1374,8 +1374,8 @@
     },
     {
      "name": "Raejuustoa tarjoiluun",
-     "qty": 200,
-     "unit": "g"
+     "qty": 1.0,
+     "unit": "prk (200 g)"
     },
     {
      "name": "Suola, pippuri, oregano",
@@ -1465,7 +1465,7 @@
      "unit": "g"
     },
     {
-     "name": "Kevytkermaa tai ruokakermaa",
+     "name": "Ruokakermaa (alle 7 %)",
      "qty": 2,
      "unit": "dl"
     },
@@ -1519,8 +1519,8 @@
     },
     {
      "name": "Keitettyjä linssejä",
-     "qty": 1,
-     "unit": "dl"
+     "qty": 0.37,
+     "unit": "prk (380 g)"
     },
     {
      "name": "Öljyä ja yrttejä",
@@ -1601,13 +1601,13 @@
     },
     {
      "name": "Raejuustoa",
-     "qty": 200,
-     "unit": "g"
+     "qty": 1.0,
+     "unit": "prk (200 g)"
     },
     {
      "name": "Tonnikalaa tai kypsää kanaa",
      "qty": 1,
-     "unit": "prk / 200 g"
+     "unit": "prk (150 g)"
     },
     {
      "name": "Kevätsipulia",
@@ -1671,8 +1671,8 @@
     },
     {
      "name": "Raejuustoa tarjoiluun",
-     "qty": 200,
-     "unit": "g"
+     "qty": 1.0,
+     "unit": "prk (200 g)"
     },
     {
      "name": "Currya, suolaa",
@@ -1712,7 +1712,7 @@
     {
      "name": "Tomaattimurskaa",
      "qty": 1,
-     "unit": "prk"
+     "unit": "prk (400 g)"
     },
     {
      "name": "Sipuli",
@@ -1732,8 +1732,8 @@
     },
     {
      "name": "Raejuustoa tarjoiluun",
-     "qty": 150,
-     "unit": "g"
+     "qty": 0.75,
+     "unit": "prk (200 g)"
     },
     {
      "name": "Kasvisliemikuutio, kumina",
@@ -1776,12 +1776,12 @@
     {
      "name": "Tomaattimurskaa",
      "qty": 1,
-     "unit": "prk"
+     "unit": "prk (400 g)"
     },
     {
      "name": "Raejuustoa tarjoiluun",
-     "qty": 100,
-     "unit": "g"
+     "qty": 0.5,
+     "unit": "prk (200 g)"
     },
     {
      "name": "Suola, pippuri, paprikamauste",
@@ -1825,8 +1825,8 @@
     },
     {
      "name": "Raejuustoa",
-     "qty": 200,
-     "unit": "g"
+     "qty": 1.0,
+     "unit": "prk (200 g)"
     },
     {
      "name": "Kasviksia",
@@ -1928,7 +1928,7 @@
     {
      "name": "Kirsikkatomaatteja",
      "qty": 0.5,
-     "unit": "rasiaa"
+     "unit": "rasia"
     },
     {
      "name": "Maustamatonta jogurttia kastikkeeseen",
@@ -1959,10 +1959,10 @@
     "maidoton",
     "gluteeniton"
    ],
-   "huom": "Gluteeniton: vaihda pasta gluteenittomaan.",
+   "huom": "Gluteeniton: vaihda pasta gluteenittomaan. Maidoton kaurapohjaisella ruokakermalla.",
    "prepMinutes": 20,
    "servings": 4,
-   "kcal": 430,
+   "kcal": 470,
    "protein": 26,
    "ingredients": [
     {
@@ -1973,12 +1973,17 @@
     {
      "name": "Tonnikalaa",
      "qty": 2,
-     "unit": "prk"
+     "unit": "prk (150 g)"
     },
     {
      "name": "Tomaattimurskaa",
      "qty": 1,
-     "unit": "prk"
+     "unit": "prk (400 g)"
+    },
+    {
+     "name": "Ruokakermaa (alle 7 %)",
+     "qty": 1.5,
+     "unit": "dl"
     },
     {
      "name": "Sipuli",
@@ -1998,7 +2003,7 @@
     }
    ],
    "steps": [
-    "Keitä pasta. Kuullota sipulit, lisää tomaattimurska ja mausteet.",
+    "Keitä pasta. Kuullota sipulit, lisää tomaattimurska, kerma ja mausteet.",
     "Lisää valutettu tonnikala ja yhdistä pastaan."
    ]
   },
@@ -2082,12 +2087,12 @@
     {
      "name": "Papuja (kidney tms.)",
      "qty": 2,
-     "unit": "prk"
+     "unit": "prk (380 g)"
     },
     {
      "name": "Tomaattimurskaa",
      "qty": 2,
-     "unit": "prk"
+     "unit": "prk (400 g)"
     },
     {
      "name": "Sipuli",
@@ -2139,7 +2144,7 @@
      "unit": "dl"
     },
     {
-     "name": "Ruokakermaa",
+     "name": "Ruokakermaa (alle 7 %)",
      "qty": 2,
      "unit": "dl"
     },
@@ -2197,7 +2202,7 @@
      "unit": "kpl"
     },
     {
-     "name": "Ruokakermaa (kevyt)",
+     "name": "Ruokakermaa (alle 7 %)",
      "qty": 2,
      "unit": "dl"
     },
@@ -2245,7 +2250,7 @@
     {
      "name": "Tomaattimurskaa",
      "qty": 2,
-     "unit": "prk"
+     "unit": "prk (400 g)"
     },
     {
      "name": "Sipuli",
@@ -2294,8 +2299,8 @@
    "ingredients": [
     {
      "name": "Maitorahkaa",
-     "qty": 1,
-     "unit": "prk (200–250 g)"
+     "qty": 1.0,
+     "unit": "prk (250 g)"
     },
     {
      "name": "Marjoja",
@@ -2330,8 +2335,8 @@
    "ingredients": [
     {
      "name": "Raejuustoa",
-     "qty": 150,
-     "unit": "g"
+     "qty": 0.75,
+     "unit": "prk (200 g)"
     },
     {
      "name": "Hedelmä (omena, banaani tms.)",
@@ -2397,7 +2402,7 @@
      "unit": "dl"
     },
     {
-     "name": "Pakastemarjoja",
+     "name": "Marjoja (pakaste käy)",
      "qty": 1,
      "unit": "dl"
     },
@@ -2465,7 +2470,7 @@
     {
      "name": "Ruisleipää",
      "qty": 1,
-     "unit": "viipale"
+     "unit": "viipaletta"
     },
     {
      "name": "Kylmäsavulohta tai lohta",
@@ -2510,12 +2515,12 @@
     {
      "name": "Tonnikalaa",
      "qty": 1,
-     "unit": "prk"
+     "unit": "prk (150 g)"
     },
     {
      "name": "Kirsikkatomaatteja",
-     "qty": 4,
-     "unit": "kpl"
+     "qty": 0.27,
+     "unit": "rasia"
     },
     {
      "name": "Juustoviipaleita",
@@ -2563,8 +2568,8 @@
     },
     {
      "name": "Juustoraastetta",
-     "qty": 4,
-     "unit": "rkl"
+     "qty": 0.6,
+     "unit": "dl"
     },
     {
      "name": "Tomaatti",
@@ -2686,8 +2691,8 @@
     },
     {
      "name": "Pähkinöitä",
-     "qty": 30,
-     "unit": "g"
+     "qty": 3.0,
+     "unit": "rkl"
     }
    ],
    "steps": [
@@ -2712,7 +2717,7 @@
     {
      "name": "Ruisleipää",
      "qty": 1,
-     "unit": "viipale"
+     "unit": "viipaletta"
     },
     {
      "name": "Kalkkunaleikettä",
@@ -2722,7 +2727,7 @@
     {
      "name": "Kurkkua",
      "qty": null,
-     "unit": ""
+     "unit": "kpl"
     }
    ],
    "steps": [
@@ -2758,7 +2763,7 @@
     {
      "name": "Hummusta",
      "qty": 0.5,
-     "unit": "prk"
+     "unit": "prk (n. 200 g)"
     }
    ],
    "steps": [
@@ -2964,7 +2969,7 @@
      "pantry": true
     },
     {
-     "name": "Marjoja tarjoiluun",
+     "name": "Marjoja",
      "qty": 1,
      "unit": "dl"
     }
@@ -3028,7 +3033,7 @@
     {
      "name": "Ruisleipää",
      "qty": 1,
-     "unit": "viipale"
+     "unit": "viipaletta"
     },
     {
      "name": "Kananmunia",
@@ -3140,8 +3145,8 @@
     },
     {
      "name": "Juustoraastetta",
-     "qty": 2,
-     "unit": "rkl"
+     "qty": 0.3,
+     "unit": "dl"
     },
     {
      "name": "Suolaa ja pippuria",
@@ -3186,7 +3191,7 @@
      "unit": "dl"
     },
     {
-     "name": "Pakastemarjoja",
+     "name": "Marjoja (pakaste käy)",
      "qty": 2,
      "unit": "dl"
     },
@@ -3271,8 +3276,8 @@
     },
     {
      "name": "Raejuustoa",
-     "qty": 100,
-     "unit": "g"
+     "qty": 0.5,
+     "unit": "prk (200 g)"
     },
     {
      "name": "Tomaatti",
@@ -3307,7 +3312,7 @@
    "protein": 13,
    "ingredients": [
     {
-     "name": "Täysjyväpaahtoleipää",
+     "name": "Paahtoleipää",
      "qty": 2,
      "unit": "viipaletta"
     },
@@ -3348,13 +3353,13 @@
     },
     {
      "name": "Maitoa",
-     "qty": 2,
-     "unit": "rkl"
+     "qty": 0.3,
+     "unit": "dl"
     },
     {
      "name": "Ruisleipää",
      "qty": 1,
-     "unit": "viipale"
+     "unit": "viipaletta"
     },
     {
      "name": "Ruohosipulia",
@@ -3696,7 +3701,7 @@
      "unit": "g"
     },
     {
-     "name": "Tortillalättyjä tai tacokuoria",
+     "name": "Tortillalättyjä",
      "qty": 8,
      "unit": "kpl"
     },
@@ -3723,7 +3728,7 @@
     {
      "name": "Salsakastiketta",
      "qty": 0.5,
-     "unit": "prk"
+     "unit": "prk (n. 200 g)"
     }
    ],
    "steps": [
@@ -3865,7 +3870,7 @@
     {
      "name": "Tonnikalaa",
      "qty": 2,
-     "unit": "prk"
+     "unit": "prk (150 g)"
     },
     {
      "name": "Kurkku",
@@ -3966,7 +3971,7 @@
      "unit": "g"
     },
     {
-     "name": "Ruokakermaa",
+     "name": "Ruokakermaa (alle 7 %)",
      "qty": 2,
      "unit": "dl"
     },
@@ -4012,7 +4017,7 @@
     {
      "name": "Kikherneitä",
      "qty": 2,
-     "unit": "prk"
+     "unit": "prk (380 g)"
     },
     {
      "name": "Kookosmaitoa",
@@ -4022,7 +4027,7 @@
     {
      "name": "Tomaattimurskaa",
      "qty": 1,
-     "unit": "prk"
+     "unit": "prk (400 g)"
     },
     {
      "name": "Sipuli",
@@ -4111,8 +4116,8 @@
     },
     {
      "name": "Raejuustoa",
-     "qty": 200,
-     "unit": "g"
+     "qty": 1.0,
+     "unit": "prk (200 g)"
     },
     {
      "name": "Puolukkahilloa",
@@ -4147,14 +4152,14 @@
      "unit": "g"
     },
     {
-     "name": "Täysjyväpastaa",
+     "name": "Pastaa",
      "qty": 300,
      "unit": "g"
     },
     {
      "name": "Tomaattipohjaista pastakastiketta",
      "qty": 1,
-     "unit": "prk"
+     "unit": "prk (n. 400 g)"
     },
     {
      "name": "Sipuli",
@@ -4192,7 +4197,7 @@
     {
      "name": "Keitettyjä linssejä",
      "qty": 1,
-     "unit": "prk"
+     "unit": "prk (380 g)"
     },
     {
      "name": "Kananmuna",
@@ -4292,7 +4297,7 @@
    "protein": 32,
    "ingredients": [
     {
-     "name": "Täysjyvätortilloja",
+     "name": "Tortillalättyjä",
      "qty": 4,
      "unit": "kpl"
     },
@@ -4462,7 +4467,7 @@
     {
      "name": "Tomaattimurskaa",
      "qty": 1,
-     "unit": "prk"
+     "unit": "prk (400 g)"
     },
     {
      "name": "Juustoraastetta",
@@ -4512,7 +4517,7 @@
     {
      "name": "Tonnikalaa",
      "qty": 1,
-     "unit": "prk"
+     "unit": "prk (150 g)"
     },
     {
      "name": "Kevätsipulia",
@@ -4605,17 +4610,17 @@
     {
      "name": "Mustapapuja",
      "qty": 2,
-     "unit": "prk"
+     "unit": "prk (380 g)"
     },
     {
      "name": "Tomaattimurskaa",
      "qty": 2,
-     "unit": "prk"
+     "unit": "prk (400 g)"
     },
     {
      "name": "Maissia",
      "qty": 1,
-     "unit": "prk"
+     "unit": "prk (340 g)"
     },
     {
      "name": "Sipuli",
@@ -4663,7 +4668,7 @@
     {
      "name": "Tomaattimurskaa",
      "qty": 2,
-     "unit": "prk"
+     "unit": "prk (400 g)"
     },
     {
      "name": "Sipuli",
@@ -4676,7 +4681,7 @@
      "unit": "kpl"
     },
     {
-     "name": "Täysjyväpastaa",
+     "name": "Pastaa",
      "qty": 300,
      "unit": "g"
     },
@@ -4820,7 +4825,7 @@
     {
      "name": "Tomaattimurskaa",
      "qty": 1,
-     "unit": "prk"
+     "unit": "prk (400 g)"
     },
     {
      "name": "Suolakurkkuja",
@@ -4976,7 +4981,7 @@
     {
      "name": "Proteiinivanukas (kauppavalmis)",
      "qty": 1,
-     "unit": "prk"
+     "unit": "prk (180 g)"
     }
    ],
    "steps": [
@@ -5000,17 +5005,17 @@
     {
      "name": "Ruisleipää",
      "qty": 1,
-     "unit": "viipale"
+     "unit": "viipaletta"
     },
     {
      "name": "Raejuustoa",
-     "qty": 100,
-     "unit": "g"
+     "qty": 0.5,
+     "unit": "prk (200 g)"
     },
     {
      "name": "Kurkkua",
      "qty": null,
-     "unit": ""
+     "unit": "kpl"
     }
    ],
    "steps": [
@@ -5106,8 +5111,8 @@
    "ingredients": [
     {
      "name": "Maitorahkaa",
-     "qty": 150,
-     "unit": "g"
+     "qty": 0.6,
+     "unit": "prk (250 g)"
     },
     {
      "name": "Banaani",

@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Viikkolista – ruokalistat ja ostoslista</title>
 <meta name="description" content="Arvo viikon ruokalista kaloritavoitteen mukaan ja koosta ostoslista.">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#24523D">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -632,19 +636,19 @@ function buildShopping(){
   const map=new Map(), pantry=new Set();
   const add=(ing,mult)=>{
     if(ing.pantry){ pantry.add(ing.name); return }
-    ing={...ing, name:/^kananmun/i.test(ing.name)?'Kananmunia':ing.name};
+    ing={...ing, name:/^kananmun/i.test(ing.name)?'Kananmunia':ing.name.trim()};
     const u0=(ing.unit||'').toLowerCase();
     if(ing.qty!=null&&u0==='g'){
       const p=PACK.find(p=>p.g&&p.re.test(ing.name));
       if(p&&ing.qty*mult>=p.size*0.5){
         const lbl=p.label||('pkt ('+p.size+' g)');
         const pk=Math.max(1,Math.round(ing.qty*mult/p.size));
-        const key=ing.name+'|'+lbl;
+        const key=ing.name.toLowerCase()+'|'+lbl;
         const cur=map.get(key)||{name:ing.name,unit:lbl,qty:0,_pack:true};
         cur.qty+=pk; map.set(key,cur); return;
       }
     }
-    const key=ing.name+'|'+(ing.unit||'');
+    const key=ing.name.toLowerCase()+'|'+(ing.unit||'');
     if(ing.qty==null){ if(!map.has(key)) map.set(key,{name:ing.name,unit:ing.unit||'',qty:null}); return }
     const cur=map.get(key)||{name:ing.name,unit:ing.unit||'',qty:0};
     cur.qty+=ing.qty*mult; map.set(key,cur);
